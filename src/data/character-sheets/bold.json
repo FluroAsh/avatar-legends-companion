@@ -1,5 +1,5 @@
 {
-  "archetype": "Bold",
+  "archetype": "The Adamant",
   "prebuilt": false,
   "baseStats": {
     "creativity": 0,
@@ -28,7 +28,7 @@
     ],
     "negativeOutcome": "On a miss, something about their advice infuriates you. Mark a condition or have the GM shift your balance twice."
   },
-  "baseTechnique": {
+  "startingTechnique": {
     "name": "Pinpoint Aim",
     "type": "Defend & Maneuver",
     "description": "Take the time you need to line up a perfect shot; become Prepared. In the next exchange, if you advance and attack, roll with Focus or Passion, your choice. If you use Strike, you do not have to mark fatigue to choose what you inflict."
