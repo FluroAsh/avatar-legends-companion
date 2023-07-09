@@ -36,17 +36,18 @@ export default function Home() {
         >
           <option value="">Select an Archetype</option>
           <option value="adamant">Adamant</option>
-          <option value="destined">Bold</option>
-          <option value="elder">Bold</option>
-          <option value="foundling">Bold</option>
-          <option value="guardian">Bold</option>
-          <option value="hammer">Bold</option>
-          <option value="icon">Bold</option>
-          <option value="pillar">Bold</option>
-          <option value="prodigy">Bold</option>
-          <option value="razor">Bold</option>
-          <option value="rogue">Bold</option>
-          <option value="successor">Bold</option>
+          <option value="bold">Bold</option>
+          <option value="destined">Destined</option>
+          <option value="elder">Elder</option>
+          <option value="foundling">Foundling</option>
+          <option value="guardian">Guardian</option>
+          <option value="hammer">Hammer</option>
+          <option value="icon">Icon</option>
+          <option value="pillar">Pillar</option>
+          <option value="prodigy">Prodigy</option>
+          <option value="razor">Razor</option>
+          <option value="rogue">Rogue</option>
+          <option value="successor">Successor</option>
         </select>
 
         <div className="w-screen overflow-x-scroll text-left break-words">
