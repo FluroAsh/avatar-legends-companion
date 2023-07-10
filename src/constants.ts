@@ -45,6 +45,28 @@ const DEMEANORS = {
   rebellious: "rebellious",
   flippant: "flippant",
   standoffish: "standoffish",
+  impatient: "impatient",
+  sensitive: "sensitive",
+  affable: "affable",
+  enthusiastic: "enthusiastic",
+  talkative: "talkative",
+  impetuous: "impetuous",
+} as const
+
+const CONDITIONS = {
+  afraid: "afraid",
+  angry: "angry",
+  guilty: "guilty",
+  insecure: "insecure",
+  troubled: "troubled",
+} as const
+
+const CLEARING_CONDITIONS = {
+  afraid: "run from danger or difficulty.",
+  angry: "break something important or lash out at a friend",
+  guilty: "make a personal sacrifice to absolve your guilt.",
+  insecure: "take foolhardy action without talking to your companions.",
+  troubled: "seek guidance from a mentor or powerful figure.",
 } as const
 
 const TRAINING = {
@@ -61,3 +83,26 @@ const TRAINING = {
   technology:
     "Setting jury-rigged traps and snares, hurling flasks of alchemical concoctions, engaging enemies with self-made electrified weapons — a technology-based warrior uses their expertise with devices and machines to engage foes and resolve threats. A technological warrior might be an eager grease monkey with a love for deconstructing technology, a trapper adapting their survival skills on the fly, or a military engineer who wields and maintains advanced weapons and armor. While some weapon-using characters might also carry advanced weapons — like an electrified glove — they lack the expertise to build and repair these machines. Technological warriors might use a single complex device with many effects, carry the tools they need to create devices on the fly, or use simpler tools to devastating effect.",
 } as const
+
+const GROWTH_ADVANCEMENTS = [
+  {
+    description: "Take a new move from your playbook",
+    threshold: 2,
+  },
+  {
+    description: "Take a new move from another playbook",
+    threshold: 2,
+  },
+  {
+    description: "Raise a stat by +1 (maximum of +2 in any given stat)",
+    threshold: 1,
+  },
+  {
+    description: "Shift your center one step",
+    threshold: 2,
+  },
+  {
+    description: "Unlock your Moment of Balance",
+    threshold: 2,
+  },
+] as const
