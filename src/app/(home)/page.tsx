@@ -8,7 +8,7 @@ export default function Home() {
 
   const loadArchetype = useCallback(async () => {
     if (archetype) {
-      const data = await import(`../data/character-sheets/${archetype}.json`)
+      const data = await import(`../../data/character-sheets/${archetype}.json`)
       console.log({ archetype })
       setArchetypeData(data)
     }

@@ -1,7 +1,9 @@
-import React from "react"
+import React from 'react'
 
 function CreateCharacter() {
-  return <div>CreateCharacter</div>
+  return (
+    <div>CreateCharacter</div>
+  )
 }
 
 export default CreateCharacter
