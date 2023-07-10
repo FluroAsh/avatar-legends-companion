@@ -1,106 +1,86 @@
 {
-  "archetype": "Bold",
+  "class": "Bold",
   "prebuilt": false,
   "baseStats": {
-    "creativity": 0,
+    "creativity": 1,
     "focus": 1,
-    "harmony": -1,
-    "passion": 1
+    "harmony": -0,
+    "passion": -1
   },
   "demeanor": [
-    "above-it-all",
-    "perfectionist",
-    "chilly",
-    "rebellious",
-    "flippant",
-    "standoffish"
+    "impatient",
+    "sensitive",
+    "affable",
+    "enthusiastic",
+    "talkative",
+    "impetuous"
   ],
-  "balance": ["restraint", "results"],
-  "conditions": ["afraid", "angry", "guilty", "insecure", "troubled"],
-  "archetypeSpecial": {
-    "name": "The Lodestar",
-    "targetPlayer": true,
-    "description": "You can shift your lodestar to someone new when they guide and comfort you and you open up to them, or when you guide and comfort them and they open up to you. If you do choose to shift your lodestar, clear a condition.\nWhen you shut down someone vulnerable to harsh words or icy silence, shift your balance toward Results and roll with Results. On a hit, they mark a condition and you may clear the same condition. On a 10+, they also cannot shift your balance or call you out for the rest of the scene. On a miss, they have exactly the right retort; mark a condition and they shift your balance. You cannot use this on your lodestar.\nWhen your lodestar shifts your balance or calls you out, you cannot resist it. Treat an NPC lodestar calling you out as if you rolled a 10+, and a PC lodestar calling you out as if they rolled a 10+.\nWhen you consult your lodestar for advice on a problem (or permission to use your preferred solution), roll with Restraint. On a 10+ take all three; on a 7–9 they choose two:",
+  "balance": ["loyalty", "confidence"],
+  "subclass": {
+    "name": "Legacy of Excellence",
+    "targetPlayer": false,
+    "description": "You have dedicated yourself to accomplishing great, exciting deeds and becoming worthy of the trust others place in you. Choose four drives to mark at the start of play. When you fulfill a marked drive, strike it out, and mark growth or clear a condition. When your four marked drives are all struck out, choose and mark four new drives. When all drives are struck out, change playbooks or accept a position of great responsibility and retire from a life of adventure.",
     "options": [
-      "You see the wisdom of their advice. They shift your balance; follow their advice and they shift your balance again.",
-      "The conversation bolsters you. Clear a condition or 2-fatigue.",
-      "They feel at ease offering their opinion. They clear a condition or 2-fatigue."
-    ],
-    "negativeOutcome": "On a miss, something about their advice infuriates you. Mark a condition or have the GM shift your balance twice."
+      "successfully lead your companions in battle",
+      "give your affection to someone worthy",
+      "start a real fight with a dangerous",
+      "masterdo justice to a friend or mentor's guidance",
+      "take down a dangerous threat all on your",
+      "ownopenly outperform an authority figure",
+      "save a friend's life",
+      "get a fancy new outfit",
+      "earn the respect of an adult you admire",
+      "openly call out a friend's unworthy actions",
+      "form a strong relationship with a new master",
+      "stop a fight with calm words",
+      "sacrifice your pride or love for a greater good",
+      "defend an inhabited place from dire threats",
+      "stand up to someone who doesn't respect you",
+      "make a friend live up to a principle they have neglected",
+      "show mercy or forgiveness to a dangerous person",
+      "stand up to someone abusing their power",
+      "tame or befriend a dangerous beast or rare creature",
+      "pull off a ridiculous stunt"
+    ]
   },
   "startingTechnique": {
-    "name": "Pinpoint Aim",
+    "name": "Tag Team",
     "type": "Defend & Maneuver",
-    "description": "Take the time you need to line up a perfect shot; become Prepared. In the next exchange, if you advance and attack, roll with Focus or Passion, your choice. If you use Strike, you do not have to mark fatigue to choose what you inflict."
+    "description": "Work with an ally against the same foe; choose an engaged foe and an ally—double any fatigue, conditions, or balance shifts that ally inflicts upon that foe."
   },
   "moves": [
     {
-      "move": "This was a victory",
-      "description": "When you reveal that you have sabotaged a building, device, or vehicle right as it becomes relevant, mark fatigue and roll with Passion. On a hit, your work pays off, creating an opportunity for you and your allies at just the right time. On a 7-9, the opportunity is fleeting—act fast to stay ahead of the consequences. On a miss, your action was ill-judged and something or someone you care about is hurt as collateral damage"
+      "move": "Best Friend",
+      "description": "Your best friend is small, fuzzy, and dependable. Unlike all your other relationships, this one is simple and true. You can understand and communicate with your small companion and—although they may give you a hard time now and again—they are always there when you need them most. Whenever your pal could help you push your luck, mark fatigue to roll with Creativity instead of Passion. If your pet ever gets hurt, mark a condition."
     },
     {
-      "move": "Takes one to know one",
-      "description": "When you verbally needle someone by finding the weaknesses in their armor, roll with Focus. On a hit, ask 1 question. On a 7-9, they ask 1 of you as well:",
-      "options": [
-        "What is your principle?",
-        "What do you need to prove?",
-        "What could shake your certainty?",
-        "Whom do you care about more than you let on?"
-      ],
-      "negativeOutcome": "Anyone who lies or stonewalls marks 2-fatigue. On a miss, your attack leaves you exposed; they may ask you any one question from the list, and you must answer honestly."
+      "move": "Here's the Plan",
+      "description": "When you commit to a plan you've proposed to the group, roll with Creativity; take a-1 for each of your companions who isn't on board. On a 10+, hold 2. On a 7-9, hold 1. You can spend your hold 1-for-1 while the plan is being carried out to overcome or evade an obstacle, create an advantage, or neutralize a danger; if any of your companions abandon you while the plan is underway, you must mark a condition. On a miss, hold 1, but your plan goes awry when you encounter surprising opposition."
     },
     {
-      "move": "No time for feelings",
-      "description": "When you have equal or fewer conditions marked than your highest principle, mark fatigue to push down your feelings for the rest of the scene and ignore condition penalties until the end of the scene. When you resist an NPC shifting your balance, mark a condition to roll with conditions marked (max +4). You cannot then choose to clear a condition by immediately proving them wrong."
+      "move": "Not Done Yet!",
+      "description": "Once per session, when you are taken out, shift your balance towards center to stay up for one more combat exchange. After that exchange ends, you become helpless, unconscious, or otherwise incapable of continuing on, and are taken out as normal."
     },
     {
-      "move": "I don't hate you",
-      "description": "When you guide and comfort someone in an awkward, understated, or idiosyncratic fashion, roll with Passion instead of Harmony if you mark Insecure or Insecure is already marked."
+      "move": "You Missed Something",
+      "description": "When you evaluate a friendly NPC's plan to get something done, roll with Focus. On a hit, the GM tells you how you can drastically improve the chances of success; get it done, and they're sure to come through on top. On a 7-9, the problems inherent in the plan are fairly serious; the NPC will be resistant to making the necessary changes. On a miss, something about the plan throws you for a loop; the GM tells you what obvious danger the NPC is ignoring…or what they're hiding about their intent."
     },
     {
-      "move": "Driven by justice",
-      "description": "Take +1 to PASSION (max +3)."
+      "move": "Straight Shooter",
+      "description": "When you tell an NPC the blunt, honest truth about what you really think of them and their plans, roll with Focus. On a hit, they'll look upon your honesty favorably; they'll answer a non-compromising question honestly and grant you a simple favor. On a 7-9, they also give you an honest assessment of how they see you; mark a condition. On a miss, you're a bit too honest—they're either furious or genuinely hurt."
     }
   ],
   "history": [
-    "What experience of being deceived or manipulated convinced you to steel yourself against being swayed by other people?",
-    "Who was your first lodestar, and why were they an exception? Why aren't they your lodestar anymore?",
-    "Who earned your grudging respect by teaching you pragmatism?",
-    "What heirloom or piece of craftsmanship do you carry to remind you to stay true to yourself?",
+    "Why do you feel the need to prove yourself so badly?",
+    "Who epitomizes the kind of big, bold figure you hope to be?",
+    "Whose approval do you think you will never attain?",
+    "What token or symbol do you wear to prove you are serious?",
     "Why are you committed to this group or purpose?"
   ],
   "connections": [
-    "<PC> takes issue with my methods—perhaps they have a point, but I certainly can't admit that to them!",
-    "<PC> is my lodestar; something about them makes them the one person I let my guard down around."
+    "<PC> scoffs at me and my plans; one day I'll show them what I can do.",
+    "<PC> has a pretty good head on their shoulders; they're a great sounding board for my ideas."
   ],
-  "momentOfBalance": "You've held true to a core of conviction even while getting your hands dirty to do what you deemed necessary. But balance means appreciating that other people are just as complex as you are, not merely obstacles or pawns. Tell the GM how you solve an intractable problem or calm a terrible conflict by relating to dangerous people on a human level.",
-  "clearingConditions": {
-    "afraid": "run from danger or difficulty.",
-    "angry": "break something important or lash out at a friend",
-    "guilty": "make a personal sacrifice to absolve your guilt.",
-    "insecure": "take foolhardy action without talking to your companions.",
-    "troubled": "seek guidance from a mentor or powerful figure."
-  },
-  "growthQuestion": "Did you seek support or guidance from others?",
-  "growthAdvancements": [
-    {
-      "description": "Take a new move from your playbook",
-      "threshold": 2
-    },
-    {
-      "description": "Take a new move from another playbook",
-      "threshold": 2
-    },
-    {
-      "description": "Raise a stat by +1 (maximum of +2 in any given stat)"
-    },
-    {
-      "description": "Shift your center one step",
-      "threshold": 2
-    },
-    {
-      "description": "Unlock your Moment of Balance",
-      "threshold": 2
-    }
-  ]
+  "momentOfBalance": "The greatest heroes of your age may have overwhelming confidence, but balance isn't about pursuing greatness for the sake of greatness. You find a way to stand with your companions like no one else ever could. Tell the GM how you strike down an impossibly strong enemy or obstacle to protect your friends from harm as the best version of yourself.",
+  "growthQuestion": "Did you express vulnerability by admitting you were wrong or that you should have listened to someone you ignored?"
 }

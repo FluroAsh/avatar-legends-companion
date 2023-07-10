@@ -1,5 +1,5 @@
 {
-  "archetype": "The Adamant",
+  "class": "The Adamant",
   "prebuilt": false,
   "baseStats": {
     "creativity": 0,
@@ -16,8 +16,7 @@
     "standoffish"
   ],
   "balance": ["restraint", "results"],
-  "conditions": ["afraid", "angry", "guilty", "insecure", "troubled"],
-  "archetypeSpecial": {
+  "subclass": {
     "name": "The Lodestar",
     "targetPlayer": true,
     "description": "You can shift your lodestar to someone new when they guide and comfort you and you open up to them, or when you guide and comfort them and they open up to you. If you do choose to shift your lodestar, clear a condition.\nWhen you shut down someone vulnerable to harsh words or icy silence, shift your balance toward Results and roll with Results. On a hit, they mark a condition and you may clear the same condition. On a 10+, they also cannot shift your balance or call you out for the rest of the scene. On a miss, they have exactly the right retort; mark a condition and they shift your balance. You cannot use this on your lodestar.\nWhen your lodestar shifts your balance or calls you out, you cannot resist it. Treat an NPC lodestar calling you out as if you rolled a 10+, and a PC lodestar calling you out as if they rolled a 10+.\nWhen you consult your lodestar for advice on a problem (or permission to use your preferred solution), roll with Restraint. On a 10+ take all three; on a 7–9 they choose two:",
@@ -74,33 +73,5 @@
     "<PC> is my lodestar; something about them makes them the one person I let my guard down around."
   ],
   "momentOfBalance": "You've held true to a core of conviction even while getting your hands dirty to do what you deemed necessary. But balance means appreciating that other people are just as complex as you are, not merely obstacles or pawns. Tell the GM how you solve an intractable problem or calm a terrible conflict by relating to dangerous people on a human level.",
-  "clearingConditions": {
-    "afraid": "run from danger or difficulty.",
-    "angry": "break something important or lash out at a friend",
-    "guilty": "make a personal sacrifice to absolve your guilt.",
-    "insecure": "take foolhardy action without talking to your companions.",
-    "troubled": "seek guidance from a mentor or powerful figure."
-  },
-  "growthQuestion": "Did you seek support or guidance from others?",
-  "growthAdvancements": [
-    {
-      "description": "Take a new move from your playbook",
-      "threshold": 2
-    },
-    {
-      "description": "Take a new move from another playbook",
-      "threshold": 2
-    },
-    {
-      "description": "Raise a stat by +1 (maximum of +2 in any given stat)"
-    },
-    {
-      "description": "Shift your center one step",
-      "threshold": 2
-    },
-    {
-      "description": "Unlock your Moment of Balance",
-      "threshold": 2
-    }
-  ]
+  "growthQuestion": "Did you seek support or guidance from others?"
 }
