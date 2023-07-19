@@ -51,6 +51,12 @@ const DEMEANORS = {
   enthusiastic: "enthusiastic",
   talkative: "talkative",
   impetuous: "impetuous",
+  eager: "eager",
+  solemn: "solemn",
+  haunted: "haunted",
+  uncertain: "uncertain",
+  jocular: "jocular",
+  watchful: "watchful",
 } as const
 
 const CONDITIONS = {
