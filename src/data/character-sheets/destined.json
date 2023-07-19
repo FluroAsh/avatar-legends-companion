@@ -1,77 +1,109 @@
 {
-  "class": "The Adamant",
+  "class": "The Destined",
   "prebuilt": false,
   "baseStats": {
     "creativity": 0,
-    "focus": 1,
-    "harmony": -1,
-    "passion": 1
+    "focus": -1,
+    "harmony": 2,
+    "passion": 0
   },
   "demeanor": [
-    "above-it-all",
-    "perfectionist",
-    "chilly",
-    "rebellious",
-    "flippant",
-    "standoffish"
+    "eager",
+    "solemn",
+    "haunted",
+    "uncertain",
+    "jocular",
+    "watchful"
   ],
-  "balance": ["restraint", "results"],
+  "balance": ["patience", "determination"],
   "subclass": {
-    "name": "The Lodestar",
-    "targetPlayer": true,
-    "description": "You can shift your lodestar to someone new when they guide and comfort you and you open up to them, or when you guide and comfort them and they open up to you. If you do choose to shift your lodestar, clear a condition.\nWhen you shut down someone vulnerable to harsh words or icy silence, shift your balance toward Results and roll with Results. On a hit, they mark a condition and you may clear the same condition. On a 10+, they also cannot shift your balance or call you out for the rest of the scene. On a miss, they have exactly the right retort; mark a condition and they shift your balance. You cannot use this on your lodestar.\nWhen your lodestar shifts your balance or calls you out, you cannot resist it. Treat an NPC lodestar calling you out as if you rolled a 10+, and a PC lodestar calling you out as if they rolled a 10+.\nWhen you consult your lodestar for advice on a problem (or permission to use your preferred solution), roll with Restraint. On a 10+ take all three; on a 7–9 they choose two:",
-    "options": [
-      "You see the wisdom of their advice. They shift your balance; follow their advice and they shift your balance again.",
-      "The conversation bolsters you. Clear a condition or 2-fatigue.",
-      "They feel at ease offering their opinion. They clear a condition or 2-fatigue."
-    ],
-    "negativeOutcome": "On a miss, something about their advice infuriates you. Mark a condition or have the GM shift your balance twice."
+    "name": "Marked By Fate",
+    "targetPlayer": false,
+    "description": "You have been touched by something beyond—something spiritual and otherworldly. At character creation, choose one from My Destiny on the back of this sheet, fill in one detail below, and take one destiny sign.",
+    "destinyDetails": {
+      "description": "Fill these in as your destiny is revealed to you, either in visions or through the insights of spiritually attuned NPCs. When you act to bring about one of these details, you may live up to your Determination without marking fatigue. When you and the GM agree one of the details is fully explored or fulfilled, mark growth.",
+      "options": [
+        "I will bring great change to <option>",
+        "I will weather betrayal by <option>",
+        "I will lose <option>",
+        "I will need the help of <option>",
+        "I will learn a crucial truth from <option>",
+        "I will defend or save <option>"
+      ]
+    },
+    "destinyTrack": "Whenever you lose your balance, get taken out, or are otherwise instructed to, mark your Destiny Track. When your destiny track fills, clear it and take a destiny sign. If you have already taken the other four, you must take“meet your fate.",
+    "destinySigns": [
+      {
+        "sign": "Otherwordly Visions",
+        "description": "Mark your destiny track to have a vision about the situation at hand. Ask the GM one question and get an honest answer."
+      },
+      {
+        "sign": "Tremble Before Me",
+        "description": "Mark your destiny track and reveal a glimpse of your otherworldly aspect to intimidate an NPC as if you rolled a 10+. Afterward, their fear and mistrust of you knows no bounds; you cannot guide and comfort or plead with that NPC until you have earned their trust."
+      },
+      {
+        "sign": "Self-sacrificing",
+        "description": "Once per scene, mark your destiny track to supernaturally absorb an incoming blow aimed at an ally within view; cancel all fatigue, conditions, or balance shifts that would have been inflicted."
+      },
+      {
+        "sign": "Inner Strength",
+        "description": "Once per session, mark destiny twice to clear all conditions."
+      },
+      {
+        "sign": "Meet Your Fate",
+        "description": "Your destiny arrives and you are changed utterly by it. If you survive in human form, change playbooks."
+      }
+    ]
   },
   "startingTechnique": {
-    "name": "Pinpoint Aim",
-    "type": "Defend & Maneuver",
-    "description": "Take the time you need to line up a perfect shot; become Prepared. In the next exchange, if you advance and attack, roll with Focus or Passion, your choice. If you use Strike, you do not have to mark fatigue to choose what you inflict."
+    "name": "Anticipate",
+    "type": "Evade & Observe",
+    "description": "Study a nearby foe to learn where their momentum will take them next. Declare the approach they are tending towards. In the next exchange, that foe must use that approach or mark a condition."
   },
   "moves": [
     {
-      "move": "This was a victory",
-      "description": "When you reveal that you have sabotaged a building, device, or vehicle right as it becomes relevant, mark fatigue and roll with Passion. On a hit, your work pays off, creating an opportunity for you and your allies at just the right time. On a 7-9, the opportunity is fleeting—act fast to stay ahead of the consequences. On a miss, your action was ill-judged and something or someone you care about is hurt as collateral damage"
-    },
-    {
-      "move": "Takes one to know one",
-      "description": "When you verbally needle someone by finding the weaknesses in their armor, roll with Focus. On a hit, ask 1 question. On a 7-9, they ask 1 of you as well:",
+      "move": "Call from afar",
+      "description": "When you reach out in mind or spirit to a far-away NPC, mark 1-fatigue and roll with Harmony. On a hit, your message gets through to them; choose 1. On a 10+, it's loud and clear: choose 2.",
       "options": [
-        "What is your principle?",
-        "What do you need to prove?",
-        "What could shake your certainty?",
-        "Whom do you care about more than you let on?"
+        "You cry for help; they hear you and rush to your location",
+        "You whisper a question to them; they whisper an answer back",
+        "You send a premonition of danger seeking them; they forearm and prepare themself to face the worst",
+        "You let them see something you see; they return memories and knowledge of that sight"
       ],
-      "negativeOutcome": "Anyone who lies or stonewalls marks 2-fatigue. On a miss, your attack leaves you exposed; they may ask you any one question from the list, and you must answer honestly."
+      "negativeOutcome": "On a miss, your reach extends beyond your original aim; you've attracted dangerous attention."
     },
     {
-      "move": "No time for feelings",
-      "description": "When you have equal or fewer conditions marked than your highest principle, mark fatigue to push down your feelings for the rest of the scene and ignore condition penalties until the end of the scene. When you resist an NPC shifting your balance, mark a condition to roll with conditions marked (max +4). You cannot then choose to clear a condition by immediately proving them wrong."
+      "move": "More Than Fate's Playthings",
+      "description": "When you call someone out to live up to their principle by convincing them that their destiny is (or can be) different than they imagined, on a hit, they must do it or mark two conditions. On a miss, their demand hits all the harder. Mark two conditions or act as they request."
     },
     {
-      "move": "I don't hate you",
-      "description": "When you guide and comfort someone in an awkward, understated, or idiosyncratic fashion, roll with Passion instead of Harmony if you mark Insecure or Insecure is already marked."
+      "move": "Echoes of Legend",
+      "description": "Once per session, when you rely on your skills and training to mirror an act from a legend, myth, or story, treat it as if you had rolled a 10+. Then, no matter the result, the GM shifts your balance toward the principle best embodied by the lore and stories you're drawing on."
     },
     {
-      "move": "Driven by justice",
-      "description": "Take +1 to PASSION (max +3)."
+      "move": "Eyes of the Soul",
+      "description": "When you assess a situation, you can ask one of the following as an extra question, even on a miss:",
+      "options": [
+        "Who or what here has been touched by spirits?",
+        "How can I bring about peace here?"
+      ]
+    },
+    {
+      "move": "Peacemaker",
+      "description": "When you walk calmly into the middle of a fierce conflict and plead with the fighters to stop, mark fatigue to ensure that they care what you think and listen to you. On a miss, the conflict burns far hotter than you had imagined, and now you're dead in the crosshairs of the angry fighters; brace yourself."
     }
   ],
   "history": [
-    "What experience of being deceived or manipulated convinced you to steel yourself against being swayed by other people?",
-    "Who was your first lodestar, and why were they an exception? Why aren't they your lodestar anymore?",
-    "Who earned your grudging respect by teaching you pragmatism?",
-    "What heirloom or piece of craftsmanship do you carry to remind you to stay true to yourself?",
+    "When did you realize you were marked by supernatural forces?",
+    "Who envies your destiny and seeks to seize it from you? Why can't you let that happen?",
+    "Who do you turn to for guidance when you feel overwhelmed by your destiny?",
+    "What token or symbol do you carry that proves to any observer that you are chosen by fate?",
     "Why are you committed to this group or purpose?"
   ],
   "connections": [
-    "<PC> takes issue with my methods—perhaps they have a point, but I certainly can't admit that to them!",
-    "<PC> is my lodestar; something about them makes them the one person I let my guard down around."
+    "I believe <PC> will play a crucial role in my fulfillment of my destiny, for good or ill",
+    "Being around <PC> helps me put my destiny out of my mind, for a time. Why?"
   ],
-  "momentOfBalance": "You've held true to a core of conviction even while getting your hands dirty to do what you deemed necessary. But balance means appreciating that other people are just as complex as you are, not merely obstacles or pawns. Tell the GM how you solve an intractable problem or calm a terrible conflict by relating to dangerous people on a human level.",
-  "growthQuestion": "Did you seek support or guidance from others?"
+  "momentOfBalance": "Destiny can be a frustrating thing, demanding commitment while leaving you in the dark about its timing. But now, with your soul in balance, you can see that this is the moment you’ve been waiting for. You rise to the occasion, bolstering others with your unique spiritual gifts. Tell the GM how your serenity and resolve together win the day and inspire all those around you.",
+  "growthQuestion": "Did you spend meaningful time with someone else focused on their concerns and troubles?"
 }

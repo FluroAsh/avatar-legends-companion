@@ -34,11 +34,11 @@
   },
   "moves": [
     {
-      "move": "This was a victory",
+      "move": "This was a Victory",
       "description": "When you reveal that you have sabotaged a building, device, or vehicle right as it becomes relevant, mark fatigue and roll with Passion. On a hit, your work pays off, creating an opportunity for you and your allies at just the right time. On a 7-9, the opportunity is fleeting—act fast to stay ahead of the consequences. On a miss, your action was ill-judged and something or someone you care about is hurt as collateral damage"
     },
     {
-      "move": "Takes one to know one",
+      "move": "Takes One to Know One",
       "description": "When you verbally needle someone by finding the weaknesses in their armor, roll with Focus. On a hit, ask 1 question. On a 7-9, they ask 1 of you as well:",
       "options": [
         "What is your principle?",
@@ -49,15 +49,15 @@
       "negativeOutcome": "Anyone who lies or stonewalls marks 2-fatigue. On a miss, your attack leaves you exposed; they may ask you any one question from the list, and you must answer honestly."
     },
     {
-      "move": "No time for feelings",
+      "move": "No Time for Feelings",
       "description": "When you have equal or fewer conditions marked than your highest principle, mark fatigue to push down your feelings for the rest of the scene and ignore condition penalties until the end of the scene. When you resist an NPC shifting your balance, mark a condition to roll with conditions marked (max +4). You cannot then choose to clear a condition by immediately proving them wrong."
     },
     {
-      "move": "I don't hate you",
+      "move": "I Don't Hate You",
       "description": "When you guide and comfort someone in an awkward, understated, or idiosyncratic fashion, roll with Passion instead of Harmony if you mark Insecure or Insecure is already marked."
     },
     {
-      "move": "Driven by justice",
+      "move": "Driven by Justice",
       "description": "Take +1 to PASSION (max +3)."
     }
   ],

@@ -6,6 +6,8 @@ export default function Home() {
   const [archetypeData, setArchetypeData] = useState(null)
   const [archetype, setArchetype] = useState("")
 
+  // TODO: use data fetching library to retrieve static JSON from API route
+  // Based on the selected Archetype
   const loadArchetype = useCallback(async () => {
     if (archetype) {
       const data = await import(`../../data/character-sheets/${archetype}.json`)
