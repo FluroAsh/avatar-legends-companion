@@ -1,7 +1,6 @@
 import { readdirSync, readFileSync } from "fs"
 import { NextResponse } from "next/server"
-
-export const CLASS_DATA_PATHNAME = "src/data/class-data"
+import { CLASS_DATA_PATHNAME } from "@/paths"
 
 export async function GET() {
   const files = readdirSync(CLASS_DATA_PATHNAME)
