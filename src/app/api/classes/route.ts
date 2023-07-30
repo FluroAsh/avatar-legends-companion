@@ -1,9 +1,9 @@
 import { readdirSync } from "fs"
 import { ApiError } from "next/dist/server/api-utils"
 import { NextRequest, NextResponse } from "next/server"
-import { CLASS_DATA_PATHNAME } from "@/paths"
 
 import { getClassData, getClassesData } from "@/app/api/helpers"
+import { CLASS_DATA_PATHNAME } from "@/paths"
 
 export async function GET(req: NextRequest) {
   try {
