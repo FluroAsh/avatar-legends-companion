@@ -1,6 +1,7 @@
 import { existsSync, readFileSync } from "fs"
 import { NextResponse } from "next/server"
 import { sanitizeSlug } from "@/lib/utils"
+import { CLASS_DATA_PATHNAME } from "@/paths"
 
 export async function GET(
   _request: Request,
@@ -9,7 +10,7 @@ export async function GET(
   const { slug } = params
   const sanitizedSlug = sanitizeSlug(slug)
 
-  const filePath = `src/data/class-data/${sanitizedSlug}.json`
+  const filePath = `${CLASS_DATA_PATHNAME}/${sanitizedSlug}.json`
   if (existsSync(filePath)) {
     const data = readFileSync(filePath, "utf8")
     const classData = JSON.parse(data)
