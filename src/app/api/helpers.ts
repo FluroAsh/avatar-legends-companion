@@ -1,7 +1,7 @@
 import { existsSync, readFileSync } from "fs"
 
 import { API_ERRORS, ClassError } from "@/app/api/errors"
-import { CLASS_DATA_PATHNAME } from "@/paths"
+import { CLASS_DATA_PATHNAME } from "@/lib/paths"
 
 export const getClassData = (filePath: string) => {
   let classData

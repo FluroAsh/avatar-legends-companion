@@ -2,7 +2,7 @@ import { readdirSync } from "fs"
 import { NextRequest, NextResponse } from "next/server"
 
 import { getClassData, getClassesData } from "@/app/api/helpers"
-import { CLASS_DATA_PATHNAME } from "@/paths"
+import { CLASS_DATA_PATHNAME } from "@/lib/paths"
 
 import { ClassError } from "../errors"
 

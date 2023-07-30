@@ -2,7 +2,8 @@ type ClassErrorProps = {
   statusCode: number
   message: string
 }
-class ClassError extends Error {
+
+export class ClassError extends Error {
   statusCode: number
 
   constructor({ message, statusCode }: ClassErrorProps) {
@@ -29,5 +30,3 @@ export const API_ERRORS = {
     },
   },
 } as const
-
-export { ClassError }
