@@ -10,7 +10,7 @@ export const getClassData = (filePath: string) => {
     const data = readFileSync(filePath, "utf8")
     classData = JSON.parse(data)
   } else {
-    throw new ApiError(404, API_ERRORS.class.notFound)
+    throw new ApiError(API_ERRORS.class.notFound)
   }
   return classData
 }

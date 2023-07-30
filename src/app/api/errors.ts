@@ -1,9 +1,20 @@
-export const API_ERRORS = {
+type ApiErrors = {
+  [entity: string]: {
+    [errorType: string]: { statusCode: number; message: string }
+  }
+}
+
+export const API_ERRORS: ApiErrors = {
   class: {
-    notFound: "This class does not exist",
+    notFound: { statusCode: 404, message: "This class does not exist" },
   },
   classes: {
-    notFound: "No classes found",
+    notFound: { statusCode: 404, message: "No classes found" },
   },
-  badRequest: "Something went wrong, please try again later",
+  generic: {
+    badRequest: {
+      statusCode: 400,
+      message: "Something went wrong, please try again later",
+    },
+  },
 } as const
