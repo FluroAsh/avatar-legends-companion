@@ -1,9 +1,10 @@
 import { readdirSync } from "fs"
-import { ApiError } from "next/dist/server/api-utils"
 import { NextRequest, NextResponse } from "next/server"
 
 import { getClassData, getClassesData } from "@/app/api/helpers"
 import { CLASS_DATA_PATHNAME } from "@/paths"
+
+import { ClassError } from "../errors"
 
 export async function GET(req: NextRequest) {
   try {
@@ -22,7 +23,7 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ data: classesData })
     }
   } catch (e) {
-    if (e instanceof ApiError) {
+    if (e instanceof ClassError) {
       return NextResponse.json({ message: e.message }, { status: e.statusCode })
     }
     return NextResponse.error()
