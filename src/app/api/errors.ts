@@ -1,12 +1,23 @@
-type ApiErrors = {
-  [entity: string]: {
-    [errorType: string]: { statusCode: number; message: string }
+type ClassErrorProps = {
+  statusCode: number
+  message: string
+}
+class ClassError extends Error {
+  statusCode: number
+
+  constructor({ message, statusCode }: ClassErrorProps) {
+    super(message)
+    this.name = "ClassError"
+    this.statusCode = statusCode
   }
 }
 
-export const API_ERRORS: ApiErrors = {
+export const API_ERRORS = {
   class: {
-    notFound: { statusCode: 404, message: "This class does not exist" },
+    notFound: {
+      statusCode: 404,
+      message: "This class does not exist",
+    },
   },
   classes: {
     notFound: { statusCode: 404, message: "No classes found" },
@@ -18,3 +29,5 @@ export const API_ERRORS: ApiErrors = {
     },
   },
 } as const
+
+export { ClassError }

@@ -1,8 +1,7 @@
 import { existsSync, readFileSync } from "fs"
-import { ApiError } from "next/dist/server/api-utils"
 import { CLASS_DATA_PATHNAME } from "@/paths"
 
-import { API_ERRORS } from "@/app/api/errors"
+import { API_ERRORS, ClassError } from "@/app/api/errors"
 
 export const getClassData = (filePath: string) => {
   let classData
@@ -10,18 +9,19 @@ export const getClassData = (filePath: string) => {
     const data = readFileSync(filePath, "utf8")
     classData = JSON.parse(data)
   } else {
-    throw new ApiError(API_ERRORS.class.notFound)
+    throw new ClassError({ ...API_ERRORS.class.notFound })
   }
   return classData
 }
 
 export const getClassesData = (filePaths: string[]) => {
-  if (filePaths.length < 1) throw new ApiError(400, API_ERRORS.badRequest)
+  if (filePaths.length < 1)
+    throw new ClassError({ ...API_ERRORS.classes.notFound })
 
   return filePaths.reduce((acc: string[], fileName) => {
     const filePath = `${CLASS_DATA_PATHNAME}/${fileName}`
     if (!existsSync(filePath))
-      throw new ApiError(404, API_ERRORS.class.notFound)
+      throw new ClassError({ ...API_ERRORS.generic.badRequest })
 
     const data = readFileSync(filePath, "utf8")
     const classData = JSON.parse(data)
