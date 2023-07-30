@@ -1,17 +1,29 @@
-import { readdirSync, readFileSync } from "fs"
-import { NextResponse } from "next/server"
+import { readdirSync } from "fs"
+import { ApiError } from "next/dist/server/api-utils"
+import { NextRequest, NextResponse } from "next/server"
+import { getClassData, getClassesData } from "@/app/api/helpers"
 import { CLASS_DATA_PATHNAME } from "@/paths"
 
-export async function GET() {
-  const files = readdirSync(CLASS_DATA_PATHNAME)
+export async function GET(req: NextRequest) {
+  try {
+    const { searchParams } = new URL(req.url)
+    const typeParam = searchParams.get("type")
 
-  if (files.length < 1) return NextResponse.error()
+    if (typeParam) {
+      const filePath = `${CLASS_DATA_PATHNAME}/${typeParam}.json`
+      const classData = getClassData(filePath)
+      return NextResponse.json({ data: classData })
+    }
 
-  const classesData = files.reduce((acc: any[], fileName) => {
-    const data = readFileSync(`${CLASS_DATA_PATHNAME}/${fileName}`, "utf8")
-    const classData = JSON.parse(data)
-    return [...acc, classData]
-  }, [])
-
-  return NextResponse.json({ data: classesData })
+    if (!typeParam) {
+      const filePaths = readdirSync(CLASS_DATA_PATHNAME)
+      const classesData = getClassesData(filePaths)
+      return NextResponse.json({ data: classesData })
+    }
+  } catch (e) {
+    if (e instanceof ApiError) {
+      return NextResponse.json({ message: e.message }, { status: e.statusCode })
+    }
+    return NextResponse.error()
+  }
 }
