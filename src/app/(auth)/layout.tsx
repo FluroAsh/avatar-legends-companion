@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react"
 
 function AuthLayout() {
-  return (
-    <div>AuthLayout</div>
-  )
+  return <div>AuthLayout</div>
 }
 
 export default AuthLayout

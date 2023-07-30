@@ -1,7 +1,8 @@
 import { existsSync, readFileSync } from "fs"
 import { ApiError } from "next/dist/server/api-utils"
-import { API_ERRORS } from "@/app/api/errors"
 import { CLASS_DATA_PATHNAME } from "@/paths"
+
+import { API_ERRORS } from "@/app/api/errors"
 
 export const getClassData = (filePath: string) => {
   let classData
