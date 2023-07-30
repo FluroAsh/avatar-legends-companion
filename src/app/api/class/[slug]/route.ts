@@ -1,6 +1,6 @@
 import { existsSync, readFileSync } from "fs"
 import { NextResponse } from "next/server"
-import { sanitizeSlug } from "@/utils"
+import { sanitizeSlug } from "@/lib/utils"
 
 export async function GET(
   _request: Request,

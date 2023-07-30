@@ -16,7 +16,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      {/* Header */}
       <body className={(inter.className, "bg-slate-900")}>{children}</body>
+      {/* Footer */}
     </html>
   )
 }
