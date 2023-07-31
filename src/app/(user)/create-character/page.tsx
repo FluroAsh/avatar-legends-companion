@@ -10,7 +10,7 @@ export default function Home() {
   // Based on the selected Archetype
   const loadArchetype = useCallback(async () => {
     if (archetype) {
-      const data = await import(`../../data/class-data/${archetype}.json`)
+      const data = await import(`src/data/class-data/${archetype}.json`)
       console.log({ archetype })
       setArchetypeData(data)
     }

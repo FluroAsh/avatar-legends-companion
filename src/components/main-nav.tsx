@@ -1,7 +1,16 @@
-import React from "react"
+import Link from "next/link"
 
 function MainNav() {
-  return <div>MainNav</div>
+  return (
+    <div>
+      <Link href="/">
+        <img src="/legends-logo_1x.webp" alt="Avatar Legends" width={250} />
+      </Link>
+      {/* Signed In */}
+      {/* List of Characters */}
+      {/*  Option to Create a Character (redirect) */}
+    </div>
+  )
 }
 
 export default MainNav
