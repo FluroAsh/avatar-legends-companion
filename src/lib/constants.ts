@@ -1,3 +1,5 @@
+export const DAILY_REVALIDATE = 86400
+
 const STATUSES = {
   positive: {
     empowered: "empowered",
