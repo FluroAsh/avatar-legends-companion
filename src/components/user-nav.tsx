@@ -16,7 +16,7 @@ function UserNav() {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" className="w-10 h-10 rounded-full">
-            <Avatar className="w-10 h-10">
+            <Avatar className="w-10 h-10 border">
               <AvatarImage src="https://github.com/fluroash.png" />
               <AvatarFallback>AT</AvatarFallback>
             </Avatar>
