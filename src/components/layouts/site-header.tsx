@@ -4,7 +4,7 @@ import UserNav from "../user-nav"
 
 function SiteHeader() {
   return (
-    <header className="sticky top-0 px-4 py-2 border-b bg-slate-700">
+    <header className="sticky top-0 py-2 border-b shadow-sm backdrop-blur bg-slate-700/80">
       <div className="container flex items-center h-16">
         {/* TODO: Should take a list of items as a prop for navigation */}
         <MainNav />

@@ -3,8 +3,8 @@
 import { useCallback, useEffect, useState } from "react"
 
 export default function Home() {
-  const [archetypeData, setArchetypeData] = useState(null)
-  const [archetype, setArchetype] = useState("")
+  const [archetypeData, setArchetypeData] = useState<string | null>(null)
+  const [archetype, setArchetype] = useState<string>("")
 
   // TODO: use data fetching library to retrieve static JSON from API route
   // Based on the selected Archetype
@@ -21,12 +21,11 @@ export default function Home() {
     loadArchetype()
   }, [archetype, loadArchetype])
 
-  const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) =>
     setArchetype(event.target.value)
-  }
 
   return (
-    <main className="flex flex-col justify-center p-24 ">
+    <main className="flex flex-col justify-center mt-4">
       <div className="text-center ">
         <h1 className="text-2xl">POC</h1>
         <p>Selected: {archetype || "No archetype seleted"}</p>
@@ -51,7 +50,7 @@ export default function Home() {
           <option value="successor">Successor</option>
         </select>
 
-        <div className="w-screen max-w-full p-2 mt-2 overflow-scroll text-left break-words border rounded-sm h-96 border-slate-300 bg-slate-600/50">
+        <div className="w-screen max-w-full p-2 mt-2 overflow-scroll text-left break-words border rounded-sm h-[600px] border-slate-300 bg-slate-600/50">
           <pre>{JSON.stringify(archetypeData, null, 4)}</pre>
         </div>
       </div>
