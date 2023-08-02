@@ -1,3 +1,5 @@
+import SiteHeader from "@/components/layouts/site-header"
+
 import "@/styles/globals.css"
 
 import { Inter } from "next/font/google"
@@ -16,7 +18,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={(inter.className, "bg-slate-800")}>{children}</body>
+      <body className={(inter.className, "bg-slate-800")}>
+        <div className="relative flex flex-col min-h-screen antialiased">
+          <SiteHeader />
+          <main className="flex-1">{children}</main>
+          {/* Footer */}
+        </div>
+      </body>
     </html>
   )
 }

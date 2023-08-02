@@ -1,3 +1,7 @@
+import Link from "next/link"
+
+import { NAV_LINKS } from "@/lib/site-config"
+
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
 import { Button } from "./ui/button"
 import {
@@ -33,9 +37,11 @@ function UserNav() {
           </DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
-            <DropdownMenuItem>Profile</DropdownMenuItem>
-            <DropdownMenuItem>Settings</DropdownMenuItem>
-            <DropdownMenuItem>New Character</DropdownMenuItem>
+            {NAV_LINKS.map(({ title, href }, idx) => (
+              <DropdownMenuItem key={`${title.toLowerCase()}-${idx}`} asChild>
+                <Link href={href}>{title}</Link>
+              </DropdownMenuItem>
+            ))}
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
           <DropdownMenuItem>Log out</DropdownMenuItem>
