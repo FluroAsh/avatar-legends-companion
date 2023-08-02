@@ -11,8 +11,9 @@ export default function Home() {
   const loadArchetype = useCallback(async () => {
     if (archetype) {
       const data = await import(`src/data/class-data/${archetype}.json`)
-      console.log({ archetype })
       setArchetypeData(data)
+    } else {
+      setArchetypeData(null)
     }
   }, [archetype])
 
@@ -25,11 +26,9 @@ export default function Home() {
   }
 
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen p-24">
+    <main className="flex flex-col justify-center p-24 ">
       <div className="text-center ">
-        <h1 className="text-3xl leading-relaxed">Avatar Companion App</h1>
-        <h3 className="text-xl">Coming soon...</h3>
-
+        <h1 className="text-2xl">POC</h1>
         <p>Selected: {archetype || "No archetype seleted"}</p>
         <select
           className="p-2 text-black w-50"
@@ -52,7 +51,7 @@ export default function Home() {
           <option value="successor">Successor</option>
         </select>
 
-        <div className="w-screen overflow-x-scroll text-left break-words">
+        <div className="w-screen max-w-full p-2 mt-2 overflow-scroll text-left break-words border rounded-sm h-96 border-slate-300 bg-slate-600/50">
           <pre>{JSON.stringify(archetypeData, null, 4)}</pre>
         </div>
       </div>
