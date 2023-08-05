@@ -37,6 +37,11 @@
   }
 }
 
+.cl-modalBackdrop {
+  /* @apply fixed inset-0 z-50 flex items-center justify-center; */
+  @apply items-center;
+}
+
 @layer base {
   * {
     @apply border-border;

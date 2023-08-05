@@ -1,5 +1,3 @@
-import React from "react"
-
 // Contains the header as-well as main navigation as a child
 function PageHeader() {
   return (

@@ -1,3 +1,5 @@
+import { SignInButton } from "@clerk/nextjs"
+
 import MainNav from "../main-nav"
 import { Button } from "../ui/button"
 import UserNav from "../user-nav"
@@ -12,7 +14,9 @@ function SiteHeader() {
           <nav className="flex items-center gap-4">
             <UserNav />
             {/* Not Signed In */}
-            <Button variant="outline">Sign In</Button>
+            <SignInButton mode="modal">
+              <Button variant="outline">Sign In</Button>
+            </SignInButton>
           </nav>
         </div>
       </div>
