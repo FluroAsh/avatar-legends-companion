@@ -17,6 +17,19 @@ export default function Page() {
     }
   }, [archetype])
 
+  // NOTE: Works but not very clean. No caching -- will implement React Query later.
+  // const loadArchetype = useCallback(async () => {
+  //   if (archetype) {
+  //     const data = await fetch(
+  //       `http://localhost:3000/api/classes?type=${archetype}`
+  //     )
+  //     const response = await data.json()
+  //     setArchetypeData(response)
+  //   } else {
+  //     setArchetypeData(null)
+  //   }
+  // }, [archetype])
+
   useEffect(() => {
     loadArchetype()
   }, [archetype, loadArchetype])
