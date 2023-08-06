@@ -7,11 +7,11 @@ export const NAV_LINKS = [
     href: PATHNAME.USER.profile,
   },
   {
-    title: "User Settings",
-    href: PATHNAME.USER.settings,
-  },
-  {
     title: "Create a Character",
     href: PATHNAME.USER.createCharacter,
+  },
+  {
+    title: "Settings",
+    href: PATHNAME.USER.settings,
   },
 ]

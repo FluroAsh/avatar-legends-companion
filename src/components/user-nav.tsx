@@ -24,7 +24,7 @@ export default async function UserNav() {
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="w-12 h-12 rounded-full">
           <Avatar className="w-12 h-12 border">
-            <AvatarImage src="https://github.com/fluroash.png" />
+            <AvatarImage src={user?.imageUrl} />
             <AvatarFallback>
               {getInitials(user?.firstName, user?.lastName)}
             </AvatarFallback>

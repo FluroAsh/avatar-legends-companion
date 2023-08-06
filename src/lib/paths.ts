@@ -13,4 +13,4 @@ export const PATHNAME = {
     profile: "/user/profile",
     settings: "/user/settings",
   },
-}
+} as const
