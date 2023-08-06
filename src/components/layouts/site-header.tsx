@@ -12,11 +12,9 @@ function SiteHeader() {
         <MainNav />
         <div className="flex items-center justify-end flex-1 ">
           <nav className="flex items-center gap-4">
-            {/* Signed In */}
             <SignedIn>
               <UserNav />
             </SignedIn>
-            {/* Signed Out */}
             <SignedOut>
               <SignInButton mode="modal">
                 <Button variant="outline">Sign In</Button>

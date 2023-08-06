@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { SignOutButton } from "@clerk/nextjs"
 
 import { NAV_LINKS } from "@/lib/site-config"
 
@@ -38,13 +39,19 @@ function UserNav() {
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
             {NAV_LINKS.map(({ title, href }, idx) => (
-              <DropdownMenuItem key={`${title.toLowerCase()}-${idx}`} asChild>
+              <DropdownMenuItem
+                key={`${title.toLowerCase()}-${idx}`}
+                className="cursor-pointer"
+                asChild
+              >
                 <Link href={href}>{title}</Link>
               </DropdownMenuItem>
             ))}
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
-          <DropdownMenuItem>Log out</DropdownMenuItem>
+          <DropdownMenuItem className="w-full cursor-pointer" asChild>
+            <SignOutButton>Sign Out</SignOutButton>
+          </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     </>
