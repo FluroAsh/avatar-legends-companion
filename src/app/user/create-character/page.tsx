@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react"
 
-export default function Home() {
+export default function Page() {
   const [archetypeData, setArchetypeData] = useState<string | null>(null)
   const [archetype, setArchetype] = useState<string>("")
 
