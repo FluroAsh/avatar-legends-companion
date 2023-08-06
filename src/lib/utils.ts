@@ -12,3 +12,8 @@ export function cn(...inputs: ClassValue[]) {
 export function sanitizeSlug(string: string) {
   return string.replace(/[^a-zA-Z0-9-_]/g, "")
 }
+
+export const getInitials = (
+  firstName?: null | string,
+  lastName?: null | string
+) => (firstName && lastName ? `${firstName[0]}${lastName[0]}` : "N/A")

@@ -1,6 +1,6 @@
 import { UserProfile } from "@clerk/nextjs"
 
-export default function Profile() {
+export default function Page() {
   return (
     <UserProfile
       appearance={{

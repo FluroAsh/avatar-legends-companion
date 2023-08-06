@@ -1,17 +1,17 @@
-import { CREATE_CHARACTER_PATHNAME } from "./paths"
+import { PATHNAME } from "./paths"
 
 // TODO: Add icons for each
 export const NAV_LINKS = [
   {
     title: "Profile",
-    href: "/profile",
+    href: PATHNAME.USER.profile,
   },
   {
-    title: "Settings",
-    href: "/",
+    title: "User Settings",
+    href: PATHNAME.USER.settings,
   },
   {
     title: "Create a Character",
-    href: CREATE_CHARACTER_PATHNAME,
+    href: PATHNAME.USER.createCharacter,
   },
 ]

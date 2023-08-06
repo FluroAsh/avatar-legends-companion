@@ -2,6 +2,15 @@
 export const CLASS_DATA_PATHNAME = "src/data/class-data"
 
 // URL Paths
-export const CREATE_CHARACTER_PATHNAME = "/create-character"
-export const SIGN_IN_PATHNAME = "/sign-in"
-export const SIGN_UP_PATHNAME = "/sign-up"
+export const PATHNAME = {
+  PUBLIC: {
+    index: "/",
+    signIn: "/sign-in",
+    signUp: "/sign-up",
+  },
+  USER: {
+    createCharacter: "/user/create-character",
+    profile: "/user/profile",
+    settings: "/user/settings",
+  },
+}
