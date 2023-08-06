@@ -1,4 +1,4 @@
-import { SignInButton } from "@clerk/nextjs"
+import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs"
 
 import MainNav from "../main-nav"
 import { Button } from "../ui/button"
@@ -12,11 +12,16 @@ function SiteHeader() {
         <MainNav />
         <div className="flex items-center justify-end flex-1 ">
           <nav className="flex items-center gap-4">
-            <UserNav />
-            {/* Not Signed In */}
-            <SignInButton mode="modal">
-              <Button variant="outline">Sign In</Button>
-            </SignInButton>
+            {/* Signed In */}
+            <SignedIn>
+              <UserNav />
+            </SignedIn>
+            {/* Signed Out */}
+            <SignedOut>
+              <SignInButton mode="modal">
+                <Button variant="outline">Sign In</Button>
+              </SignInButton>
+            </SignedOut>
           </nav>
         </div>
       </div>
