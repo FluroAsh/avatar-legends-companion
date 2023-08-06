@@ -4,7 +4,7 @@ import { CREATE_CHARACTER_PATHNAME } from "./paths"
 export const NAV_LINKS = [
   {
     title: "Profile",
-    href: "/",
+    href: "/profile",
   },
   {
     title: "Settings",

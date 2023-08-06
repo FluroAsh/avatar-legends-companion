@@ -1,5 +1,15 @@
-function Profile() {
-  return <div>Profile</div>
-}
+import { UserProfile } from "@clerk/nextjs"
 
-export default Profile
+export default function Profile() {
+  return (
+    <UserProfile
+      appearance={{
+        elements: {
+          card: {
+            "z-index": 1,
+          },
+        },
+      }}
+    />
+  )
+}
