@@ -7,13 +7,7 @@ import { authMiddleware } from "@clerk/nextjs/server"
 // See https://clerk.com/docs/nextjs/middleware for more information about configuring your middleware
 export default authMiddleware({
   // Public routes are routes that don't require authentication
-  publicRoutes: [
-    "/",
-    "/user(.*)",
-    "/sign-in(.*)",
-    "/sign-up(.*)",
-    "/api(.*), ",
-  ],
+  publicRoutes: ["/", "/sign-in(.*)", "/sign-up(.*)", "/api(.*), "],
 
   async afterAuth(auth, req) {
     if (auth.isPublicRoute) {
