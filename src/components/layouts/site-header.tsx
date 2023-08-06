@@ -15,6 +15,7 @@ function SiteHeader() {
             <SignedIn>
               <UserNav />
             </SignedIn>
+
             <SignedOut>
               <SignInButton mode="modal">
                 <Button variant="outline">Sign In</Button>
