@@ -18,16 +18,22 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <ClerkProvider>
-      <html lang="en">
-        <body className={inter.className}>
+    <html lang="en">
+      <body className={inter.className}>
+        <ClerkProvider
+          appearance={{
+            variables: {
+              colorPrimary: "#313f51",
+            },
+          }}
+        >
           <div className="relative flex flex-col min-h-screen antialiased">
             <SiteHeader />
             <main className="flex-1">{children}</main>
             {/* Footer */}
           </div>
-        </body>
-      </html>
-    </ClerkProvider>
+        </ClerkProvider>
+      </body>
+    </html>
   )
 }
