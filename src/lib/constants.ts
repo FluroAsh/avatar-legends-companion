@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 export const DAILY_REVALIDATE = 86400
 
 const STATUSES = {
