@@ -1,6 +1,6 @@
 import SiteHeader from "@/components/layouts/site-header"
 
-import "@/styles/globals.css"
+import "@/styles/tailwind.css"
 
 import { Inter } from "next/font/google"
 import { ClerkProvider } from "@clerk/nextjs"

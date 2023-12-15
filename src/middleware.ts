@@ -15,6 +15,7 @@ export default authMiddleware({
       return NextResponse.next()
     }
     const url = new URL(req.nextUrl.origin)
+    console.log({ url })
 
     if (!auth.userId) {
       //  If user tries to access a private route without being authenticated,
