@@ -4,8 +4,8 @@ import { currentUser, SignOutButton } from "@clerk/nextjs"
 import { NAV_LINKS } from "@/lib/site-config"
 import { getInitials } from "@/lib/utils"
 
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
-import { Button } from "./ui/button"
+import { Avatar, AvatarFallback, AvatarImage } from "../avatar"
+import { Button } from "../button"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,7 +14,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "./ui/dropdown-menu"
+} from "../dropdown-menu"
 
 export default async function UserNav() {
   const user = await currentUser()

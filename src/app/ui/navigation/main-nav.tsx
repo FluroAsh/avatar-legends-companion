@@ -4,7 +4,11 @@ function MainNav() {
   return (
     <div>
       <Link href="/">
-        <img src="/legends-logo_1x.webp" alt="Avatar Legends" width={250} />
+        <img
+          src="/images/legends-logo_1x.webp"
+          alt="Avatar Legends"
+          width={250}
+        />
       </Link>
       {/* Signed In */}
       {/* List of Characters */}

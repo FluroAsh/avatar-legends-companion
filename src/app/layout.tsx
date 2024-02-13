@@ -1,4 +1,4 @@
-import SiteHeader from "@/components/layouts/site-header"
+import SiteHeader from "@/app/ui/navigation/site-header"
 
 import "@/styles/tailwind.css"
 

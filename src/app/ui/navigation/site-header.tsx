@@ -2,9 +2,9 @@ import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs"
 
 import { PATHNAME } from "@/lib/paths"
 
-import MainNav from "../main-nav"
-import { Button } from "../ui/button"
-import UserNav from "../user-nav"
+import { Button } from "../button"
+import MainNav from "./main-nav"
+import UserNav from "./user-nav"
 
 function SiteHeader() {
   return (
