@@ -6,8 +6,8 @@ export default function Page() {
   const [archetypeData, setArchetypeData] = useState<string | null>(null)
   const [archetype, setArchetype] = useState<string>("")
 
-  // TODO: use data fetching library to retrieve static JSON from API route
-  // Based on the selected Archetype
+  // NOTE: NextJS Is caching the data from the import, so not sure if it's necessary
+  // to utilise React Query here.
   const loadArchetype = useCallback(async () => {
     if (archetype) {
       const data = await import(`src/data/class-data/${archetype}.json`)
@@ -16,19 +16,6 @@ export default function Page() {
       setArchetypeData(null)
     }
   }, [archetype])
-
-  // NOTE: Works but not very clean. No caching -- will implement React Query later.
-  // const loadArchetype = useCallback(async () => {
-  //   if (archetype) {
-  //     const data = await fetch(
-  //       `http://localhost:3000/api/classes?type=${archetype}`
-  //     )
-  //     const response = await data.json()
-  //     setArchetypeData(response)
-  //   } else {
-  //     setArchetypeData(null)
-  //   }
-  // }, [archetype])
 
   useEffect(() => {
     loadArchetype()
