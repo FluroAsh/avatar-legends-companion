@@ -15,6 +15,7 @@ export default async function Page({
 
         <ArchetypeRole />
 
+        {/* TODO: Suspend this component between imports/fetches when it's not cached */}
         <Suspense fallback={<div>Loading...</div>}>
           <FormComponent searchParam={searchParams?.archetype} />
         </Suspense>
