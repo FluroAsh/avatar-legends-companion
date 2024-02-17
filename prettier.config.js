@@ -12,7 +12,7 @@ module.exports = {
     "",
     "^@/(types|components|styles|hooks)(/.*)?$",
     "",
-    "^@/(app|lib|data|paths|utils)(/.*)?$",
+    "^@/(ui|app|lib|data|paths|utils)(/.*)?$",
     "",
     "^[./]",
   ],
