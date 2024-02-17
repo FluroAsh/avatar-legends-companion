@@ -5,7 +5,7 @@ export default async function SelectBackground() {
   // const [selected, setSelected] = useState<string[]>([])
   return (
     <div>
-      Background
+      Background (2)
       {Object.values(BACKGROUNDS).map((background) => (
         <div key={background}>
           <label className="cursor-pointer">

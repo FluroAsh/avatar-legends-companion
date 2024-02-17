@@ -15,7 +15,7 @@ export default function SelectDemeanour() {
 
   return (
     <div>
-      Demeanour
+      Demeanour (3)
       {state.demeanor.map((d: keyof typeof DEMEANORS) => (
         <div key={d}>
           <label className="cursor-pointer">
