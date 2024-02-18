@@ -8,22 +8,19 @@ export default async function Page({
 }: {
   searchParams: { [key: string]: string | string[] | undefined }
 }) {
-  const step = searchParams?.step
+  const { step, archetype } = searchParams ?? {}
 
   return (
     <>
       <PlaybookProvider>
         <Character.Stepper />
-        <Character.Form
-          name="create-character"
-          archetypeParam={searchParams?.archetype}
-        >
+        <Character.Form name="create-character" urlArchetype={archetype}>
           {/* TODO: Investigate abstracting away the conditional step rendering. 
           Might also consider moving it into the Form component for handling form validation etc with React Form/Zod */}
           {(!step || step === "1") && (
             <>
               <div className="">
-                <Character.SelectPlaybook />
+                <Character.SelectPlaybook urlArchetype={archetype} />
                 <Character.InputName />
               </div>
               <Character.SelectBackground />

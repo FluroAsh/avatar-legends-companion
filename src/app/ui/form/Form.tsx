@@ -14,11 +14,11 @@ import { usePlaybookContext } from "@/lib/contexts/PlaybookContext"
  * Component 5: Bad Habits
  */
 export default function FormComponent({
-  archetypeParam,
+  urlArchetype,
   name,
   children,
 }: {
-  archetypeParam: string | string[] | undefined
+  urlArchetype: string | string[] | undefined
   name: string
   children: React.ReactNode
 }) {
@@ -30,12 +30,12 @@ export default function FormComponent({
   useEffect(() => {
     async function fetchPlaybook() {
       const data = await import(
-        `src/data/class-data/${archetypeParam ?? "bold"}.json`
+        `src/data/class-data/${urlArchetype ?? "bold"}.json`
       )
       setState({ ...data })
     }
     fetchPlaybook()
-  }, [archetypeParam, setState])
+  }, [urlArchetype, setState])
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()

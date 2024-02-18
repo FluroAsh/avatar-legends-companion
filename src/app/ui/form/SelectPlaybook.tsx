@@ -3,8 +3,14 @@
 import { useState } from "react"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 
-export default function SelectPlaybook() {
-  const [archetype, setArchetype] = useState<string | undefined>("")
+export default function SelectPlaybook({
+  urlArchetype,
+}: {
+  urlArchetype: string | string[] | undefined
+}) {
+  const [archetype, setArchetype] = useState<string | string[] | undefined>(
+    urlArchetype
+  )
 
   const searchParams = useSearchParams()
   const pathname = usePathname()
