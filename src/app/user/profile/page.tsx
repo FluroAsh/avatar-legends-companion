@@ -13,7 +13,7 @@ export default async function Page() {
   console.log(userData)
 
   return (
-    <div className="flex flex-1">
+    <div className="flex h-full">
       {/* TODO: Left Sidebar */}
       <div className="w-64 h-full p-4 break-words bg-neutral-700">
         <div className="">
