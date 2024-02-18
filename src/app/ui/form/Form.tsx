@@ -44,7 +44,7 @@ export default function FormComponent({
 
   return (
     <form name={name} onSubmit={handleSubmit} className="flex justify-center">
-      <div className="flex gap-10">{children}</div>
+      {children}
     </form>
   )
 }
