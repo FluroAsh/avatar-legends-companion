@@ -6,11 +6,9 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation"
 export default function SelectPlaybook({
   urlArchetype,
 }: {
-  urlArchetype: string | string[] | undefined
+  urlArchetype: string | undefined
 }) {
-  const [archetype, setArchetype] = useState<string | string[] | undefined>(
-    urlArchetype
-  )
+  const [archetype, setArchetype] = useState<string | undefined>(urlArchetype)
 
   const searchParams = useSearchParams()
   const pathname = usePathname()

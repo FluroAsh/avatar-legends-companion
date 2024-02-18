@@ -6,7 +6,7 @@ import { PocComponent } from "./poc-component"
 export default async function Page({
   searchParams,
 }: {
-  searchParams: { [key: string]: string | string[] | undefined }
+  searchParams: { [key: string]: string | undefined }
 }) {
   const { step, archetype } = searchParams ?? {}
 

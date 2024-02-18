@@ -7,12 +7,8 @@ import { cn } from "@/lib/utils"
 
 const STEP_DESCRIPTIONS = ["Details", "Moves", "Backstory"]
 
-export default function Stepper({
-  urlStep,
-}: {
-  urlStep: string | string[] | undefined
-}) {
-  const [step, setStep] = useState(Number(urlStep) ?? 1)
+export default function Stepper({ urlStep }: { urlStep: string | undefined }) {
+  const [step, setStep] = useState(parseInt(urlStep ?? "1"))
 
   const searchParams = useSearchParams()
   const pathname = usePathname()

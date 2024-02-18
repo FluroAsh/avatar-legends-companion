@@ -18,7 +18,7 @@ export default function FormComponent({
   name,
   children,
 }: {
-  urlArchetype: string | string[] | undefined
+  urlArchetype: string | undefined
   name: string
   children: React.ReactNode
 }) {
