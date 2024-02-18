@@ -1,14 +1,19 @@
 "use client"
 
-import {  useState } from "react"
+import { useState } from "react"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 
 import { cn } from "@/lib/utils"
 
 const STEP_DESCRIPTIONS = ["Details", "Moves", "Backstory"]
 
-export default function Stepper() {
-  const [step, setStep] = useState(1)
+export default function Stepper({
+  urlStep,
+}: {
+  urlStep: string | string[] | undefined
+}) {
+  const [step, setStep] = useState(Number(urlStep) ?? 1)
+  console.log("step", step, "urlStep", urlStep)
 
   const searchParams = useSearchParams()
   const pathname = usePathname()
@@ -19,7 +24,7 @@ export default function Stepper() {
 
     const params = new URLSearchParams(searchParams.toString())
     params.set("step", stepValue.toString())
-    router.push(pathname + "?" + params.toString())
+    router.replace(pathname + "?" + params.toString())
   }
 
   return (

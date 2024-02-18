@@ -13,7 +13,7 @@ export default async function Page({
   return (
     <>
       <PlaybookProvider>
-        <Character.Stepper />
+        <Character.Stepper urlStep={step} />
         <Character.Form name="create-character" urlArchetype={archetype}>
           {/* TODO: Investigate abstracting away the conditional step rendering. 
           Might also consider moving it into the Form component for handling form validation etc with React Form/Zod */}

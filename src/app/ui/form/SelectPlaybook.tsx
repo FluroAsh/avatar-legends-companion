@@ -25,9 +25,9 @@ export default function SelectPlaybook({
 
     if (!value) {
       params.delete("archetype")
-      router.push(pathname + params.toString())
+      router.replace(pathname + params.toString())
     } else {
-      router.push(pathname + "?" + params.toString())
+      router.replace(pathname + "?" + params.toString())
     }
   }
 
