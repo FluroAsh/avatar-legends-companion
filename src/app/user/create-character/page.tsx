@@ -17,6 +17,7 @@ export default async function Page({
         <Character.Form name="create-character" urlArchetype={archetype}>
           {/* TODO: Investigate abstracting away the conditional step rendering. 
           Might also consider moving it into the Form component for handling form validation etc with React Form/Zod */}
+          {/* TODO: Investigate if we can just abstract this away with a useMultiStepForm hook */}
           {(!step || step === "1") && (
             <div className="flex flex-col w-full gap-10">
               <section className="flex justify-center gap-5">
