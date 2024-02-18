@@ -13,7 +13,6 @@ export default function Stepper({
   urlStep: string | string[] | undefined
 }) {
   const [step, setStep] = useState(Number(urlStep) ?? 1)
-  console.log("step", step, "urlStep", urlStep)
 
   const searchParams = useSearchParams()
   const pathname = usePathname()
