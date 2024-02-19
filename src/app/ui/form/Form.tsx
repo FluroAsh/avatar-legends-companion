@@ -25,17 +25,17 @@ export default function FormComponent({
   // NOTE: This component should handle managing the multi-step form as-well as the form data, context/state, submission & submission validation
   // Passing down the necessary data to the form components
 
-  const { setState } = usePlaybookContext()
+  const { setPlaybook } = usePlaybookContext()
 
   useEffect(() => {
     async function fetchPlaybook() {
       const data = await import(
         `src/data/class-data/${urlArchetype ?? "bold"}.json`
       )
-      setState({ ...data })
+      setPlaybook({ ...data })
     }
     fetchPlaybook()
-  }, [urlArchetype, setState])
+  }, [urlArchetype, setPlaybook])
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
