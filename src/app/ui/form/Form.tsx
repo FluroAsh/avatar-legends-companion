@@ -2,6 +2,7 @@
 
 import React, { useEffect } from "react"
 
+import { useFormContext } from "@/lib/contexts/FormContext"
 import { usePlaybookContext } from "@/lib/contexts/PlaybookContext"
 
 /**
@@ -14,11 +15,9 @@ import { usePlaybookContext } from "@/lib/contexts/PlaybookContext"
  * Component 5: Bad Habits
  */
 export default function FormComponent({
-  urlArchetype,
   name,
   children,
 }: {
-  urlArchetype: string | undefined
   name: string
   children: React.ReactNode
 }) {
@@ -26,16 +25,19 @@ export default function FormComponent({
   // Passing down the necessary data to the form components
 
   const { setPlaybook } = usePlaybookContext()
+  const {
+    formState: { playbook },
+  } = useFormContext()
 
   useEffect(() => {
     async function fetchPlaybook() {
       const data = await import(
-        `src/data/class-data/${urlArchetype ?? "bold"}.json`
+        `src/data/class-data/${playbook.value || "bold"}.json`
       )
       setPlaybook({ ...data })
     }
     fetchPlaybook()
-  }, [urlArchetype, setPlaybook])
+  }, [playbook.value, setPlaybook])
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()

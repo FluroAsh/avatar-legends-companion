@@ -1,40 +1,31 @@
 "use client"
 
-import { useState } from "react"
-import { usePathname, useRouter, useSearchParams } from "next/navigation"
+import {
+  ContextState as FormContextState,
+  useFormContext,
+} from "@/lib/contexts/FormContext"
 
-export default function SelectPlaybook({
-  urlArchetype,
-}: {
-  urlArchetype: string | undefined
-}) {
-  const [archetype, setArchetype] = useState<string | undefined>(urlArchetype)
-
-  const searchParams = useSearchParams()
-  const pathname = usePathname()
-  const router = useRouter()
+export default function SelectPlaybook() {
+  const {
+    formState: { playbook },
+    setFormState,
+  } = useFormContext()
 
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value
-    setArchetype(value)
-
-    const params = new URLSearchParams(searchParams.toString())
-    params.set("archetype", e.target.value)
-
-    if (!value) {
-      params.delete("archetype")
-      router.replace(pathname + params.toString())
-    } else {
-      router.replace(pathname + "?" + params.toString())
-    }
+    setFormState((prev: FormContextState["formState"]) => ({
+      ...prev,
+      playbook: { value, error: "" },
+    }))
   }
 
   return (
     <div className="grid place-items-center">
-      <p>Selected: {archetype || "No archetype seleted"}</p>
+      <p>Selected: {playbook.value || "No archetype seleted"}</p>
       <select
+        name="archetype"
         className="p-2 text-black w-50"
-        value={archetype}
+        value={playbook.value}
         onChange={handleSelectChange}
       >
         <option value="">Select an Archetype</option>

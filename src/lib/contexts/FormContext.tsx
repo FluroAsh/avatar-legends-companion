@@ -1,30 +1,55 @@
 "use client"
 
-import { createContext, useContext } from "react"
+import { createContext, useContext, useState } from "react"
 
-const INITIAL_STATE = {
-  archetype: {
-    value: "",
-    error: "",
+const CONTEXT_STATE = {
+  formState: {
+    playbook: {
+      value: "",
+      error: "",
+    },
+    characterName: {
+      value: "",
+      error: "",
+    },
+    background: {
+      value: "",
+      error: "",
+    },
+    demeanour: {
+      value: "",
+      error: "",
+    },
+    // TODO: Add more form fields...
   },
-  name: {
-    value: "",
-    error: "",
-  },
-  background: {
-    value: "",
-    error: "",
-  },
-  demeanour: {
-    value: "",
-    error: "",
-  },
+  setFormState: () => {},
 }
 
-const FormContext = createContext(INITIAL_STATE)
-const FormProvider = ({ children }: { children: React.ReactNode }) => (
-  <FormContext.Provider value={INITIAL_STATE}>{children}</FormContext.Provider>
-)
+export type ContextState = {
+  formState: {
+    // eslint-disable-next-line no-unused-vars
+    [K in keyof (typeof CONTEXT_STATE)["formState"]]: {
+      value: string
+      error: string
+    }
+  }
+  setFormState: React.Dispatch<React.SetStateAction<any>>
+}
+
+const FormContext = createContext<ContextState>(CONTEXT_STATE)
+
+const FormProvider = ({ children }: { children: React.ReactNode }) => {
+  const [formState, setFormState] = useState(CONTEXT_STATE.formState)
+  console.log("%c [FormContext] － state:", "color: #aabbee", {
+    ...formState,
+  })
+
+  return (
+    <FormContext.Provider value={{ formState, setFormState }}>
+      {children}
+    </FormContext.Provider>
+  )
+}
 
 // TODO: Add a reducer to handle form state
 

@@ -2,20 +2,20 @@
 
 import { createContext, useContext, useState } from "react"
 
-interface ContextState {
+type ContextState = {
   playbook: any
   setPlaybook: React.Dispatch<React.SetStateAction<any>> // Adjust the type accordingly
 }
 
-const INITIAL_STATE = {
+const CONTEXT_STATE = {
   playbook: {},
   setPlaybook: () => {},
 }
 
-const PlaybookContext = createContext<ContextState>(INITIAL_STATE)
+const PlaybookContext = createContext<ContextState>(CONTEXT_STATE)
 
 const PlaybookProvider = ({ children }: { children: React.ReactNode }) => {
-  const [playbook, setPlaybook] = useState(INITIAL_STATE.playbook)
+  const [playbook, setPlaybook] = useState(CONTEXT_STATE.playbook)
   console.log("%c [PlaybookContext] － state:", "color: #bada55", {
     ...playbook,
   })
