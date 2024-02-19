@@ -13,11 +13,11 @@ const CONTEXT_STATE = {
       error: "",
     },
     background: {
-      value: "",
+      value: [] as string[],
       error: "",
     },
     demeanour: {
-      value: "",
+      value: [] as string[],
       error: "",
     },
     // TODO: Add more form fields...
@@ -27,13 +27,21 @@ const CONTEXT_STATE = {
 
 export type ContextState = {
   formState: {
-    // eslint-disable-next-line no-unused-vars
-    [K in keyof (typeof CONTEXT_STATE)["formState"]]: {
-      value: string
-      error: string
-    }
+    [K in keyof (typeof CONTEXT_STATE)["formState"]]: K extends
+      | "background"
+      | "demeanour"
+      ? {
+          value: string[]
+          error: string
+        }
+      : {
+          value: string
+          error: string
+        }
   }
-  setFormState: React.Dispatch<React.SetStateAction<any>>
+  setFormState: React.Dispatch<
+    React.SetStateAction<(typeof CONTEXT_STATE)["formState"]>
+  >
 }
 
 const FormContext = createContext<ContextState>(CONTEXT_STATE)
