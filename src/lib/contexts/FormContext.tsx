@@ -25,7 +25,7 @@ const CONTEXT_STATE = {
   setFormState: () => {},
 }
 
-export type ContextState = {
+export type FormContextState = {
   formState: {
     [K in keyof (typeof CONTEXT_STATE)["formState"]]: K extends
       | "background"
@@ -44,7 +44,7 @@ export type ContextState = {
   >
 }
 
-const FormContext = createContext<ContextState>(CONTEXT_STATE)
+const FormContext = createContext<FormContextState>(CONTEXT_STATE)
 
 const FormProvider = ({ children }: { children: React.ReactNode }) => {
   const [formState, setFormState] = useState(CONTEXT_STATE.formState)

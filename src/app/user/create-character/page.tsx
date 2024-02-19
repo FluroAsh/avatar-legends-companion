@@ -1,5 +1,5 @@
 import { FormProvider } from "@/lib/contexts/FormContext"
-import { PlaybookProvider } from "@/lib/contexts/PlaybookContext"
+import { PlaybookDataProvider } from "@/lib/contexts/PlaybookContext"
 import * as Character from "@/ui/form"
 
 import { PocComponent } from "./poc-component"
@@ -14,7 +14,7 @@ export default async function Page({
   return (
     <div>
       <FormProvider>
-        <PlaybookProvider>
+        <PlaybookDataProvider>
           <Character.Stepper urlStep={step} />
           <Character.Form name="create-character">
             {/* TODO: Investigate abstracting away the conditional step rendering. 
@@ -64,7 +64,7 @@ export default async function Page({
           </Character.Form>
           {/* DEBUG: This component is for testing */}
           <PocComponent />
-        </PlaybookProvider>
+        </PlaybookDataProvider>
       </FormProvider>
     </div>
   )

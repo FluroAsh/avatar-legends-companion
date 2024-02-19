@@ -1,8 +1,8 @@
 "use client"
 
 import {
-  ContextState as FormContextState,
   useFormContext,
+  type FormContextState,
 } from "@/lib/contexts/FormContext"
 
 export default function SelectPlaybook() {
