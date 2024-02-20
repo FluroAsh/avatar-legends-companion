@@ -13,11 +13,11 @@ const CONTEXT_STATE = {
       error: "",
     },
     background: {
-      value: [] as string[],
+      values: [] as string[],
       error: "",
     },
     demeanour: {
-      value: [] as string[],
+      values: [] as string[],
       error: "",
     },
     // TODO: Add more form fields...
@@ -25,13 +25,13 @@ const CONTEXT_STATE = {
   setFormState: () => {},
 }
 
-export type FormContextState = {
+type FormContextState = {
   formState: {
     [K in keyof (typeof CONTEXT_STATE)["formState"]]: K extends
       | "background"
       | "demeanour"
       ? {
-          value: string[]
+          values: string[]
           error: string
         }
       : {

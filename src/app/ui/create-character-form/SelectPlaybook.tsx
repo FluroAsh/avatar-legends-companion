@@ -1,9 +1,6 @@
 "use client"
 
-import {
-  useFormContext,
-  type FormContextState,
-} from "@/lib/contexts/FormContext"
+import { useFormContext } from "@/lib/contexts/FormContext"
 
 export default function SelectPlaybook() {
   const {
@@ -13,9 +10,10 @@ export default function SelectPlaybook() {
 
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value
-    setFormState((prev: FormContextState["formState"]) => ({
+    setFormState((prev) => ({
       ...prev,
       playbook: { value, error: "" },
+      demeanour: { values: [], error: "" },
     }))
   }
 

@@ -14,7 +14,7 @@ const CONTEXT_STATE = {
 
 const PlaybookContext = createContext<PlaybookContextState>(CONTEXT_STATE)
 
-const PlaybookDataProvider = ({ children }: { children: React.ReactNode }) => {
+const PlaybookProvider = ({ children }: { children: React.ReactNode }) => {
   const [playbook, setPlaybook] = useState(CONTEXT_STATE.playbook)
   console.log("%c [PlaybookContext] － state:", "color: #bada55", {
     ...playbook,
@@ -35,4 +35,4 @@ function usePlaybookContext() {
   return context
 }
 
-export { PlaybookDataProvider, usePlaybookContext }
+export { PlaybookProvider, usePlaybookContext }

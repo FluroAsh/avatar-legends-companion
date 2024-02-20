@@ -1,5 +1,5 @@
 export { default as Form } from "./Form"
-export { default as Stepper } from "./Stepper"
+export { default as Stepper } from "./steps/Stepper"
 
 export { default as SelectBackground } from "./SelectBackground"
 export { default as SelectDemeanour } from "./SelectDemeanour"
