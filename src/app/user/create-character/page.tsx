@@ -33,18 +33,19 @@ export default async function Page({
 
                 {/* NOTE: Placeholders for remaining sections */}
                 <section className="flex justify-between bg-orange-600">
-                  <div>Select Stats</div>
-                  <div>Balance</div>
-                  <div>Connections</div>
+                  <Character.SelectStats />
+                  <Character.SelectBalance />
+                  <Character.SelectConnections />
                 </section>
 
                 <section className="flex justify-center bg-sky-600">
-                  <div>Training</div>
+                  <Character.SelectTraining />
                 </section>
 
                 <section className="flex justify-between bg-purple-600">
-                  <div>Character Details</div>
-                  <div>Bad Habits</div>
+                  {/* TODO: Finish designing/implementing this section */}
+                  <Character.InputCharacterDetails />
+                  <Character.SelectBadHabits />
                 </section>
               </div>
             )}
