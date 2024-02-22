@@ -23,7 +23,7 @@ export default async function UserNav() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="w-12 h-12 rounded-full">
-          <Avatar className="w-12 h-12 border">
+          <Avatar>
             <AvatarImage src={user?.imageUrl} />
             <AvatarFallback>
               {getInitials(user?.firstName, user?.lastName)}
