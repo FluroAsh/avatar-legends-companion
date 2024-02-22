@@ -1,9 +1,6 @@
 "use client"
 
-import {
-  useFormContext,
-  type FormContextState,
-} from "@/lib/contexts/FormContext"
+import { useFormContext } from "@/lib/contexts/FormContext"
 
 import { Input } from "../input"
 
@@ -12,7 +9,7 @@ export default function CharacterName() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
-    setFormState((prev: FormContextState["formState"]) => ({
+    setFormState((prev) => ({
       ...prev,
       characterName: { value, error: "" },
     }))
