@@ -1,16 +1,12 @@
 "use client"
 
+import { useState } from "react"
+
 import { BACKGROUNDS } from "@/lib/constants"
 import { useFormStore } from "@/lib/store"
 
 export default function SelectBackground() {
-  // TODO: Limit to 2 backgrounds
-  // const [selected, setSelected] = useState<string[]>([])
-
-  // const { background, update } = useFormStore((state) => ({
-  //   background: state.background,
-  //   update: state.update,
-  // }))
+  const [selected, setSelected] = useState<string[]>([])
 
   const background = useFormStore((state) => state.background)
   const update = useFormStore((state) => state.update)
@@ -18,6 +14,11 @@ export default function SelectBackground() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { checked, id } = e.target
 
+    if (checked && selected.length >= 2) return
+
+    setSelected((prevSelected) =>
+      checked ? [...prevSelected, id] : prevSelected.filter((sid) => sid !== id)
+    )
     update({
       background: {
         values: checked
