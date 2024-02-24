@@ -22,8 +22,8 @@ export default async function Page({
           {/* TODO: Investigate if we can just abstract this away with a useMultiStepForm hook */}
           {(!step || step === "1") && (
             <div className="flex flex-col w-full gap-10 mt-4">
-              <section className="flex justify-center gap-5 bg-slate-600">
-                <div>
+              <section className="flex justify-center gap-5 p-5 rounded-lg bg-slate-600">
+                <div className="flex flex-col justify-between">
                   <Character.SelectPlaybook />
                   <Character.InputName />
                 </div>

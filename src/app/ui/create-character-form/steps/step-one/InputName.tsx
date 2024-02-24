@@ -14,12 +14,16 @@ export default function CharacterName() {
   }
 
   return (
-    <Input
-      name="characterName"
-      type="text"
-      placeholder="Character Name"
-      onChange={handleChange}
-      value={characterName.value}
-    />
+    <div>
+      <p>Character Name</p>
+      <Input
+        name="characterName"
+        type="text"
+        className="h-[35px]"
+        placeholder="What should people call you?"
+        onChange={handleChange}
+        value={characterName.value}
+      />
+    </div>
   )
 }
