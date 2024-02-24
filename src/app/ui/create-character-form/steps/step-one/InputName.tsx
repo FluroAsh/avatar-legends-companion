@@ -2,7 +2,7 @@
 
 import { useFormStore } from "@/lib/store"
 
-import { Input } from "../input"
+import { Input } from "../../../input"
 
 export default function CharacterName() {
   const characterName = useFormStore((state) => state.characterName)

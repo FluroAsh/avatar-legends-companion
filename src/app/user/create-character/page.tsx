@@ -21,8 +21,8 @@ export default async function Page({
           Might also consider moving it into the Form component for handling form validation etc with React Form/Zod */}
           {/* TODO: Investigate if we can just abstract this away with a useMultiStepForm hook */}
           {(!step || step === "1") && (
-            <div className="flex flex-col w-full gap-10">
-              <section className="flex justify-center gap-5">
+            <div className="flex flex-col w-full gap-10 mt-4">
+              <section className="flex justify-center gap-5 bg-slate-600">
                 <div>
                   <Character.SelectPlaybook />
                   <Character.InputName />
