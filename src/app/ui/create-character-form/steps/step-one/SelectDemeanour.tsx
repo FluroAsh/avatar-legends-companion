@@ -9,7 +9,6 @@ import { useFormStore } from "@/lib/store"
 export default function SelectDemeanour() {
   const [selected, setSelected] = useState<string[]>([])
   const { playbookData } = usePlaybookContext()
-
   const playbook = useFormStore((state) => state.playbook)
   const demeanour = useFormStore((state) => state.demeanour)
   const update = useFormStore((state) => state.update)
@@ -22,7 +21,7 @@ export default function SelectDemeanour() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { checked, id } = e.target
 
-    if (checked && selected.length >= 3) return
+    if (checked && selected.length === 3) return
 
     setSelected((prevSelected) =>
       checked ? [...prevSelected, id] : prevSelected.filter((sid) => sid !== id)

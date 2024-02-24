@@ -3,7 +3,6 @@
 import { usePlaybookContext } from "@/lib/contexts/PlaybookContext"
 
 export function PocComponent() {
-  // DEBUG: Temp for testing
   const { playbookData } = usePlaybookContext()
 
   return (
