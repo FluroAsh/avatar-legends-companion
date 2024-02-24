@@ -40,7 +40,7 @@ const BACKGROUNDS = {
   wilderness: "Wilderness",
 } as const
 
-const DEMEANORS = {
+const DEMEANOURS = {
   "above-it-all": "Above It All",
   perfectionist: "Perfectionist",
   chilly: "Chilly",
@@ -119,7 +119,7 @@ export {
   STATUSES,
   ARCHETYPES,
   BACKGROUNDS,
-  DEMEANORS,
+  DEMEANOURS,
   CONDITIONS,
   CLEARING_CONDITIONS,
   TRAINING,

@@ -1,42 +1,47 @@
 "use client"
 
 import { BACKGROUNDS } from "@/lib/constants"
-import { useFormContext } from "@/lib/contexts/FormContext"
+import { useFormStore } from "@/lib/store"
 
 export default function SelectBackground() {
   // TODO: Limit to 2 backgrounds
   // const [selected, setSelected] = useState<string[]>([])
 
-  const { formState, setFormState } = useFormContext()
+  // const { background, update } = useFormStore((state) => ({
+  //   background: state.background,
+  //   update: state.update,
+  // }))
+
+  const background = useFormStore((state) => state.background)
+  const update = useFormStore((state) => state.update)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { checked, id } = e.target
 
-    setFormState((prev) => ({
-      ...prev,
+    update({
       background: {
         values: checked
-          ? [...prev.background.values, id]
-          : prev.background.values.filter((b) => b !== id),
+          ? [...background.values, id]
+          : background.values.filter((b) => b !== id),
         error: "",
       },
-    }))
+    })
   }
 
   return (
     <div>
       Background (2)
-      {Object.values(BACKGROUNDS).map((background) => (
-        <div key={background}>
+      {Object.values(BACKGROUNDS).map((apiBackground) => (
+        <div key={apiBackground}>
           <label className="cursor-pointer">
             <input
-              id={background}
+              id={apiBackground}
               name="background"
               type="checkbox"
-              checked={formState.background.values.includes(background)}
+              checked={background.values.includes(apiBackground)}
               onChange={handleChange}
             />
-            {background}
+            {apiBackground}
           </label>
         </div>
       ))}

@@ -3,8 +3,8 @@
 import React, { useEffect } from "react"
 import { useUser } from "@clerk/nextjs"
 
-import { useFormContext } from "@/lib/contexts/FormContext"
 import { usePlaybookContext } from "@/lib/contexts/PlaybookContext"
+import { useFormStore } from "@/lib/store"
 import supabase from "@/lib/supabaseClient"
 
 // TODO: Add Zod validation to the form
@@ -25,39 +25,37 @@ export default function FormComponent({
   name: string
   children: React.ReactNode
 }) {
-  // NOTE: This component should handle managing the multi-step form as-well as the form data, context/state, submission & submission validation
-  // Passing down the necessary data to the form components
+  // NOTE: This component should handle managing the multi-step form as-well as the form data,
+  // context/state, submission & submission validation
 
   const { user } = useUser()
-  const { setPlaybook } = usePlaybookContext()
-  const { formState } = useFormContext()
+  const { setPlaybookData } = usePlaybookContext()
+  const { playbook, characterName, background, demeanour } = useFormStore(
+    (state) => state
+  )
 
-  // TODO: Look into replacing this with react-query
   useEffect(() => {
     async function fetchPlaybook() {
       const data = await import(
-        `src/data/class-data/${formState.playbook.value || "bold"}.json`
+        `src/data/class-data/${playbook.value || "bold"}.json`
       )
-      setPlaybook({ ...data })
+      setPlaybookData({ ...data })
     }
     fetchPlaybook()
-  }, [formState.playbook.value, setPlaybook])
+  }, [playbook.value, setPlaybookData])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     console.log("Form submitted")
 
-    if (!user?.id) {
-      console.error("No user id found")
-      return
-    }
+    if (!user?.id) return console.error("No user id found")
 
     const { error } = await supabase.from("characters").insert({
       ["user_id"]: user.id,
-      ["character_name"]: formState.characterName.value,
-      playbook: formState.playbook.value,
-      background: formState.background.values,
-      demeanour: formState.demeanour.values,
+      ["character_name"]: characterName.value,
+      playbook: playbook.value,
+      background: background.values,
+      demeanour: demeanour.values,
     })
 
     error && console.log(error)

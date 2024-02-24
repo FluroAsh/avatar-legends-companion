@@ -3,25 +3,25 @@
 import { createContext, useContext, useState } from "react"
 
 type PlaybookContextState = {
-  playbook: Record<string, any>
-  setPlaybook: React.Dispatch<React.SetStateAction<any>> // Adjust the type accordingly
+  playbookData: Record<string, any>
+  setPlaybookData: React.Dispatch<React.SetStateAction<any>> // Adjust the type accordingly
 }
 
 const CONTEXT_STATE = {
-  playbook: {},
-  setPlaybook: () => {},
+  playbookData: {},
+  setPlaybookData: () => {},
 }
 
 const PlaybookContext = createContext<PlaybookContextState>(CONTEXT_STATE)
 
 const PlaybookProvider = ({ children }: { children: React.ReactNode }) => {
-  const [playbook, setPlaybook] = useState(CONTEXT_STATE.playbook)
+  const [playbookData, setPlaybookData] = useState(CONTEXT_STATE.playbookData)
   console.log("%c [PlaybookContext] － state:", "color: #bada55", {
-    ...playbook,
+    ...playbookData,
   })
 
   return (
-    <PlaybookContext.Provider value={{ playbook, setPlaybook }}>
+    <PlaybookContext.Provider value={{ playbookData, setPlaybookData }}>
       {children}
     </PlaybookContext.Provider>
   )

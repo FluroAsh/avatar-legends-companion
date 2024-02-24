@@ -1,18 +1,16 @@
 "use client"
 
-import { useFormContext } from "@/lib/contexts/FormContext"
+import { useFormStore } from "@/lib/store"
 
 import { Input } from "../input"
 
 export default function CharacterName() {
-  const { formState, setFormState } = useFormContext()
+  const characterName = useFormStore((state) => state.characterName)
+  const update = useFormStore((state) => state.update)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
-    setFormState((prev) => ({
-      ...prev,
-      characterName: { value, error: "" },
-    }))
+    update({ characterName: { value, error: "" } })
   }
 
   return (
@@ -21,7 +19,7 @@ export default function CharacterName() {
       type="text"
       placeholder="Character Name"
       onChange={handleChange}
-      value={formState.characterName.value}
+      value={characterName.value}
     />
   )
 }

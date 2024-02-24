@@ -1,20 +1,14 @@
 "use client"
 
-import { useFormContext } from "@/lib/contexts/FormContext"
+import { useFormStore } from "@/lib/store"
 
 export default function SelectPlaybook() {
-  const {
-    formState: { playbook },
-    setFormState,
-  } = useFormContext()
+  const playbook = useFormStore((state) => state.playbook)
+  const update = useFormStore((state) => state.update)
 
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value
-    setFormState((prev) => ({
-      ...prev,
-      playbook: { value, error: "" },
-      demeanour: { values: [], error: "" },
-    }))
+    update({ playbook: { value, error: "" } })
   }
 
   return (
