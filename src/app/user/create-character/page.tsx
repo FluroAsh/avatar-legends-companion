@@ -9,7 +9,6 @@ export default async function Page({
   searchParams: { [key: string]: string | undefined }
 }) {
   const { step } = searchParams ?? {}
-  console.log(step)
 
   return (
     <div>
@@ -22,7 +21,7 @@ export default async function Page({
           {/* TODO: Investigate if we can just abstract this away with a useMultiStepForm hook */}
           {(!step || step === "1") && (
             <div className="flex flex-col w-full gap-10 mt-4">
-              <section className="flex justify-center gap-5 p-5 rounded-lg bg-slate-600">
+              <section className="flex justify-between gap-5 p-5 border rounded-lg shadow-sm bg-[#343c40] ">
                 <div className="flex flex-col justify-between">
                   <Character.SelectPlaybook />
                   <Character.InputName />

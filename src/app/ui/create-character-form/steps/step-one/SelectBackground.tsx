@@ -7,9 +7,10 @@ import { BACKGROUNDS } from "@/lib/constants"
 import { useFormStore } from "@/lib/store"
 
 export default function SelectBackground() {
-  const [selected, setSelected] = useState<string[]>([])
   const background = useFormStore((state) => state.background)
   const update = useFormStore((state) => state.update)
+
+  const [selected, setSelected] = useState<string[]>(background.values)
 
   const handleChange = (id: string) => (checked: boolean) => {
     if (checked && selected.length === 2) return
@@ -29,11 +30,16 @@ export default function SelectBackground() {
 
   return (
     <div>
-      Background {selected.length} / 2
-      <div className="grid grid-cols-2 pt-[3.5px]">
+      <span className="pl-1 text-sm font-bold text-neutral-400">
+        Background {selected.length} / 2
+      </span>
+      <div className="grid grid-cols-2 gap-2 px-4 py-2 align-middle border rounded-md bg-[#2a2c2e]">
         {Object.values(BACKGROUNDS).map((apiBackground) => (
           <div key={apiBackground}>
-            <label htmlFor={apiBackground} className="pt-1 cursor-pointer">
+            <label
+              htmlFor={apiBackground}
+              className="flex items-center cursor-pointer"
+            >
               <Checkbox
                 id={apiBackground}
                 name="background"

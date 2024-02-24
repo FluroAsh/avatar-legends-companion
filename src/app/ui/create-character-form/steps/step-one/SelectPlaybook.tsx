@@ -14,7 +14,11 @@ export default function SelectPlaybook() {
   const update = useFormStore((state) => state.update)
 
   const handleSelectChange = (value: string) =>
-    update({ playbook: { value, error: "" } })
+    update({
+      playbook: { value, error: "" },
+      // NOTE: Should clear any dependent Playbook form fields
+      demeanour: { values: [], error: "" },
+    })
 
   return (
     <div className="flex flex-col flex-start text-start">
