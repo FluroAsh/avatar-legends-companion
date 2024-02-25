@@ -15,7 +15,9 @@ export default function CharacterName() {
 
   return (
     <div>
-      <p>Character Name</p>
+      <p className="pl-1 text-sm font-bold leading-5 text-neutral-400">
+        Character Name
+      </p>
       <Input
         name="characterName"
         type="text"

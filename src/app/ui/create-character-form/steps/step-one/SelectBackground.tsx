@@ -25,7 +25,7 @@ export default function SelectBackground() {
 
   return (
     <div>
-      <span className="pl-1 text-sm font-bold text-neutral-400">
+      <span className="pl-1 text-sm font-bold leading-6 text-neutral-400">
         Background {selected.length} / 2
       </span>
       <div className="grid grid-cols-2 gap-2 px-4 py-2 align-middle border rounded-md bg-[#2a2c2e]">

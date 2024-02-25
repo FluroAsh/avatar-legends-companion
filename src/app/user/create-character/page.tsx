@@ -12,6 +12,7 @@ export default async function Page({
 
   return (
     <div>
+      {/* NOTE: Sits outside the provider to prevent re-rendering when changing playbook */}
       <Character.Stepper urlStep={step} />
 
       <PlaybookProvider>
@@ -21,7 +22,7 @@ export default async function Page({
           {/* TODO: Investigate if we can just abstract this away with a useMultiStepForm hook */}
           {(!step || step === "1") && (
             <div className="flex flex-col w-full gap-10 mt-4">
-              <section className="flex justify-between gap-5 p-5 border rounded-lg shadow-sm bg-[#343c40] ">
+              <section className="flex justify-between gap-5 p-5 border rounded-lg shadow-sm bg-[#343c40]">
                 <div className="flex flex-col justify-between">
                   <Character.SelectPlaybook />
                   <Character.InputName />

@@ -38,7 +38,7 @@ export default function SelectDemeanour() {
   // TODO: These Checkbox components can have a shared component wrapper for handling styles
   return (
     <div className="min-w-[300px]" key={playbook.value}>
-      <span className="pl-1 text-sm font-bold text-neutral-400">
+      <span className="pl-1 text-sm font-bold leading-6 text-neutral-400">
         Demeanour {selected.length} / 3
       </span>
       <div className="grid grid-cols-2 gap-2 px-4 py-2 align-middle border rounded-md bg-[#2a2c2e]">
