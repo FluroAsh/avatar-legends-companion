@@ -7,6 +7,34 @@ import { cn } from "@/lib/utils"
 
 const STEP_DESCRIPTIONS = ["Details", "Moves", "Backstory"]
 
+const StepIndicator = ({
+  isComplete,
+  isActive,
+}: {
+  isComplete: boolean
+  isActive: boolean
+}) => (
+  <div
+    className={cn(
+      isComplete
+        ? "bg-green-500 border-green-700 group-hover:bg-green-600 group-hover:border-green-800"
+        : "bg-neutral-600 border-neutral-700 group-hover:bg-neutral-500 group-hover:border-neutral-600",
+      isActive && "bg-neutral-300 border-neutral-400",
+      "absolute -left-[0.5px] w-4 h-4 rounded-full top-[2px] border"
+    )}
+  />
+)
+
+const StepLine = ({ isComplete }: { isComplete: boolean }) => (
+  <div
+    className={`flex-grow h-1 ${
+      isComplete
+        ? "bg-green-500 group-hover:bg-green-600"
+        : "bg-neutral-500 group-hover:bg-neutral-600"
+    }`}
+  />
+)
+
 export default function Stepper({ urlStep }: { urlStep: string | undefined }) {
   const [step, setStep] = useState(parseInt(urlStep ?? "1"))
 
@@ -23,18 +51,30 @@ export default function Stepper({ urlStep }: { urlStep: string | undefined }) {
   }
 
   return (
-    <div>
+    <div className="flex justify-between">
       {STEP_DESCRIPTIONS.map((desc, idx) => (
-        <button
+        <div
           key={idx}
           className={cn(
-            "p-5",
-            idx + 1 === step ? "bg-red-500" : "bg-slate-300"
+            idx !== STEP_DESCRIPTIONS.length - 1 && "flex-1",
+            "min-w-[33%]"
           )}
-          onClick={() => handleStepChange(idx + 1)}
         >
-          {desc}
-        </button>
+          <button
+            onClick={() => handleStepChange(idx + 1)}
+            className="relative w-full py-2 group text-start"
+          >
+            <StepIndicator
+              isComplete={idx + 1 < step}
+              isActive={idx + 1 === step}
+            />
+            <StepLine isComplete={idx + 1 < step} />
+
+            <p className="block pt-2 text-lg font-bold group-hover:text-neutral-400 ">
+              {desc}
+            </p>
+          </button>
+        </div>
       ))}
     </div>
   )
