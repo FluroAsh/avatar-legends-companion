@@ -15,17 +15,12 @@ export default function SelectBackground() {
   const handleChange = (id: string) => (checked: boolean) => {
     if (checked && selected.length === 2) return
 
-    setSelected((prevSelected) =>
-      checked ? [...prevSelected, id] : prevSelected.filter((sid) => sid !== id)
-    )
-    update({
-      background: {
-        values: checked
-          ? [...background.values, id]
-          : background.values.filter((b) => b !== id),
-        error: "",
-      },
-    })
+    const newValues = checked
+      ? [...background.values, id]
+      : background.values.filter((b) => b !== id)
+
+    setSelected(newValues)
+    update({ background: { values: newValues, error: "" } })
   }
 
   return (
@@ -46,7 +41,7 @@ export default function SelectBackground() {
                 checked={background.values.includes(apiBackground)}
                 onCheckedChange={handleChange(apiBackground)}
                 disabled={
-                  selected.length >= 2 &&
+                  selected.length === 2 &&
                   !background.values.includes(apiBackground)
                 }
               />
