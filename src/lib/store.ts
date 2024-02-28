@@ -2,23 +2,22 @@ import { create } from "zustand"
 import { devtools } from "zustand/middleware"
 
 const FORM_STORE_KEY = "ALC Form Store"
+
+type Field = {
+  value: string
+  error: string
+}
+
+type FieldArray = {
+  values: string[]
+  error: string
+}
+
 type FormStore = {
-  playbook: {
-    value: string
-    error: string
-  }
-  characterName: {
-    value: string
-    error: string
-  }
-  background: {
-    values: string[]
-    error: string
-  }
-  demeanour: {
-    values: string[]
-    error: string
-  }
+  playbook: Field
+  characterName: Field
+  background: FieldArray
+  demeanour: FieldArray
   update: (_partial: Partial<FormStore>) => void
 }
 
