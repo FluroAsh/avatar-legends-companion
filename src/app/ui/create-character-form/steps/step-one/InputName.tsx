@@ -14,7 +14,7 @@ export default function CharacterName() {
   }
 
   return (
-    <div>
+    <div className="md:max-w-[250px]">
       <p className="pl-1 text-sm font-bold leading-5 text-neutral-400">
         Character Name
       </p>

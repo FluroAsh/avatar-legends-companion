@@ -32,7 +32,7 @@ export default function SelectPlaybook() {
         onValueChange={handleSelectChange}
         defaultValue="bold"
       >
-        <SelectTrigger className="w-[250px] h-[35px]">
+        <SelectTrigger className="md:max-w-[250px] h-[35px]">
           <SelectValue placeholder="Choose your Playbook" />
         </SelectTrigger>
         <SelectContent>
