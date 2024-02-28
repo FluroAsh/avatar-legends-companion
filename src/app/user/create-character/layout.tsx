@@ -3,5 +3,5 @@ export default function CreateCharacterLayout({
 }: {
   children: React.ReactNode
 }) {
-  return <div className="w-full max-w-screen-lg mx-auto">{children}</div>
+  return <div className="w-full max-w-screen-lg p-5 mx-auto">{children}</div>
 }
