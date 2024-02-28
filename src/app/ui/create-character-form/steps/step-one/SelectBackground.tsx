@@ -1,10 +1,10 @@
 "use client"
 
 import { useState } from "react"
+import { useFormStore } from "@/stores/formStore"
 
 import { Checkbox } from "@/app/ui/checkbox"
 import { BACKGROUNDS } from "@/lib/constants"
-import { useFormStore } from "@/lib/store"
 
 export default function SelectBackground() {
   const background = useFormStore((state) => state.background)

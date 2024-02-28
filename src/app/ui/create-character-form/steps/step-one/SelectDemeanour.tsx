@@ -1,11 +1,11 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { usePlaybookContext } from "@/contexts/PlaybookContext"
+import { useFormStore } from "@/stores/formStore"
 
 import { Checkbox } from "@/app/ui/checkbox"
 import { DEMEANOURS } from "@/lib/constants"
-import { usePlaybookContext } from "@/lib/contexts/PlaybookContext"
-import { useFormStore } from "@/lib/store"
 
 export default function SelectDemeanour() {
   const { playbookData } = usePlaybookContext()

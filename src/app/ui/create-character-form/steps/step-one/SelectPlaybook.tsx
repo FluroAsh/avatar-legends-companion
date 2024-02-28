@@ -1,5 +1,7 @@
 "use client"
 
+import { useFormStore } from "@/stores/formStore"
+
 import {
   Select,
   SelectContent,
@@ -7,7 +9,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/app/ui/select"
-import { useFormStore } from "@/lib/store"
 
 export default function SelectPlaybook() {
   const playbook = useFormStore((state) => state.playbook)

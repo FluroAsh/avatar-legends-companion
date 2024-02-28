@@ -1,6 +1,6 @@
 "use client"
 
-import { useFormStore } from "@/lib/store"
+import { useFormStore } from "@/stores/formStore"
 
 import { Input } from "../../../input"
 

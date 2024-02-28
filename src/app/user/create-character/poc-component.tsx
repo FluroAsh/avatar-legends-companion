@@ -1,6 +1,6 @@
 "use client"
 
-import { usePlaybookContext } from "@/lib/contexts/PlaybookContext"
+import { usePlaybookContext } from "@/contexts/PlaybookContext"
 
 export function PocComponent() {
   const { playbookData } = usePlaybookContext()

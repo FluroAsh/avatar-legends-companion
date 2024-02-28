@@ -1,5 +1,6 @@
+import { PlaybookProvider } from "@/contexts/PlaybookContext"
+
 import * as Character from "@/app/ui/create-character-form"
-import { PlaybookProvider } from "@/lib/contexts/PlaybookContext"
 
 import { PocComponent } from "./poc-component"
 

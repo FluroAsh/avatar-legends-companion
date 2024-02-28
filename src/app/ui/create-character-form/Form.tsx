@@ -1,10 +1,10 @@
 "use client"
 
 import React, { useEffect } from "react"
+import { usePlaybookContext } from "@/contexts/PlaybookContext"
+import { useFormStore } from "@/stores/formStore"
 import { useUser } from "@clerk/nextjs"
 
-import { usePlaybookContext } from "@/lib/contexts/PlaybookContext"
-import { useFormStore } from "@/lib/store"
 import supabase from "@/lib/supabaseClient"
 
 // TODO: Add Zod validation to the form
