@@ -23,9 +23,7 @@ export default function SelectPlaybook() {
 
   return (
     <div className="flex flex-col flex-start text-start">
-      <span className="pl-1 text-sm font-bold leading-6 text-neutral-400">
-        Your Playbook
-      </span>
+      <span className="pl-1 text-sm font-bold leading-6">Your Playbook</span>
       <Select
         name="archetype"
         value={playbook.value}

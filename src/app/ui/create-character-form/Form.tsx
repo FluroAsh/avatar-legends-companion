@@ -30,9 +30,8 @@ export default function FormComponent({
 
   const { user } = useUser()
   const { setPlaybookData } = usePlaybookContext()
-  const { playbook, characterName, background, demeanour } = useFormStore(
-    (state) => state
-  )
+  const { playbook, characterName, background, demeanour, baseStats } =
+    useFormStore((state) => state)
 
   useEffect(() => {
     async function fetchPlaybook() {
@@ -51,11 +50,18 @@ export default function FormComponent({
     if (!user?.id) return console.error("No user id found")
 
     const { error } = await supabase.from("characters").insert({
-      ["user_id"]: user.id,
-      ["character_name"]: characterName.value,
+      user_id: user.id,
+      character_name: characterName.value,
       playbook: playbook.value,
       background: background.values,
       demeanour: demeanour.values,
+      base_stats: [
+        baseStats.creativity,
+        baseStats.harmony,
+        baseStats.focus,
+        baseStats.passion,
+      ],
+      //
     })
 
     error && console.log(error)

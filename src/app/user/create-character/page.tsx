@@ -23,7 +23,7 @@ export default async function Page({
           {/* TODO: Investigate if we can just abstract this away with a useMultiStepForm hook */}
           {(!step || step === "1") && (
             <div className="flex flex-col w-full gap-10 mt-4">
-              <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:grid-rows-1 justify-between border rounded-lg gap-4 p-5 shadow-sm bg-[#343c40]">
+              <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:grid-rows-1 border rounded-lg gap-4 p-4 shadow-sm bg-[#343c40]">
                 <div className="flex flex-col col-span-1 gap-4 sm:col-span-2 md:col-span-1">
                   <Character.SelectPlaybook />
                   <Character.InputName />
@@ -33,7 +33,7 @@ export default async function Page({
               </section>
 
               {/* NOTE: Placeholders for remaining sections */}
-              <section className="flex justify-between bg-orange-600">
+              <section className="grid justify-between grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:grid-rows-1">
                 <Character.SelectStats />
                 <Character.SelectBalance />
                 <Character.SelectConnections />

@@ -2,7 +2,6 @@ import { create } from "zustand"
 import { devtools } from "zustand/middleware"
 
 const FORM_STORE_KEY = "ALC Form Store"
-
 type Field = {
   value: string
   error: string
@@ -13,11 +12,21 @@ type FieldArray = {
   error: string
 }
 
+// export type Stats = { [k in keyof typeof STATS]: number | unknown }
+export type Stats = {
+  selected: string
+  creativity: null
+  harmony: null
+  focus: null
+  passion: null
+}
+
 type FormStore = {
   playbook: Field
   characterName: Field
   background: FieldArray
   demeanour: FieldArray
+  baseStats: Stats
   update: (_partial: Partial<FormStore>) => void
 }
 
@@ -39,6 +48,13 @@ const useFormStore = create(
       demeanour: {
         values: [],
         error: "",
+      },
+      baseStats: {
+        selected: "",
+        creativity: null,
+        harmony: null,
+        focus: null,
+        passion: null,
       },
       update: (partial) =>
         set((state) => ({ ...state, ...partial }), false, "UPDATE_FORM"),
