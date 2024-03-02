@@ -1,10 +1,13 @@
 "use client"
 
+import { useEffect } from "react"
 import { usePlaybookContext } from "@/contexts/PlaybookContext"
 import { useFormStore } from "@/stores/formStore"
 
 import { Checkbox } from "@/app/ui/checkbox"
 import { STATS } from "@/lib/constants"
+
+type StatsType = (typeof STATS)[keyof typeof STATS]
 
 const statLabel = (
   stat: string,
@@ -15,32 +18,44 @@ const statLabel = (
   return value > 0 ? `(+${value})` : `(${value})`
 }
 
-type StatsType = (typeof STATS)[keyof typeof STATS]
-
 export default function SelectStats() {
   const { playbookData } = usePlaybookContext()
   const update = useFormStore((state) => state.update)
   const baseStats = useFormStore((state) => state.baseStats)
+  const playbook = useFormStore((state) => state.playbook)
+
+  // Synchronising the base stats with the playbook stats (and update the selected stat for the +1 bonus)
+  useEffect(() => {
+    if (baseStats.selected !== "") {
+      update({
+        baseStats: {
+          selected: baseStats.selected,
+          ...playbookData.baseStats,
+          [baseStats.selected]: playbookData.baseStats[baseStats.selected] + 1,
+        },
+      })
+    }
+    // This effect should only run when the playbook changes, not on every selection to avoid unnecessary updates
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [playbookData.baseStats, playbookData.class, playbook.value, update])
 
   if (!playbookData.class || !playbookData.baseStats) return null
 
   const handleChange = (stat: StatsType) => (checked: boolean) => {
     if (!checked) return
 
+    // Increment the selected stat, or if no selection has yet been made, use the playbook's base stats
     update({
       baseStats: {
         selected: stat,
         ...playbookData.baseStats,
-        [stat]:
-          baseStats.selected !== stat
-            ? (baseStats[stat] ?? playbookData.baseStats[stat]) + 1
-            : baseStats[stat],
+        [stat]: (baseStats[stat] ?? playbookData.baseStats[stat]) + 1,
       },
     })
   }
 
   return (
-    <div className="bg-[#343c40] rounded-lg border border- shadow-sm overflow-hidden">
+    <div className="bg-[#343c40] rounded-lg border border- shadow-sm overflow-hidden min-w-[300px]">
       <div className="p-2 px-4">
         <p className="text-lg font-bold">Stats</p>
         <p className="text-xs text-neutral-300">
@@ -48,12 +63,12 @@ export default function SelectStats() {
         </p>
       </div>
 
-      <div className="grid grid-cols-2 p-4 bg-[#2a2c2e] border-t border-t-neutral-600 gap-x-6 gap-y-3">
+      <div className="grid grid-cols-2 p-4 bg-[#2a2c2e] border-t border-t-neutral-600 gap-x-6 gap-y-1">
         {Object.values(STATS).map((stat) => (
           <label
             key={stat}
             htmlFor={stat}
-            className="flex items-center select-none hover:cursor-pointer"
+            className="flex items-center p-2 pr-3 transition-colors rounded-lg select-none justify-self-start hover:cursor-pointer hover:bg-neutral-800"
           >
             <Checkbox
               id={stat}

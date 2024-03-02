@@ -12,8 +12,8 @@ type FieldArray = {
   error: string
 }
 
-export type Stats = {
-  selected: string
+type Stats = {
+  selected: string | ""
   creativity: null
   harmony: null
   focus: null

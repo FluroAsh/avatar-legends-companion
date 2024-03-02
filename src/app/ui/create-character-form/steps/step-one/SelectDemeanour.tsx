@@ -42,7 +42,7 @@ export default function SelectDemeanour() {
             <div key={d}>
               <label
                 htmlFor={d}
-                className="flex items-center text-sm truncate select-none"
+                className="flex items-center text-sm truncate select-none hover:cursor-pointer"
               >
                 <Checkbox
                   id={d}
