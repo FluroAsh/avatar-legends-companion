@@ -2,71 +2,78 @@
 export const DAILY_REVALIDATE = 86400
 
 const STATUSES = {
-  positive: {
-    empowered: "Empowered",
-    favored: "Favored",
-    inspired: "Inspired",
-    prepared: "Prepared",
+  POSITIVE: {
+    EMPOWERED: "empowered",
+    FAVORED: "favored",
+    INSPIRED: "inspired",
+    PREPARED: "prepared",
   },
-  negative: {
-    doomed: "Doomed",
-    impaired: "Impaired",
-    trapped: "Trapped",
-    stunned: "Stunned",
+  NEGATIVE: {
+    DOOMED: "doomed",
+    IMPAIRED: "impaired",
+    TRAPPED: "trapped",
+    STUNNED: "stunned",
   },
+} as const
+
+const STATS = {
+  CREATIVITY: "creativity",
+  HARMONY: "harmony",
+  FOCUS: "focus",
+  PASSION: "passion",
 } as const
 
 const ARCHETYPES = {
-  adamant: "Adamant",
-  destined: "Destined",
-  elder: "Elder",
-  foundling: "Foundling",
-  guardian: "Guardian",
-  hammer: "Hammer",
-  icon: "Icon",
-  pillar: "Pillar",
-  prodigy: "Prodigy",
-  razor: "Razor",
-  rogue: "Rogue",
-  successor: "Successor",
+  ADAMANT: "adamant",
+  DESTINED: "destined",
+  ELDER: "elder",
+  FOUNDLING: "foundling",
+  GUARDIAN: "guardian",
+  HAMMER: "hammer",
+  ICON: "icon",
+  PILLAR: "pillar",
+  PRODIGY: "prodigy",
+  RAZOR: "razor",
+  ROGUE: "rogue",
+  SUCCESSOR: "successor",
 } as const
 
 const BACKGROUNDS = {
-  military: "Military",
-  outlaw: "Outlaw",
-  urban: "Urban",
-  monastic: "Monastic",
-  privileged: "Privileged",
-  wilderness: "Wilderness",
+  MILITARY: "military",
+  OUTLAW: "outlaw",
+  URBAN: "urban",
+  MONASTIC: "monastic",
+  PRIVILEGED: "privileged",
+  WILDERNESS: "wilderness",
 } as const
 
 const DEMEANOURS = {
-  "above-it-all": "Above It All",
-  perfectionist: "Perfectionist",
-  chilly: "Chilly",
-  rebellious: "Rebellious",
-  flippant: "Flippant",
-  standoffish: "Standoffish",
-  impatient: "Impatient",
-  sensitive: "Sensitive",
-  affable: "Affable",
-  enthusiastic: "Enthusiastic",
-  talkative: "Talkative",
-  impetuous: "Impetuous",
-  eager: "Eager",
-  solemn: "Solemn",
-  haunted: "Haunted",
-  uncertain: "Uncertain",
-  jocular: "Jocular",
-  watchful: "Watchful",
+  "ABOVE-IT-ALL": "above it all",
+  PERFECTIONIST: "perfectionist",
+  CHILLY: "chilly",
+  REBELLIOUS: "rebellious",
+  FLIPPANT: "flippant",
+  STANDOFFISH: "standoffish",
+  IMPATIENT: "impatient",
+  SENSITIVE: "sensitive",
+  AFFABLE: "affable",
+  ENTHUSIASTIC: "enthusiastic",
+  TALKATIVE: "talkative",
+  IMPETUOUS: "impetuous",
+  EAGER: "eager",
+  SOLEMN: "solemn",
+  HAUNTED: "haunted",
+  UNCERTAIN: "uncertain",
+  JOCULAR: "jocular",
+  WATCHFUL: "watchful",
 } as const
 
 const CONDITIONS = {
-  afraid: "Afraid",
-  angry: "Angry",
-  guilty: "Guilty",
-  insecure: "Insecure",
-  troubled: "Troubled",
+  AFRAID: "afraid",
+  ANGRY: "angry",
+  GUILTY: "guilty",
+  INSECURE: "insecure",
+  TROUBLED: "troubled",
 } as const
 
 const CLEARING_CONDITIONS = {
@@ -117,6 +124,7 @@ const GROWTH_ADVANCEMENTS = [
 
 export {
   STATUSES,
+  STATS,
   ARCHETYPES,
   BACKGROUNDS,
   DEMEANOURS,
