@@ -24,18 +24,17 @@ export default function SelectStats() {
 
   if (!playbookData.class || !playbookData.baseStats) return null
 
-  const handleChange = (checkboxStat: StatsType) => (checked: boolean) => {
+  const handleChange = (stat: StatsType) => (checked: boolean) => {
     if (!checked) return
 
     update({
       baseStats: {
-        selected: checkboxStat,
+        selected: stat,
         ...playbookData.baseStats,
-        [checkboxStat]:
-          baseStats.selected !== checkboxStat
-            ? (baseStats[checkboxStat] ??
-                playbookData.baseStats[checkboxStat]) + 1
-            : baseStats[checkboxStat],
+        [stat]:
+          baseStats.selected !== stat
+            ? (baseStats[stat] ?? playbookData.baseStats[stat]) + 1
+            : baseStats[stat],
       },
     })
   }
