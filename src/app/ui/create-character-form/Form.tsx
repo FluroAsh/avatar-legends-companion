@@ -35,9 +35,11 @@ export default function FormComponent({
 
   useEffect(() => {
     async function fetchPlaybook() {
-      const data = await import(
-        `src/data/class-data/${playbook.value || "bold"}.json`
+      // TODO: Add React Query for managing the server state
+      const res = await fetch(
+        "http://localhost:3000/api/classes?type=" + (playbook.value || "bold")
       )
+      const { data } = await res.json()
       setPlaybookData({ ...data })
     }
     fetchPlaybook()
