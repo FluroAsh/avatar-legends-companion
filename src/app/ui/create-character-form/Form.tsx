@@ -63,7 +63,6 @@ export default function FormComponent({
         baseStats.focus,
         baseStats.passion,
       ],
-      //
     })
 
     error && console.log(error)

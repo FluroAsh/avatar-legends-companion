@@ -12,7 +12,6 @@ type FieldArray = {
   error: string
 }
 
-// export type Stats = { [k in keyof typeof STATS]: number | unknown }
 export type Stats = {
   selected: string
   creativity: null
@@ -57,7 +56,7 @@ const useFormStore = create(
         passion: null,
       },
       update: (partial) =>
-        set((state) => ({ ...state, ...partial }), false, "UPDATE_FORM"),
+        set((state) => ({ ...state, ...partial }), false, "FORM_UPDATE"),
     }),
     { name: FORM_STORE_KEY }
   )
