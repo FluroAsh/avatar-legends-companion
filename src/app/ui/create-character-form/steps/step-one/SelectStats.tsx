@@ -26,7 +26,7 @@ export default function SelectStats() {
 
   // Synchronising the base stats with the playbook stats (and update the selected stat for the +1 bonus)
   useEffect(() => {
-    if (baseStats.selected !== "") {
+    if (baseStats.selected && baseStats.selected !== "") {
       update({
         baseStats: {
           selected: baseStats.selected,

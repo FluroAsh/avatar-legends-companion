@@ -26,6 +26,10 @@ type FormStore = {
   background: FieldArray
   demeanour: FieldArray
   baseStats: Stats
+  balance: {
+    value: number[]
+    error: string
+  }
   update: (_partial: Partial<FormStore>) => void
 }
 
@@ -54,6 +58,10 @@ const useFormStore = create(
         harmony: null,
         focus: null,
         passion: null,
+      },
+      balance: {
+        value: [0],
+        error: "",
       },
       update: (partial) =>
         set((state) => ({ ...state, ...partial }), false, "FORM_UPDATE"),

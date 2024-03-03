@@ -19,6 +19,7 @@ export default function SelectPlaybook() {
       playbook: { value, error: "" },
       // NOTE: Should clear any dependent Playbook form fields
       demeanour: { values: [], error: "" },
+      balance: { value: [0], error: "" },
     })
 
   return (
