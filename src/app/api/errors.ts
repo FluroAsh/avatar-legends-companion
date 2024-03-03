@@ -1,14 +1,14 @@
-type ClassErrorProps = {
+type PlaybookErrorProps = {
   statusCode: number
   message: string
 }
 
-export class ClassError extends Error {
+export class PlaybookError extends Error {
   statusCode: number
 
-  constructor({ message, statusCode }: ClassErrorProps) {
+  constructor({ message, statusCode }: PlaybookErrorProps) {
     super(message)
-    this.name = "ClassError"
+    this.name = "PlaybookError"
     this.statusCode = statusCode
   }
 }
