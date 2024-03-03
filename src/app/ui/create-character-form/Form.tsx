@@ -37,7 +37,9 @@ export default function FormComponent({
     async function fetchPlaybook() {
       // TODO: Add React Query for managing the server state
       const res = await fetch(
-        "http://localhost:3000/api/classes?type=" + (playbook.value || "bold")
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/classes?type=${
+          playbook.value || "bold"
+        }`
       )
       const { data } = await res.json()
       setPlaybookData({ ...data })
