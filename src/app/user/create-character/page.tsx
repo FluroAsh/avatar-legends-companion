@@ -33,7 +33,7 @@ export default async function Page({
               </section>
 
               {/* NOTE: Placeholders for remaining sections */}
-              <section className="grid justify-between grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:grid-rows-1">
+              <section className="grid justify-between grid-cols-1 gap-4 md:grid-cols-2 md:grid-rows-1 lg:grid-cols-3 ">
                 <Character.SelectStats />
                 <Character.SelectBalance />
                 <Character.SelectConnections />
