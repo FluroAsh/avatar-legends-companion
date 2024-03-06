@@ -1,21 +1,28 @@
 "use client"
 
-import { usePlaybookContext } from "@/contexts/PlaybookContext"
 import { useFormStore } from "@/stores/formStore"
+
+// import { useQuery, useQueryClient } from "@tanstack/react-query"
 
 import { Checkbox } from "@/app/ui/checkbox"
 import { DEMEANOURS } from "@/lib/constants"
+import { usePlaybook, useSuspensePlaybook } from "@/lib/query-client"
+
+type Demeanour = (typeof DEMEANOURS)[keyof typeof DEMEANOURS]
 
 export default function SelectDemeanour() {
-  const { playbookData } = usePlaybookContext()
   const playbook = useFormStore((state) => state.playbook)
   const demeanour = useFormStore((state) => state.demeanour)
   const update = useFormStore((state) => state.update)
 
-  // Probably want to just suspend this component until the state is ready/not an empty Object,
-  // or return a skeleton. For now we'll just return null.
-
-  if (!playbookData.demeanor) return null
+  // const { data } = useSuspensePlaybook(playbook.value)
+  const { data, isLoading } = usePlaybook(playbook.value)
+  // const qc = useQueryClient()
+  // const data = qc.getQueryData([playbook.value || "bold"])
+  // console.log(demeanours)
+  if (isLoading) return <div>Loading...</div>
+  const demeanours: Demeanour[] = data.demeanor
+  console.log(demeanours)
 
   const handleChange = (id: string) => (checked: boolean) => {
     if (checked && demeanour.values.length === 3) return
@@ -37,28 +44,25 @@ export default function SelectDemeanour() {
         Demeanour {demeanour.values.length} / 3
       </span>
       <div className="flex-1 grid grid-cols-2 p-1 border rounded-md bg-[#2a2c2e]">
-        {playbookData.demeanor.map(
-          (d: (typeof DEMEANOURS)[keyof typeof DEMEANOURS]) => (
-            <div className="my-auto" key={d}>
-              <label
-                htmlFor={d}
-                className="flex items-center p-[7px] text-sm rounded-lg hover:cursor-pointer select-none hover:bg-neutral-800 max-w-fit transition-colors"
-              >
-                <Checkbox
-                  id={d}
-                  name="demeanour"
-                  checked={demeanour.values.includes(d)}
-                  onCheckedChange={handleChange(d)}
-                  disabled={
-                    demeanour.values.length >= 3 &&
-                    !demeanour.values.includes(d)
-                  }
-                />
-                <span className="pl-1 capitalize truncate">{d}</span>
-              </label>
-            </div>
-          )
-        )}
+        {demeanours.map((d: (typeof DEMEANOURS)[keyof typeof DEMEANOURS]) => (
+          <div className="my-auto" key={d}>
+            <label
+              htmlFor={d}
+              className="flex items-center p-[7px] text-sm rounded-lg hover:cursor-pointer select-none hover:bg-neutral-800 max-w-fit transition-colors"
+            >
+              <Checkbox
+                id={d}
+                name="demeanour"
+                checked={demeanour.values.includes(d)}
+                onCheckedChange={handleChange(d)}
+                disabled={
+                  demeanour.values.length >= 3 && !demeanour.values.includes(d)
+                }
+              />
+              <span className="pl-1 capitalize truncate">{d}</span>
+            </label>
+          </div>
+        ))}
       </div>
     </div>
   )

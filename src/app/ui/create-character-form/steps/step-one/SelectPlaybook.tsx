@@ -1,6 +1,7 @@
 "use client"
 
 import { useFormStore } from "@/stores/formStore"
+import { useQueryClient } from "@tanstack/react-query"
 
 import {
   Select,
@@ -9,18 +10,26 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/app/ui/select"
+import { fetchPlaybook } from "@/lib/utils"
 
 export default function SelectPlaybook() {
   const playbook = useFormStore((state) => state.playbook)
   const update = useFormStore((state) => state.update)
+  const qc = useQueryClient()
 
-  const handleSelectChange = (value: string) =>
+  const handleSelectChange = (value: string) => {
+    qc.prefetchQuery({
+      queryKey: [value],
+      queryFn: () => fetchPlaybook(value),
+    })
+
     update({
       playbook: { value, error: "" },
       // NOTE: Should clear & reset any specified dependent Playbook form fields
       demeanour: { values: [], error: "" },
       balance: { value: [0], error: "" },
     })
+  }
 
   return (
     <div className="flex flex-col flex-start text-start">

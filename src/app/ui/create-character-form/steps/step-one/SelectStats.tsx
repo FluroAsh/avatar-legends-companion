@@ -1,8 +1,8 @@
 "use client"
 
 import { useEffect } from "react"
-import { usePlaybookContext } from "@/contexts/PlaybookContext"
 import { useFormStore } from "@/stores/formStore"
+import { useQueryClient } from "@tanstack/react-query"
 
 import { Checkbox } from "@/app/ui/checkbox"
 import { STATS } from "@/lib/constants"
@@ -19,10 +19,11 @@ const statLabel = (
 }
 
 export default function SelectStats() {
-  const { playbookData } = usePlaybookContext()
   const update = useFormStore((state) => state.update)
   const baseStats = useFormStore((state) => state.baseStats)
   const playbook = useFormStore((state) => state.playbook)
+
+  const playbookData = useQueryClient().getQueryData<any>([playbook || "bold"])
 
   // Synchronising the base stats with the playbook stats (and update the selected stat for the +1 bonus)
   useEffect(() => {

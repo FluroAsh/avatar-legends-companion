@@ -1,11 +1,13 @@
 "use client"
 
-import React, { useEffect } from "react"
-import { usePlaybookContext } from "@/contexts/PlaybookContext"
+import React from "react"
 import { useFormStore } from "@/stores/formStore"
 import { useUser } from "@clerk/nextjs"
 
-import supabase from "@/lib/supabaseClient"
+// import { useQuery, useQueryClient } from "@tanstack/react-query"
+
+// import { fetchPlaybook } from "@/lib/query-client"
+import supabase from "@/lib/supabase-client"
 
 // TODO: Add Zod validation to the form
 
@@ -29,23 +31,8 @@ export default function FormComponent({
   // context/state, submission & submission validation
 
   const { user } = useUser()
-  const { setPlaybookData } = usePlaybookContext()
   const { playbook, characterName, background, demeanour, baseStats } =
     useFormStore((state) => state)
-
-  useEffect(() => {
-    async function fetchPlaybook() {
-      // TODO: Add React Query for managing the server state
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/classes?type=${
-          playbook.value || "bold"
-        }`
-      )
-      const { data } = await res.json()
-      setPlaybookData({ ...data })
-    }
-    fetchPlaybook()
-  }, [playbook.value, setPlaybookData])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()

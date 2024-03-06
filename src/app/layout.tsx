@@ -5,6 +5,8 @@ import "@/ui/styles/globals.css"
 import { Inter } from "next/font/google"
 import { ClerkProvider } from "@clerk/nextjs"
 
+import { ReactQueryClientProvider } from "@/lib/query-client"
+
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
@@ -20,19 +22,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ClerkProvider
-          appearance={{
-            variables: {
-              colorPrimary: "#313f51",
-            },
-          }}
-        >
-          <div className="relative flex flex-col min-h-screen antialiased">
-            <SiteHeader />
-            <main className="flex flex-1">{children}</main>
-            {/* Footer */}
-          </div>
-        </ClerkProvider>
+        <ReactQueryClientProvider>
+          <ClerkProvider
+            appearance={{
+              variables: {
+                colorPrimary: "#313f51",
+              },
+            }}
+          >
+            <div className="relative flex flex-col min-h-screen antialiased">
+              <SiteHeader />
+              <main className="flex flex-1">{children}</main>
+              {/* Footer */}
+            </div>
+          </ClerkProvider>
+        </ReactQueryClientProvider>
       </body>
     </html>
   )

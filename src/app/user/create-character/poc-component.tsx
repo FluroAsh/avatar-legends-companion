@@ -1,10 +1,16 @@
 "use client"
 
-import { usePlaybookContext } from "@/contexts/PlaybookContext"
+import { useFormStore } from "@/stores/formStore"
+import { useQueryClient } from "@tanstack/react-query"
 
 export function PocComponent() {
-  const { playbookData } = usePlaybookContext()
+  const playbook = useFormStore((state) => state.playbook)
 
+  const playbookData = useQueryClient().getQueryData<any>([
+    playbook || "bold",
+    playbook,
+  ])
+  
   return (
     <div
       id="poc-form"

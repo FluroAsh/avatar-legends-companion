@@ -1,8 +1,8 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { usePlaybookContext } from "@/contexts/PlaybookContext"
 import { useFormStore } from "@/stores/formStore"
+import { useQueryClient } from "@tanstack/react-query"
 
 import { Slider } from "@/app/ui/slider"
 
@@ -10,15 +10,18 @@ type SelectBalanceProps = React.ComponentProps<typeof Slider>
 
 export default function SelectBalance({ ...props }: SelectBalanceProps) {
   const [balanceLabel, setBalanceLabel] = useState<string>("neutral")
-  const { playbookData } = usePlaybookContext()
   const update = useFormStore((state) => state.update)
   const balance = useFormStore((state) => state.balance)
+  const playbook = useFormStore((state) => state.playbook)
 
-  useEffect(() => setBalanceLabel("neutral"), [playbookData.class])
+  useEffect(() => setBalanceLabel("neutral"), [playbook.value])
 
-  if (!playbookData?.balance) return null
+  // Whenver the playbookData.class changes, we want to update the balance label back to "neutral"
+  const queryBalance = useQueryClient().getQueryData<any>([playbook || "bold"])
 
-  const [balance1, balance2] = playbookData.balance
+  if (!balance) return null
+
+  const [balance1, balance2] = queryBalance
 
   const handleChange = (value: number[]) => {
     const labels = {

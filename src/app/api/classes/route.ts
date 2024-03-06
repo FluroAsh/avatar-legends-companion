@@ -2,7 +2,6 @@ import { readdirSync } from "fs"
 import { NextRequest, NextResponse } from "next/server"
 
 import { getPlaybookData, getPlaybooksData } from "@/app/api/helpers"
-import { DAILY_REVALIDATE } from "@/lib/constants"
 import { CLASS_DATA_PATHNAME } from "@/lib/paths"
 
 import { PlaybookError } from "../errors"
@@ -13,7 +12,6 @@ export async function GET(req: NextRequest) {
 
   try {
     const typeParam = searchParams.get("type")
-    newHeaders.set("Cache-Control", `public, max-age=${DAILY_REVALIDATE}`)
 
     if (typeParam) {
       const filePath = `${CLASS_DATA_PATHNAME}/${typeParam}.json`
