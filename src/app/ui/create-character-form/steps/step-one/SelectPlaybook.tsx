@@ -17,21 +17,21 @@ export default function SelectPlaybook() {
   const handleSelectChange = (value: string) =>
     update({
       playbook: { value, error: "" },
-      // NOTE: Should clear any dependent Playbook form fields
+      // NOTE: Should clear & reset any specified dependent Playbook form fields
       demeanour: { values: [], error: "" },
       balance: { value: [0], error: "" },
     })
 
   return (
     <div className="flex flex-col flex-start text-start">
-      <span className="pl-1 text-sm font-bold leading-6">Your Playbook</span>
+      <span className="pl-1 text-sm font-bold leading-7">Your Playbook</span>
       <Select
         name="archetype"
         value={playbook.value}
         onValueChange={handleSelectChange}
         defaultValue="bold"
       >
-        <SelectTrigger className="md:max-w-[250px] h-[35px]">
+        <SelectTrigger className="h-[35px]">
           <SelectValue placeholder="Choose your Playbook" />
         </SelectTrigger>
         <SelectContent>
