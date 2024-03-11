@@ -1,11 +1,11 @@
 import SiteHeader from "@/app/ui/navigation/site-header"
 
-import "@/ui/styles/globals.css"
+import "@/ui/globals.css"
 
 import { Inter } from "next/font/google"
 import { ClerkProvider } from "@clerk/nextjs"
 
-import { ReactQueryClientProvider } from "@/lib/query-client"
+import { ReactQueryClientProvider } from "@/utils/query-client"
 
 const inter = Inter({ subsets: ["latin"] })
 

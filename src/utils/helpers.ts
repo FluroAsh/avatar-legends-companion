@@ -17,12 +17,3 @@ export const getInitials = (
   firstName?: null | string,
   lastName?: null | string
 ) => (firstName && lastName ? `${firstName[0]}${lastName[0]}` : "N/A")
-
-async function fetchPlaybook(playbook: string) {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/classes?type=${playbook || "bold"}`
-  )
-  return await res.json()
-}
-
-export { fetchPlaybook }

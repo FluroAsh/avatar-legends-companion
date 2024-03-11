@@ -2,7 +2,7 @@ import Link from "next/link"
 import { currentUser, SignOutButton } from "@clerk/nextjs"
 
 import { NAV_LINKS } from "@/lib/site-config"
-import { getInitials } from "@/lib/utils"
+import { getInitials } from "@/utils/helpers"
 
 import { Avatar, AvatarFallback, AvatarImage } from "../avatar"
 import { Button } from "../button"

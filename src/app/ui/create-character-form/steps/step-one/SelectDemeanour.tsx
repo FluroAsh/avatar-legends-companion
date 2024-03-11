@@ -2,11 +2,9 @@
 
 import { useFormStore } from "@/stores/formStore"
 
-// import { useQuery, useQueryClient } from "@tanstack/react-query"
-
 import { Checkbox } from "@/app/ui/checkbox"
 import { DEMEANOURS } from "@/lib/constants"
-import { usePlaybook, useSuspensePlaybook } from "@/lib/query-client"
+import { useSuspensePlaybook } from "@/utils/query-client"
 
 type Demeanour = (typeof DEMEANOURS)[keyof typeof DEMEANOURS]
 
@@ -15,14 +13,8 @@ export default function SelectDemeanour() {
   const demeanour = useFormStore((state) => state.demeanour)
   const update = useFormStore((state) => state.update)
 
-  // const { data } = useSuspensePlaybook(playbook.value)
-  const { data, isLoading } = usePlaybook(playbook.value)
-  // const qc = useQueryClient()
-  // const data = qc.getQueryData([playbook.value || "bold"])
-  // console.log(demeanours)
-  if (isLoading) return <div>Loading...</div>
-  const demeanours: Demeanour[] = data.demeanor
-  console.log(demeanours)
+  const { data } = useSuspensePlaybook(playbook.value)
+  const demeanours: Demeanour[] = data?.demeanor
 
   const handleChange = (id: string) => (checked: boolean) => {
     if (checked && demeanour.values.length === 3) return

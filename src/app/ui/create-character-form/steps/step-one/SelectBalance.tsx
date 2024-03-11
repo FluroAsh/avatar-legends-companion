@@ -1,27 +1,19 @@
 "use client"
 
-import { useEffect, useState } from "react"
 import { useFormStore } from "@/stores/formStore"
-import { useQueryClient } from "@tanstack/react-query"
 
 import { Slider } from "@/app/ui/slider"
+import { useSuspensePlaybook } from "@/utils/query-client"
 
 type SelectBalanceProps = React.ComponentProps<typeof Slider>
 
 export default function SelectBalance({ ...props }: SelectBalanceProps) {
-  const [balanceLabel, setBalanceLabel] = useState<string>("neutral")
   const update = useFormStore((state) => state.update)
   const balance = useFormStore((state) => state.balance)
   const playbook = useFormStore((state) => state.playbook)
 
-  useEffect(() => setBalanceLabel("neutral"), [playbook.value])
-
-  // Whenver the playbookData.class changes, we want to update the balance label back to "neutral"
-  const queryBalance = useQueryClient().getQueryData<any>([playbook || "bold"])
-
-  if (!balance) return null
-
-  const [balance1, balance2] = queryBalance
+  const { data: playbookData } = useSuspensePlaybook(playbook.value)
+  const [balance1, balance2] = playbookData.balance
 
   const handleChange = (value: number[]) => {
     const labels = {
@@ -30,9 +22,11 @@ export default function SelectBalance({ ...props }: SelectBalanceProps) {
       "1": balance2,
     } as Record<string, string>
 
-    setBalanceLabel(labels[value[0]])
+    const balanceLabel = labels[value[0]]
+
     update({
       balance: {
+        selected: balanceLabel,
         value: value,
         error: "",
       },
@@ -47,7 +41,7 @@ export default function SelectBalance({ ...props }: SelectBalanceProps) {
           <p className="text-xs text-neutral-300">Shift Once (Optional)</p>
         </div>
         <div className="pt-1 my-auto text-sm capitalize text-neutral-300">
-          {balanceLabel}
+          {balance.selected}
         </div>
       </div>
 

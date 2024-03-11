@@ -27,6 +27,7 @@ type FormStore = {
   demeanour: FieldArray
   baseStats: Stats
   balance: {
+    selected: string
     value: number[]
     error: string
   }
@@ -60,6 +61,7 @@ const useFormStore = create(
         passion: null,
       },
       balance: {
+        selected: "neutral",
         value: [0],
         error: "",
       },

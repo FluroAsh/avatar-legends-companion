@@ -1,10 +1,14 @@
-// import { Suspense } from "react"
+import { Suspense } from "react"
 import { QueryClient } from "@tanstack/react-query"
 
 import * as Character from "@/app/ui/create-character-form"
-// import { CheckboxSkeleton } from "@/app/ui/skeletons"
-
-import { fetchPlaybook } from "@/lib/utils"
+import {
+  BalanceSkeleton,
+  CheckboxSkeleton,
+  StatsSkeleton,
+} from "@/app/ui/skeletons"
+import { DEFAULT_PLAYBOOK } from "@/lib/constants"
+import { fetchPlaybook } from "@/lib/helpers"
 
 import { PocComponent } from "./poc-component"
 
@@ -16,19 +20,13 @@ export default async function Page({
   const qc = new QueryClient()
   const { step } = searchParams ?? {}
 
-  const data = await fetchPlaybook("bold")
+  const initialPlaybook = await fetchPlaybook(DEFAULT_PLAYBOOK)
 
-  // receives the data as expected
-  // but is not being set in the query cache
-  console.log("data", data)
-  qc.setQueryData(["bold"], {
-    playbook: "test",
-  })
-
-  // Fetch the initial playbook data and return in the serverside HTML
+  // Set the query initial data which is used when generating the server-side HTML
   qc.prefetchQuery({
-    queryKey: ["bold"],
-    queryFn: () => fetchPlaybook("bold"),
+    queryKey: ["playbook", DEFAULT_PLAYBOOK],
+    queryFn: () => fetchPlaybook(DEFAULT_PLAYBOOK),
+    initialData: initialPlaybook,
   })
 
   return (
@@ -48,18 +46,25 @@ export default async function Page({
                 <Character.InputName />
               </div>
               <Character.SelectBackground />
-              {/* <Suspense fallback={<CheckboxSkeleton />}> */}
-              {/* <Character.SelectDemeanour /> */}
+              <Suspense fallback={<CheckboxSkeleton />}>
+                <Character.SelectDemeanour />
+              </Suspense>
+            </section>
+
+            <section className="grid justify-between grid-cols-1 gap-4 md:grid-cols-2 md:grid-rows-1 lg:grid-cols-3 ">
+              {/* These are all dependent on playbook, so we can suspend and compose a skeleton loader for these together */}
+              <Suspense fallback={<StatsSkeleton />}>
+                <Character.SelectStats />
+              </Suspense>
+              <Suspense fallback={<BalanceSkeleton />}>
+                <Character.SelectBalance />
+              </Suspense>
+              {/* <Suspense fallback={<div>Loading...</div>}> */}
+              <Character.SelectConnections />
               {/* </Suspense> */}
             </section>
 
             {/* NOTE: Placeholders for remaining sections */}
-            <section className="grid justify-between grid-cols-1 gap-4 md:grid-cols-2 md:grid-rows-1 lg:grid-cols-3 ">
-              {/* <Character.SelectStats />
-              <Character.SelectBalance />
-              <Character.SelectConnections /> */}
-            </section>
-
             <section className="flex justify-center bg-sky-600">
               <Character.SelectTraining />
             </section>
@@ -85,7 +90,9 @@ export default async function Page({
         )}
       </Character.Form>
       {/* DEBUG: This component is for testing */}
-      <PocComponent />
+      <Suspense fallback={<div>Loading...</div>}>
+        <PocComponent />
+      </Suspense>
     </div>
   )
 }

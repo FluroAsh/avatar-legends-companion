@@ -2,10 +2,10 @@
 
 import { useEffect } from "react"
 import { useFormStore } from "@/stores/formStore"
-import { useQueryClient } from "@tanstack/react-query"
 
 import { Checkbox } from "@/app/ui/checkbox"
 import { STATS } from "@/lib/constants"
+import { useSuspensePlaybook } from "@/utils/query-client"
 
 type StatsType = (typeof STATS)[keyof typeof STATS]
 
@@ -23,7 +23,7 @@ export default function SelectStats() {
   const baseStats = useFormStore((state) => state.baseStats)
   const playbook = useFormStore((state) => state.playbook)
 
-  const playbookData = useQueryClient().getQueryData<any>([playbook || "bold"])
+  const { data: playbookData } = useSuspensePlaybook(playbook.value)
 
   // Synchronising the base stats with the playbook stats (and update the selected stat for the +1 bonus)
   useEffect(() => {
@@ -38,9 +38,7 @@ export default function SelectStats() {
     }
     // This effect should only run when the playbook changes, not on every selection to avoid unnecessary updates
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [playbookData.baseStats, playbookData.class, playbook.value, update])
-
-  if (!playbookData.class || !playbookData.baseStats) return null
+  }, [playbook.value, update])
 
   const handleChange = (stat: StatsType) => (checked: boolean) => {
     if (!checked) return
@@ -56,7 +54,7 @@ export default function SelectStats() {
   }
 
   return (
-    <div className="bg-[#343c40] rounded-lg border border- shadow-sm overflow-hidden min-w-[300px]">
+    <div className="bg-[#343c40] rounded-lg border shadow-sm overflow-hidden min-w-[300px]">
       <div className="p-2 px-4">
         <p className="text-lg font-bold">Stats</p>
         <p className="text-xs text-neutral-300">

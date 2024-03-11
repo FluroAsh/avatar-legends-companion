@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/utils/helpers"
 
 const STEP_DESCRIPTIONS = ["Details", "Moves", "Backstory"]
 

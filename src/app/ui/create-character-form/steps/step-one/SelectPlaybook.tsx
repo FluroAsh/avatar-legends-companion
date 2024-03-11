@@ -10,7 +10,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/app/ui/select"
-import { fetchPlaybook } from "@/lib/utils"
+import { DEFAULT_PLAYBOOK } from "@/lib/constants"
+import { fetchPlaybook } from "@/lib/helpers"
 
 export default function SelectPlaybook() {
   const playbook = useFormStore((state) => state.playbook)
@@ -19,7 +20,7 @@ export default function SelectPlaybook() {
 
   const handleSelectChange = (value: string) => {
     qc.prefetchQuery({
-      queryKey: [value],
+      queryKey: ["playbook", value],
       queryFn: () => fetchPlaybook(value),
     })
 
@@ -27,7 +28,7 @@ export default function SelectPlaybook() {
       playbook: { value, error: "" },
       // NOTE: Should clear & reset any specified dependent Playbook form fields
       demeanour: { values: [], error: "" },
-      balance: { value: [0], error: "" },
+      balance: { selected: "neutral", value: [0], error: "" },
     })
   }
 
@@ -38,7 +39,7 @@ export default function SelectPlaybook() {
         name="archetype"
         value={playbook.value}
         onValueChange={handleSelectChange}
-        defaultValue="bold"
+        defaultValue={DEFAULT_PLAYBOOK}
       >
         <SelectTrigger className="h-[35px]">
           <SelectValue placeholder="Choose your Playbook" />

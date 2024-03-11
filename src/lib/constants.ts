@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars */
 export const DAILY_REVALIDATE = 86400
 
+const DEFAULT_PLAYBOOK = "bold"
+
 const STATUSES = {
   POSITIVE: {
     EMPOWERED: "empowered",
@@ -123,6 +125,7 @@ const GROWTH_ADVANCEMENTS = [
 ] as const
 
 export {
+  DEFAULT_PLAYBOOK,
   STATUSES,
   STATS,
   ARCHETYPES,

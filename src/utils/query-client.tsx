@@ -10,7 +10,8 @@ import {
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 import { ReactQueryStreamedHydration } from "@tanstack/react-query-next-experimental"
 
-import { fetchPlaybook } from "./utils"
+import { DEFAULT_PLAYBOOK } from "@/lib/constants"
+import { fetchPlaybook } from "@/lib/helpers"
 
 const ReactQueryClientProvider = ({
   children,
@@ -20,13 +21,7 @@ const ReactQueryClientProvider = ({
   const [queryClient] = useState(
     () =>
       new QueryClient({
-        defaultOptions: {
-          queries: {
-            // With SSR, we usually want to set some default staleTime
-            // above 0 to avoid refetching immediately on the client
-            staleTime: 60 * 1000,
-          },
-        },
+        defaultOptions: { queries: { staleTime: Infinity } },
       })
   )
 
@@ -38,15 +33,15 @@ const ReactQueryClientProvider = ({
   )
 }
 
-const usePlaybook = (playbook: string) =>
+const usePlaybook = (playbook: string | undefined) =>
   useQuery({
-    queryKey: [playbook || "bold"],
+    queryKey: ["playbook", playbook || DEFAULT_PLAYBOOK],
     queryFn: () => fetchPlaybook(playbook),
   })
 
-const useSuspensePlaybook = (playbook: string) =>
+const useSuspensePlaybook = (playbook: string | undefined) =>
   useSuspenseQuery({
-    queryKey: [playbook || "bold"],
+    queryKey: ["playbook", playbook || DEFAULT_PLAYBOOK],
     queryFn: () => fetchPlaybook(playbook),
   })
 

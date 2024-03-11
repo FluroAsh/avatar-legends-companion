@@ -1,13 +1,12 @@
 "use client"
 
-import React from "react"
 import { useFormStore } from "@/stores/formStore"
 import { useUser } from "@clerk/nextjs"
 
 // import { useQuery, useQueryClient } from "@tanstack/react-query"
 
 // import { fetchPlaybook } from "@/lib/query-client"
-import supabase from "@/lib/supabase-client"
+import supabase from "@/utils/supabase-client"
 
 // TODO: Add Zod validation to the form
 
