@@ -30,8 +30,14 @@ export default function FormComponent({
   // context/state, submission & submission validation
 
   const { user } = useUser()
-  const { playbook, characterName, background, demeanour, baseStats } =
-    useFormStore((state) => state)
+  const {
+    playbook,
+    characterName,
+    background,
+    demeanour,
+    baseStats,
+    connections,
+  } = useFormStore((state) => state)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -51,6 +57,7 @@ export default function FormComponent({
         baseStats.focus,
         baseStats.passion,
       ],
+      connections: connections.values,
     })
 
     error && console.log(error)

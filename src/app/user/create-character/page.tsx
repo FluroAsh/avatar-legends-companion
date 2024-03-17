@@ -10,8 +10,6 @@ import {
 import { DEFAULT_PLAYBOOK } from "@/lib/constants"
 import { fetchPlaybook } from "@/lib/helpers"
 
-import { PocComponent } from "./poc-component"
-
 export default async function Page({
   searchParams,
 }: {
@@ -39,7 +37,7 @@ export default async function Page({
           Might also consider moving it into the Form component for handling form validation etc with React Form/Zod */}
         {/* TODO: Investigate if we can just abstract this away with a useMultiStepForm hook */}
         {(!step || step === "1") && (
-          <div className="flex flex-col w-full gap-10 mt-4">
+          <div className="flex flex-col w-full gap-4 mt-4">
             <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:grid-rows-1 border rounded-lg gap-4 p-4 shadow-sm bg-[#343c40]">
               <div className="flex flex-col col-span-1 gap-4 sm:col-span-2 md:col-span-1">
                 <Character.SelectPlaybook />
@@ -51,7 +49,7 @@ export default async function Page({
               </Suspense>
             </section>
 
-            <section className="grid justify-between grid-cols-1 gap-4 md:grid-cols-2 md:grid-rows-1 lg:grid-cols-3 ">
+            <section className="grid grid-cols-1 gap-4 md:grid-cols-2">
               {/* These are all dependent on playbook, so we can suspend and compose a skeleton loader for these together */}
               <Suspense fallback={<StatsSkeleton />}>
                 <Character.SelectStats />
@@ -59,9 +57,9 @@ export default async function Page({
               <Suspense fallback={<BalanceSkeleton />}>
                 <Character.SelectBalance />
               </Suspense>
-              {/* <Suspense fallback={<div>Loading...</div>}> */}
-              <Character.SelectConnections />
-              {/* </Suspense> */}
+              <Suspense fallback={<div>Loading...</div>}>
+                <Character.SelectConnections />
+              </Suspense>
             </section>
 
             {/* NOTE: Placeholders for remaining sections */}
@@ -89,10 +87,6 @@ export default async function Page({
           </>
         )}
       </Character.Form>
-      {/* DEBUG: This component is for testing */}
-      <Suspense fallback={<div>Loading...</div>}>
-        <PocComponent />
-      </Suspense>
     </div>
   )
 }

@@ -31,6 +31,7 @@ type FormStore = {
     value: number[]
     error: string
   }
+  connections: FieldArray
   update: (_partial: Partial<FormStore>) => void
 }
 
@@ -63,6 +64,10 @@ const useFormStore = create(
       balance: {
         selected: "neutral",
         value: [0],
+        error: "",
+      },
+      connections: {
+        values: ["", ""],
         error: "",
       },
       update: (partial) =>

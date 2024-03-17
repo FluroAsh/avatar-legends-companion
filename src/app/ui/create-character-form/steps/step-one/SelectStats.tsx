@@ -9,7 +9,7 @@ import { useSuspensePlaybook } from "@/utils/query-client"
 
 type StatsType = (typeof STATS)[keyof typeof STATS]
 
-const statLabel = (
+const statLabelValue = (
   stat: string,
   statValue: number | null,
   playbookStats: any // TODO: Add type, playbookData is in Context (untyped) for now...
@@ -54,7 +54,7 @@ export default function SelectStats() {
   }
 
   return (
-    <div className="bg-[#343c40] rounded-lg border shadow-sm overflow-hidden min-w-[300px]">
+    <div className="bg-[#343c40] rounded-lg border shadow-sm overflow-hidden h-fit min-w-[300px]">
       <div className="p-2 px-4">
         <p className="text-lg font-bold">Stats</p>
         <p className="text-xs text-neutral-300">
@@ -81,7 +81,7 @@ export default function SelectStats() {
             <div className="relative pl-1">
               <span className="text-sm capitalize">{stat}</span>
               <span className="absolute -right-2 text-[10px] font-bold -top-2 text-neutral-400 tracking-tight">
-                {statLabel(stat, baseStats[stat], playbookData.baseStats)}
+                {statLabelValue(stat, baseStats[stat], playbookData.baseStats)}
               </span>
             </div>
           </label>

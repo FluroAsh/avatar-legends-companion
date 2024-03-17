@@ -19,8 +19,8 @@ export default function CharacterName() {
       <Input
         name="characterName"
         type="text"
-        className="h-[35px]"
         placeholder="What should people call you?"
+        autoComplete="off"
         onChange={handleChange}
         value={characterName.value}
       />

@@ -34,7 +34,7 @@ export default function SelectBalance({ ...props }: SelectBalanceProps) {
   }
 
   return (
-    <div className="rounded-lg bg-[#343c40] h-fit border">
+    <div className="rounded-lg bg-[#343c40] h-fit border min-w-[250px]">
       <div className="flex justify-between px-4 py-2">
         <div>
           <h1 className="text-lg font-bold">Balance</h1>
@@ -45,7 +45,7 @@ export default function SelectBalance({ ...props }: SelectBalanceProps) {
         </div>
       </div>
 
-      <div className="bg-[#2a2c2e] px-4 py-4 border-t border-neutral-600">
+      <div className="bg-[#2a2c2e] p-4 border-t border-neutral-600">
         <div className="flex flex-col">
           <div className="flex justify-between pb-3">
             <span className="text-xs font-bold capitalize text-neutral-400">
