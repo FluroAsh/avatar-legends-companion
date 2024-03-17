@@ -48,7 +48,12 @@ export const StatsSkeleton = () => (
       </p>
     </div>
 
-    <div className="grid grid-cols-2 p-4 border-t bg-gradient-to-r from-neutral-400/80 to-neutral-500 border-t-neutral-600 gap-x-6 gap-y-1">
+    <div
+      className={cn(
+        "grid grid-cols-2 p-4 border-t bg-gradient-to-r from-neutral-400/80",
+        "to-neutral-500 border-t-neutral-600 gap-x-6 gap-y-1"
+      )}
+    >
       <StatLabel label="Creativity" />
       <StatLabel label="Harmony" />
       <StatLabel label="Focus" />
@@ -84,6 +89,35 @@ export const BalanceSkeleton = () => (
             )}
           ></div>
         </div>
+      </div>
+    </div>
+  </div>
+)
+
+export const ConnectionsSkeleton = () => (
+  <div className="overflow-hidden border rounded-lg shadow-sm md:col-span-2 animate-pulse ">
+    <div className="px-4 py-2 bg-gradient-to-r from-neutral-500 to-neutral-600">
+      <p className="text-lg font-bold">Connections</p>
+      <p className="text-xs">
+        Who do you, or don&apos;t you, have a connection with?
+      </p>
+    </div>
+
+    <div className="flex flex-col gap-4 p-4 border-t bg-neutral-400 border-neutral-600">
+      <div className="flex flex-col gap-2">
+        <div className="flex gap-2">
+          <div className="rounded-md h-[23px] bg-neutral-300/60 w-32"></div>
+          <div className="rounded-md h-[23px] bg-neutral-300/60 w-full"></div>
+        </div>
+        <div className="md:hidden rounded-md h-[23px] bg-neutral-300/60 max-w-full w-1/3"></div>
+      </div>
+
+      <div className="flex flex-col gap-2">
+        <div className="flex gap-2">
+          <div className="rounded-md h-[23px] bg-neutral-300/60 w-32"></div>
+          <div className="rounded-md h-[23px] bg-neutral-300/60 w-full"></div>
+        </div>
+        <div className="md:hidden rounded-md h-[23px] bg-neutral-300/60 max-w-full w-3/4"></div>
       </div>
     </div>
   </div>

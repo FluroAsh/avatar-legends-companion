@@ -5,6 +5,7 @@ import * as Character from "@/app/ui/create-character-form"
 import {
   BalanceSkeleton,
   CheckboxSkeleton,
+  ConnectionsSkeleton,
   StatsSkeleton,
 } from "@/app/ui/skeletons"
 import { DEFAULT_PLAYBOOK } from "@/lib/constants"
@@ -50,14 +51,17 @@ export default async function Page({
             </section>
 
             <section className="grid grid-cols-1 gap-4 md:grid-cols-2">
-              {/* These are all dependent on playbook, so we can suspend and compose a skeleton loader for these together */}
-              <Suspense fallback={<StatsSkeleton />}>
+              <Suspense
+                fallback={
+                  <>
+                    <StatsSkeleton />
+                    <BalanceSkeleton />
+                    <ConnectionsSkeleton />
+                  </>
+                }
+              >
                 <Character.SelectStats />
-              </Suspense>
-              <Suspense fallback={<BalanceSkeleton />}>
                 <Character.SelectBalance />
-              </Suspense>
-              <Suspense fallback={<div>Loading...</div>}>
                 <Character.SelectConnections />
               </Suspense>
             </section>
