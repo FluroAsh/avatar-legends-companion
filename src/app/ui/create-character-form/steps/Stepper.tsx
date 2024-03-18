@@ -5,7 +5,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation"
 
 import { cn } from "@/utils/helpers"
 
-const STEP_DESCRIPTIONS = ["Details", "Moves", "Backstory"]
+const STEP_DESCRIPTIONS = ["Character", "Details", "Moves", "Backstory"]
 
 const StepIndicator = ({
   isComplete,
@@ -53,13 +53,7 @@ export default function Stepper({ urlStep }: { urlStep: string | undefined }) {
   return (
     <div className="flex justify-between">
       {STEP_DESCRIPTIONS.map((desc, idx) => (
-        <div
-          key={idx}
-          className={cn(
-            idx !== STEP_DESCRIPTIONS.length - 1 && "flex-1",
-            "min-w-[33%]"
-          )}
-        >
+        <div key={idx} className="flex-1">
           <button
             onClick={() => handleStepChange(idx + 1)}
             className="relative w-full py-2 group text-start"
@@ -70,7 +64,7 @@ export default function Stepper({ urlStep }: { urlStep: string | undefined }) {
             />
             <StepLine isComplete={idx + 1 < step} />
 
-            <p className="block pt-2 text-lg font-bold group-hover:text-neutral-400 ">
+            <p className="block pt-2 text-sm font-bold sm:text-base md:text-lg group-hover:text-neutral-400 ">
               {desc}
             </p>
           </button>
