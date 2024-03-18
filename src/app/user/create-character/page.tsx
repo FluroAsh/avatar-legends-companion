@@ -7,7 +7,7 @@ import {
   CheckboxSkeleton,
   ConnectionsSkeleton,
   StatsSkeleton,
-} from "@/app/ui/skeletons"
+} from "@/app/ui/shared/skeletons"
 import { DEFAULT_PLAYBOOK } from "@/lib/constants"
 import { fetchPlaybook } from "@/lib/helpers"
 

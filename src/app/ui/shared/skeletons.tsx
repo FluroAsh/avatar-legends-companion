@@ -107,16 +107,16 @@ export const ConnectionsSkeleton = () => (
     <div className="flex flex-col gap-4 p-4 border-t bg-neutral-400 border-neutral-600">
       <div className="flex flex-col gap-2">
         <div className="flex gap-2">
-          <div className="rounded-md h-[23px] bg-neutral-300/60 w-32"></div>
-          <div className="rounded-md h-[23px] bg-neutral-300/60 w-full"></div>
+          <div className="rounded-md h-[23px] bg-neutral-300/60 w-[150px]"></div>
+          <div className="rounded-md h-[23px] bg-neutral-300/60 flex-1"></div>
         </div>
         <div className="md:hidden rounded-md h-[23px] bg-neutral-300/60 max-w-full w-1/3"></div>
       </div>
 
       <div className="flex flex-col gap-2">
         <div className="flex gap-2">
-          <div className="rounded-md h-[23px] bg-neutral-300/60 w-32"></div>
-          <div className="rounded-md h-[23px] bg-neutral-300/60 w-full"></div>
+          <div className="rounded-md h-[23px] bg-neutral-300/60 w-[150px]"></div>
+          <div className="rounded-md h-[23px] bg-neutral-300/60 flex-1"></div>
         </div>
         <div className="md:hidden rounded-md h-[23px] bg-neutral-300/60 max-w-full w-3/4"></div>
       </div>
