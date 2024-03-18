@@ -94,6 +94,7 @@ export const BalanceSkeleton = () => (
   </div>
 )
 
+// Connections Skeleton
 export const ConnectionsSkeleton = () => (
   <div className="overflow-hidden border rounded-lg shadow-sm md:col-span-2 animate-pulse ">
     <div className="px-4 py-2 bg-gradient-to-r from-neutral-500 to-neutral-600">
