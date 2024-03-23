@@ -65,7 +65,7 @@ export default async function Page({
               </Suspense>
             </section>
 
-            <section className="flex justify-center bg-sky-600">
+            <section className="flex justify-center w-full">
               <Form.SelectTraining />
             </section>
           </div>

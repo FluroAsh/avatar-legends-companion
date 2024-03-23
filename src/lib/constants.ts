@@ -3,6 +3,15 @@ export const DAILY_REVALIDATE = 86400
 
 const DEFAULT_PLAYBOOK = "bold"
 
+const TRAINING_KEYS = {
+  water: "Water",
+  earth: "Earth",
+  fire: "Fire",
+  air: "Air",
+  weapons: "Weapons",
+  technology: "Technology",
+} as const
+
 const STATUSES = {
   POSITIVE: {
     EMPOWERED: "empowered",
@@ -86,7 +95,7 @@ const CLEARING_CONDITIONS = {
   troubled: "Seek guidance from a mentor or powerful figure.",
 } as const
 
-const TRAINING = {
+const TRAINING_DESCRIPTIONS = {
   waterbending:
     "Weaving water into snapping and slashing whips, manipulating one's breath into clouds of freezing ice, sculpting liquid into a defensive shield—waterbending warriors manipulate their element with fluidity and grace. A waterbender might defend their allies by creating liquid barriers to freeze weapons and attackers, or they might be an aggressive warrior who unleashes torrential water jets or concealable weapons made of ice. Not all waterbenders are warriors — some have healing powers as well. A waterbender might carry a waterskin with them to have something to bend at all times, or prefer to use nearby liquids instead — some waterbenders can even use their sweat.",
   earthbending:
@@ -126,6 +135,7 @@ const GROWTH_ADVANCEMENTS = [
 
 export {
   DEFAULT_PLAYBOOK,
+  TRAINING_KEYS,
   STATUSES,
   STATS,
   ARCHETYPES,
@@ -133,6 +143,6 @@ export {
   DEMEANOURS,
   CONDITIONS,
   CLEARING_CONDITIONS,
-  TRAINING,
+  TRAINING_DESCRIPTIONS,
   GROWTH_ADVANCEMENTS,
 }
