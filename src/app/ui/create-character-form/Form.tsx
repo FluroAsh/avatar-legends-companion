@@ -37,6 +37,7 @@ export default function FormComponent({
     demeanour,
     baseStats,
     connections,
+    training,
   } = useFormStore((state) => state)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -58,6 +59,7 @@ export default function FormComponent({
         baseStats.passion,
       ],
       connections: connections.values,
+      training: training.value,
     })
 
     error && console.log(error)
