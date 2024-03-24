@@ -32,6 +32,7 @@ type FormStore = {
     error: string
   }
   connections: FieldArray
+  training: Field
   update: (_partial: Partial<FormStore>) => void
 }
 
@@ -68,6 +69,10 @@ const useFormStore = create(
       },
       connections: {
         values: ["", ""],
+        error: "",
+      },
+      training: {
+        value: "",
         error: "",
       },
       update: (partial) =>

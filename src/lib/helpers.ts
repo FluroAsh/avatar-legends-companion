@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { DEFAULT_PLAYBOOK, TRAINING_KEYS } from "./constants"
 
 /* API Helpers */
@@ -14,7 +13,7 @@ async function fetchPlaybook(playbook: string | undefined) {
 
 /* Training Helpers */
 export type Training = keyof typeof TRAINING_KEYS
-type Intensity = 300 | 500 | 700 | 900
+type Intensity = 100 | 300 | 500 | 700 | 900
 type ColorProps = {
   text: string
   background: string
