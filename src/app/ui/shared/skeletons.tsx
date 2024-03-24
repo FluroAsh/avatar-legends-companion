@@ -87,7 +87,7 @@ export const BalanceSkeleton = () => (
               "absolute bottom-0 left-1/2 w-5 h-5 bg-neutral-400 border-2 border-neutral-300",
               "translate-y-[6px] -translate-x-1/2 rounded-full"
             )}
-          ></div>
+          />
         </div>
       </div>
     </div>
@@ -95,11 +95,6 @@ export const BalanceSkeleton = () => (
 )
 
 // Connections Skeleton
-
-// > md = 159
-
-// < md = 221 (skele)
-// non-skele = 207
 export const ConnectionsSkeleton = () => (
   <div className="overflow-hidden border rounded-lg shadow-sm md:col-span-2 animate-pulse ">
     <div className="px-4 py-2 bg-gradient-to-r from-neutral-500 to-neutral-600">
