@@ -40,7 +40,7 @@ export default function SelectBalance({ ...props }: SelectBalanceProps) {
           <h1 className="text-lg font-bold">Balance</h1>
           <p className="text-xs text-neutral-300">Shift Once (Optional)</p>
         </div>
-        <div className="pt-1 my-auto text-sm capitalize text-neutral-300">
+        <div className="pt-1 my-auto text-sm font-bold capitalize text-neutral-300">
           {balance.selected}
         </div>
       </div>
@@ -48,10 +48,10 @@ export default function SelectBalance({ ...props }: SelectBalanceProps) {
       <div className="p-4 border-t bg-muted border-neutral-600">
         <div className="flex flex-col">
           <div className="flex justify-between pb-3">
-            <span className="text-xs font-bold capitalize text-neutral-400">
+            <span className="text-xs font-semibold capitalize text-neutral-400">
               {balance1}
             </span>
-            <span className="text-xs font-bold capitalize text-neutral-400">
+            <span className="text-xs font-semibold capitalize text-neutral-400">
               {balance2}
             </span>
           </div>
