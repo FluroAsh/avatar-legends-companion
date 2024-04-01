@@ -36,6 +36,15 @@
     --radius: 0.5rem;
   }
 }
+/* Animation(s) */
+@keyframes pulse-2 {
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
 
 /* Clerk Override(s) */
 .cl-modalBackdrop {

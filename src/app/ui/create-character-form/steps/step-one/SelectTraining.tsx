@@ -93,7 +93,9 @@ const TrainingCheckbox = ({
 
       <label
         className={cn(
-          "relative transition hover:cursor-pointer hover:brightness-125 hover:animate-pulse",
+          "relative transition hover:cursor-pointer",
+          selectedTraining !== label &&
+            "hover:brightness-125 hover:animate-pulse-2",
           selectedTraining === label && "brightness-125"
         )}
       >
@@ -102,7 +104,9 @@ const TrainingCheckbox = ({
           <Checkbox
             icon={<CheckedIcon training={label} />}
             className={cn(
-              "h-5 w-5 rounded-none transform rotate-45 border-4 focus:brightness-125 focus:animate-pulse",
+              "h-5 w-5 rounded-none transform rotate-45 border-4 ",
+              selectedTraining !== label &&
+                "focus:animate-pulse focus:brightness-125",
               COLORS(label, 100)["background"],
               COLORS(label, 700)["border"]
             )}
