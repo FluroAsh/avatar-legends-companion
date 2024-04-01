@@ -38,7 +38,10 @@ export const FormCheckbox = ({
   return (
     <label
       htmlFor={label}
-      className="flex items-center p-[7px] text-xs rounded-lg hover:cursor-pointer select-none hover:bg-accent max-w-fit font-semibold transition-colors"
+      className={cn(
+        "flex items-center p-[7px] text-xs rounded-lg hover:cursor-pointer select-none hover:bg-accent font-semibold transition",
+        isDisabled && "opacity-60 hover:cursor-not-allowed"
+      )}
     >
       <Checkbox
         id={label}
@@ -47,14 +50,7 @@ export const FormCheckbox = ({
         onCheckedChange={handleChange(label)}
         disabled={isDisabled}
       />
-      <span
-        className={cn(
-          "transition-opacity pl-1 capitalize truncate",
-          isDisabled && "opacity-60"
-        )}
-      >
-        {label}
-      </span>
+      <span className="pl-1 capitalize truncate">{label}</span>
     </label>
   )
 }
