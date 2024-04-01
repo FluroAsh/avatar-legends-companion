@@ -32,7 +32,13 @@ export default function RootLayout({
           >
             <div className="relative flex flex-col min-h-screen antialiased">
               <SiteHeader />
-              <main className="flex flex-1">{children}</main>
+              <main className="flex flex-1 ">
+                {children}
+                <div
+                  role="presentation"
+                  className="absolute inset-0 z-[-1] bg-segaiha opacity-30"
+                />
+              </main>
               {/* Footer */}
             </div>
           </ClerkProvider>
