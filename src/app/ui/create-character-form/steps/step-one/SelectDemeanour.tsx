@@ -1,6 +1,6 @@
 "use client"
 
-import { useFormStore } from "@/stores/formStore"
+import { useFormStore } from "@/stores/form-store"
 
 import {
   FormCheckbox,

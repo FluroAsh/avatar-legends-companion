@@ -1,8 +1,8 @@
 "use client"
 
-import { useFormStore } from "@/stores/formStore"
+import { useFormStore } from "@/stores/form-store"
 
-import { Input } from "../../../input"
+import { Input } from "@/app/ui/input"
 
 export default function CharacterName() {
   const characterName = useFormStore((state) => state.characterName)

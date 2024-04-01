@@ -1,7 +1,7 @@
 import { create } from "zustand"
 import { devtools } from "zustand/middleware"
 
-const FORM_STORE_KEY = "ALC Form Store"
+const FORM_STORE_KEY = "alc-form-store"
 type Field = {
   value: string
   error: string
@@ -78,6 +78,7 @@ const useFormStore = create(
       update: (partial) =>
         set((state) => ({ ...state, ...partial }), false, "FORM_UPDATE"),
     }),
+
     { name: FORM_STORE_KEY }
   )
 )

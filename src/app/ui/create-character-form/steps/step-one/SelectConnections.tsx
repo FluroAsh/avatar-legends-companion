@@ -1,6 +1,6 @@
 "use client"
 
-import { useFormStore } from "@/stores/formStore"
+import { useFormStore } from "@/stores/form-store"
 
 import { Input } from "@/app/ui/input"
 import { useSuspensePlaybook } from "@/utils/query-client"

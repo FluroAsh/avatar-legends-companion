@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect } from "react"
-import { useFormStore } from "@/stores/formStore"
+import { useFormStore } from "@/stores/form-store"
 
 import { Checkbox } from "@/app/ui/checkbox"
 import { STATS } from "@/lib/constants"
@@ -26,7 +26,8 @@ export default function SelectStats() {
 
   const { data: playbookData } = useSuspensePlaybook(playbook.value)
 
-  // Synchronising the base stats with the playbook stats (and update the selected stat for the +1 bonus)
+  // Synchronising the base stats with the playbook stats
+  // (and update the selected stat for the +1 bonus)
   useEffect(() => {
     if (baseStats.selected && baseStats.selected !== "") {
       update({

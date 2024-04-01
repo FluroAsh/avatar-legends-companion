@@ -1,7 +1,7 @@
 "use client"
 
 import * as Icon from "@/assets/svgs/training-icons"
-import { useFormStore } from "@/stores/formStore"
+import { useFormStore } from "@/stores/form-store"
 
 import { Checkbox } from "@/app/ui/checkbox"
 import { TRAINING_KEYS } from "@/lib/constants"
@@ -46,8 +46,8 @@ const TrainingBox = ({
     {/* Training Container */}
     <div
       className={cn(
-        "relative rounded-md aspect-square  overflow-hidden brightness-125",
-        "w-[96px] h-[96px]",
+        "relative rounded-md aspect-square overflow-hidden brightness-125",
+        "w-[96px] h-[96px] p-1",
         "md:w-[100px] md:h-[100px]",
         COLORS(training, 500)["background"]
       )}
@@ -136,7 +136,7 @@ export default function SelectTraining() {
         </p>
       </div>
 
-      <div className="grid grid-cols-3 grid-rows-2 gap-4 place-items-center md:grid-cols-6 md:grid-rows-1">
+      <div className="grid grid-cols-3 grid-rows-2 gap-4 gap-x-6 place-items-center md:grid-cols-6 md:grid-rows-1">
         {Object.keys(TRAINING_KEYS).map((training) => (
           <TrainingCard
             key={training}

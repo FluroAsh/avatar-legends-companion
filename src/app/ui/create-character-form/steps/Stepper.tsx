@@ -1,9 +1,8 @@
 "use client"
 
-import { useState } from "react"
-import { usePathname, useRouter, useSearchParams } from "next/navigation"
-
 import { cn } from "@/utils/helpers"
+
+import useStep from "./use-step"
 
 const STEP_DESCRIPTIONS = ["Character", "Details", "Moves", "Backstory"]
 
@@ -35,27 +34,15 @@ const StepLine = ({ isComplete }: { isComplete: boolean }) => (
   />
 )
 
-export default function Stepper({ urlStep }: { urlStep: string | undefined }) {
-  const [step, setStep] = useState(parseInt(urlStep ?? "1"))
-
-  const searchParams = useSearchParams()
-  const pathname = usePathname()
-  const router = useRouter()
-
-  const handleStepChange = (stepValue: number) => {
-    setStep(stepValue)
-
-    const params = new URLSearchParams(searchParams.toString())
-    params.set("step", stepValue.toString())
-    router.replace(pathname + "?" + params.toString())
-  }
+export default function Stepper() {
+  const { step, setStep } = useStep()
 
   return (
     <div className="flex justify-between">
       {STEP_DESCRIPTIONS.map((desc, idx) => (
         <div key={idx} className="flex-1">
           <button
-            onClick={() => handleStepChange(idx + 1)}
+            onClick={() => setStep(idx + 1)}
             className="relative w-full py-2 group text-start"
           >
             <StepIndicator
