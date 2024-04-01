@@ -24,8 +24,8 @@ export const CheckboxSkeleton = () => (
 // Stats Skeleton
 const StatLabel = ({ label }: { label: string }) => (
   <div className="flex items-center p-2 pr-3 transition-colors rounded-lg select-none justify-self-start">
-    <div className="w-6 h-6 bg-transparent border rounded-full border-neutral-300"></div>
-    <span className="relative pl-1 text-sm tracking-tight capitalize">
+    <div className="bg-transparent border rounded-full w-7 h-7 border-neutral-300"></div>
+    <span className="relative pl-1 text-sm font-semibold tracking-tight capitalize">
       {label}
       <span className="absolute -right-2 font-bold text-[10px] -top-[15px]">
         ...

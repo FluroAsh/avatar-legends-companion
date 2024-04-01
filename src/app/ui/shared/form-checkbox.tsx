@@ -1,4 +1,5 @@
 import { Checkbox } from "@/app/ui/checkbox"
+import { cn } from "@/utils/helpers"
 
 export const FormCheckboxContainer = ({
   label,
@@ -15,7 +16,7 @@ export const FormCheckboxContainer = ({
     <span className="pl-1 text-sm font-bold leading-7 capitalize">
       {label} {values.length} / {String(maxSelection)}
     </span>
-    <div className="flex-1 grid grid-cols-2 p-1 border rounded-md bg-[#2a2c2e]">
+    <div className="grid flex-1 grid-cols-2 p-1 border rounded-md bg-muted">
       {children}
     </div>
   </div>
@@ -31,18 +32,29 @@ export const FormCheckbox = ({
   values: string[]
   handleChange: (_id: string) => (_checked: boolean) => void
   maxSelection: number
-}) => (
-  <label
-    htmlFor={label}
-    className="flex items-center p-[7px] text-sm rounded-lg hover:cursor-pointer select-none hover:bg-neutral-800 max-w-fit transition-colors"
-  >
-    <Checkbox
-      id={label}
-      name={label}
-      checked={values.includes(label)}
-      onCheckedChange={handleChange(label)}
-      disabled={values.length >= maxSelection && !values.includes(label)}
-    />
-    <span className="pl-1 capitalize truncate">{label}</span>
-  </label>
-)
+}) => {
+  const isDisabled = values.length >= maxSelection && !values.includes(label)
+
+  return (
+    <label
+      htmlFor={label}
+      className="flex items-center p-[7px] text-xs rounded-lg hover:cursor-pointer select-none hover:bg-accent max-w-fit font-semibold transition-colors"
+    >
+      <Checkbox
+        id={label}
+        name={label}
+        checked={values.includes(label)}
+        onCheckedChange={handleChange(label)}
+        disabled={isDisabled}
+      />
+      <span
+        className={cn(
+          "transition-opacity pl-1 capitalize truncate",
+          isDisabled && "opacity-60"
+        )}
+      >
+        {label}
+      </span>
+    </label>
+  )
+}

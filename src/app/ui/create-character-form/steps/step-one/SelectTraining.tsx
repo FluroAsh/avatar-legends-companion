@@ -34,16 +34,21 @@ const TrainingBox = ({
   icon: React.ReactNode
 }) => (
   <>
+    {/* Training Border */}
     <div
       className={cn(
-        "training-bg-border absolute inset-0 w-[104px] h-[104px] transform translate-x-[-4px] translate-y-[-4px]",
-        "md:w-[120px] md:h-[120px] rounded-[8px] shadow-md",
+        "training-bg-border absolute inset-0 transform translate-x-[-4px] translate-y-[-4px] rounded-[8px] shadow-md",
+        "w-[104px] h-[104px]",
+        "md:w-[108px] md:h-[108px]",
         COLORS(training, 900)["background"]
       )}
     />
+    {/* Training Container */}
     <div
       className={cn(
-        "relative w-24 h-24 rounded-md aspect-square md:w-28 md:h-28 overflow-hidden brightness-125",
+        "relative rounded-md aspect-square  overflow-hidden brightness-125",
+        "w-[96px] h-[96px]",
+        "md:w-[100px] md:h-[100px]",
         COLORS(training, 500)["background"]
       )}
     >
@@ -53,7 +58,7 @@ const TrainingBox = ({
   </>
 )
 
-const TrainingCheckbox = ({
+const TrainingCard = ({
   label,
   icon,
 }: {
@@ -73,10 +78,10 @@ const TrainingCheckbox = ({
   }
 
   return (
-    <div>
+    <div className="pb-4">
       <div
         className={cn(
-          "mb-3 px-2 mx-auto rounded-full w-fit border",
+          "mb-3 px-2 md:px-3 py-[1.5px] mx-auto rounded-full border w-fit",
           COLORS(label, 900)["background"],
           COLORS(label, 300)["border"]
         )}
@@ -100,13 +105,14 @@ const TrainingCheckbox = ({
         )}
       >
         <TrainingBox training={label} icon={icon} />
-        <div className="absolute bottom-0 left-0 flex justify-center w-full transform translate-y-1/2 checkbox-wrapper ">
+        <div className="absolute bottom-0 left-0 flex justify-center w-full transform translate-y-1/2">
           <Checkbox
             icon={<CheckedIcon training={label} />}
             className={cn(
               "h-5 w-5 rounded-none transform rotate-45 border-4 ",
               selectedTraining !== label &&
                 "focus:animate-pulse focus:brightness-125",
+              "data-[state=checked]:bg-neutral-300",
               COLORS(label, 100)["background"],
               COLORS(label, 700)["border"]
             )}
@@ -123,16 +129,16 @@ const TrainingCheckbox = ({
 export default function SelectTraining() {
   return (
     <div>
-      <div>
+      <div className="pb-4">
         <p className="text-lg font-bold text-center">Training</p>
         <p className="text-sm text-center">
           What style of training defines <i>you?</i>
         </p>
       </div>
 
-      <div className="flex flex-wrap justify-center gap-6 p-4">
+      <div className="grid grid-cols-3 grid-rows-2 gap-4 place-items-center md:grid-cols-6 md:grid-rows-1">
         {Object.keys(TRAINING_KEYS).map((training) => (
-          <TrainingCheckbox
+          <TrainingCard
             key={training}
             label={training as Training}
             icon={<TrainingIcon training={training as Training} />}

@@ -52,14 +52,14 @@ export default function SelectConnections() {
 
   return (
     <div className="overflow-hidden border rounded-lg shadow-sm md:col-span-2">
-      <div className="px-4 py-2 bg-[#343C40]">
+      <div className="px-4 py-2 bg-primary">
         <p className="text-lg font-bold">Connections</p>
         <p className="text-xs">
           Who do you, or don&apos;t you, have a connection with?
         </p>
       </div>
 
-      <div className="flex flex-col gap-4 p-4 bg-[#2A2C2E] border-t border-neutral-600">
+      <div className="flex flex-col gap-4 p-4 border-t bg-muted border-neutral-600">
         <ConnectionText
           text={connectionText1}
           value={connectionValues[0]}
