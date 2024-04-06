@@ -4,8 +4,6 @@ import { useEffect, useRef } from "react"
 
 import { cn } from "@/utils/helpers"
 
-import { Button } from "../button"
-
 export default function SkipLink({ id }: { id: string }) {
   const mainContentRef = useRef<HTMLButtonElement | null>(null)
 
@@ -21,8 +19,7 @@ export default function SkipLink({ id }: { id: string }) {
   }
 
   return (
-    <Button
-      variant="ghost"
+    <button
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") {
           focusMainContent()
@@ -36,6 +33,6 @@ export default function SkipLink({ id }: { id: string }) {
       )}
     >
       Skip to Main Content
-    </Button>
+    </button>
   )
 }
