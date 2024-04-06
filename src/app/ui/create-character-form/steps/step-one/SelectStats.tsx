@@ -84,7 +84,7 @@ export default function SelectStats() {
               }
             />
 
-            <div className="relative pl-1 font-semibold">
+            <div className="relative pl-2 font-semibold">
               <span
                 className={cn(
                   "text-sm capitalize transition tracking-tight",

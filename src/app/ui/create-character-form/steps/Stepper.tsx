@@ -1,62 +1,71 @@
 "use client"
 
+import { Button } from "@/app/ui/button"
 import { cn } from "@/utils/helpers"
 
-import useStep from "./use-step"
+import useStep, { STEP_DESCRIPTIONS } from "./use-step"
 
-const STEP_DESCRIPTIONS = ["Character", "Details", "Moves", "Backstory"]
-
-const StepIndicator = ({
-  isComplete,
-  isActive,
-}: {
-  isComplete: boolean
-  isActive: boolean
-}) => (
-  <div
-    className={cn(
-      isComplete
-        ? "bg-green-500 border-green-700 group-hover:bg-green-600 group-hover:border-green-800"
-        : "bg-neutral-600 border-neutral-700 group-hover:bg-neutral-500 group-hover:border-neutral-600",
-      isActive && "bg-neutral-300 border-neutral-400",
-      "absolute -left-[0.5px] w-4 h-4 rounded-full top-[2px] border"
-    )}
-  />
-)
-
-const StepLine = ({ isComplete }: { isComplete: boolean }) => (
-  <div
-    className={`flex-grow h-1 ${
-      isComplete
-        ? "bg-green-500 group-hover:bg-green-600"
-        : "bg-neutral-500 group-hover:bg-neutral-600"
-    }`}
-  />
-)
-
-export default function Stepper() {
+const Step = ({ desc, idx }: { desc: string; idx: number }) => {
   const { step, setStep } = useStep()
 
-  return (
-    <div className="flex justify-between">
-      {STEP_DESCRIPTIONS.map((desc, idx) => (
-        <div key={idx} className="flex-1">
-          <button
-            onClick={() => setStep(idx + 1)}
-            className="relative w-full py-2 group text-start"
-          >
-            <StepIndicator
-              isComplete={idx + 1 < step}
-              isActive={idx + 1 === step}
-            />
-            <StepLine isComplete={idx + 1 < step} />
+  /**
+   * TODO: Step States
+   * - Active (Highlighted)
+   * - Completed (Display small checkmark SVG)
+   * - Inactive (Dark)
+   */
 
-            <p className="block pt-2 text-sm font-bold sm:text-base md:text-lg group-hover:text-neutral-400 ">
-              {desc}
-            </p>
-          </button>
-        </div>
+  const stepNum = idx + 1
+  const isActive = step === stepNum
+  // NOTE: Should validate the form before allowing the user to proceed to the next step/submit
+  const isComplete = step > stepNum
+  const isNotLastStep = idx !== STEP_DESCRIPTIONS.length - 1
+
+  return (
+    <li
+      key={idx}
+      onClick={() => setStep(stepNum)}
+      className={cn(
+        "after:transition-colors",
+        isNotLastStep &&
+          "relative flex w-full items-center after:content-[''] after:bg-neutral-500 after:mx-2 after:w-full after:h-1 after:rounded-full",
+        isComplete && "after:bg-neutral-300"
+      )}
+    >
+      <Button
+        className="relative flex group [&>*]:transition-colors"
+        variant="ghost"
+        size="none"
+      >
+        <div
+          className={cn(
+            "w-5 h-5 mx-auto border rounded-full ",
+            "before:content-[''] before:absolute before:inset-[3px] before:rounded-full before:transition-colors",
+            isActive
+              ? "bg-sky-500/50 border-sky-600 before:bg-sky-600"
+              : "bg-primary group-hover:bg-sky-500/50 group-hover:border-sky-600 group-hover:before:bg-sky-600"
+          )}
+        />
+        <span
+          className={cn(
+            "absolute pt-[4.5px] text-neutral-400 text-xs font-bold tracking-wide capitalize",
+            "transform translate-y-1/2 top-1/2",
+            isActive ? "text-neutral-200" : "group-hover:text-neutral-200"
+          )}
+        >
+          {desc}
+        </span>
+      </Button>
+    </li>
+  )
+}
+
+export default function Stepper() {
+  return (
+    <ol className="flex items-center justify-center max-w-screen-sm px-8 pt-4 mx-auto pb-7">
+      {STEP_DESCRIPTIONS.map((desc, idx) => (
+        <Step key={`${desc}-${idx}`} desc={desc} idx={idx} />
       ))}
-    </div>
+    </ol>
   )
 }

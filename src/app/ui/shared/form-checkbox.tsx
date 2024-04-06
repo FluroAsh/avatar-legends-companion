@@ -50,7 +50,7 @@ export const FormCheckbox = ({
         onCheckedChange={handleChange(label)}
         disabled={isDisabled}
       />
-      <span className="pl-1 capitalize truncate">{label}</span>
+      <span className="pl-2 capitalize truncate">{label}</span>
     </label>
   )
 }

@@ -2,6 +2,7 @@
 import { QueryClient } from "@tanstack/react-query"
 
 import * as Form from "@/app/ui/create-character-form"
+import SkipLink from "@/app/ui/shared/skip-link"
 import { DEFAULT_PLAYBOOK } from "@/lib/constants"
 import { fetchPlaybook } from "@/lib/helpers"
 
@@ -24,11 +25,9 @@ export default async function Page({
 
   return (
     <div>
-      {/* NOTE: Sits outside the form provider to prevent re-rendering when changing playbook */}
+      <SkipLink id="main-content" />
       <Form.Stepper />
       <Form.Form name="create-character">
-        {/* TODO: Investigate abstracting away the conditional step rendering. 
-          Might also consider moving it into the Form component for handling form validation etc with React Form/Zod */}
         {/* TODO: Investigate if we can just abstract this away with a useMultiStepForm hook */}
         {(!step || step === "1") && <Form.StepOne />}
         {step === "2" && <Form.StepTwo />}

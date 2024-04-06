@@ -1,8 +1,8 @@
 import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs"
 
+import { Button } from "@/app/ui/button"
 import { PATHNAME } from "@/lib/paths"
 
-import { Button } from "../button"
 import MainNav from "./main-nav"
 import UserNav from "./user-nav"
 
@@ -20,7 +20,9 @@ function SiteHeader() {
 
             <SignedOut>
               <SignInButton mode="modal" redirectUrl={PATHNAME.USER.profile}>
-                <Button variant="outline">Sign In</Button>
+                <Button variant="primary" className="h-8 text-sm">
+                  Login
+                </Button>
               </SignInButton>
             </SignedOut>
           </nav>

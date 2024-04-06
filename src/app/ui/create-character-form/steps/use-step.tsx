@@ -2,8 +2,8 @@
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 
-const STEP_LABELS = ["character", "details", "moves", "backstory"]
 const INITIAL_STEP = 1
+export const STEP_DESCRIPTIONS = ["character", "details", "moves", "backstory"]
 
 export default function useStep() {
   const searchParams = useSearchParams()
@@ -26,6 +26,6 @@ export default function useStep() {
     setStep,
     step: parsedStep,
     isFirstStep: parsedStep === 1,
-    isLastStep: parsedStep === STEP_LABELS.length - 1,
+    isLastStep: parsedStep === STEP_DESCRIPTIONS.length,
   }
 }

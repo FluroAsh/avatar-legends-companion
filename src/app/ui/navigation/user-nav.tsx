@@ -22,7 +22,7 @@ export default async function UserNav() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="w-12 h-12 rounded-full">
+        <Button variant="ghost" className="w-[40px] h-[40px] rounded-full ">
           <Avatar>
             <AvatarImage src={user?.imageUrl} />
             <AvatarFallback>

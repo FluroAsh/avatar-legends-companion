@@ -41,7 +41,7 @@ export default function SelectPlaybook() {
         onValueChange={handleSelectChange}
         defaultValue={DEFAULT_PLAYBOOK}
       >
-        <SelectTrigger className="h-[35px]">
+        <SelectTrigger id="main-content" className="h-[35px]">
           <SelectValue placeholder="Choose your Playbook" />
         </SelectTrigger>
         <SelectContent>

@@ -25,7 +25,7 @@ const FormButton = ({
       onClick={onClick}
       className={cn(
         "px-10 py-4 rounded-lg capitalize",
-        label === "next" ? "hover:opacity-80" : "text-muted-foreground"
+        label === "previous" && "text-muted-foreground"
       )}
       disabled={
         (isFirstStep && label === "previous") ||
@@ -43,7 +43,7 @@ export default function NavButtons() {
   return (
     <div className="flex justify-center gap-2 py-4">
       <FormButton label="previous" variant="outline" onClick={prevStep} />
-      <FormButton label="next" onClick={nextStep} />
+      <FormButton label="next" variant="primary" onClick={nextStep} />
     </div>
   )
 }
