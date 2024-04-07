@@ -4,7 +4,7 @@ import { cn } from "@/utils/helpers"
 export const CheckboxSkeleton = () => (
   <div className="flex flex-col sm:max-w-[300px] animate-pulse">
     {/* TODO: Add animated loading text... */}
-    <div className="pl-2 text-sm font-bold leading-7">Demeanour 0 / 3</div>
+    <div className="pl-1 text-sm font-bold leading-7">Demeanour 0 / 3</div>
     <div
       className={cn(
         "grid grid-cols-2 gap-2 h-full max-h-[112px] p-2 rounded-md",
