@@ -4,8 +4,8 @@ import { currentUser, SignOutButton } from "@clerk/nextjs"
 import { NAV_LINKS } from "@/lib/site-config"
 import { getInitials } from "@/utils/helpers"
 
-import { Avatar, AvatarFallback, AvatarImage } from "../avatar"
-import { Button } from "../button"
+import { Avatar, AvatarFallback, AvatarImage } from "@/app/ui/avatar"
+import { Button } from "@/app/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,7 +14,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "../dropdown-menu"
+} from "@/app/ui/dropdown-menu"
 
 export default async function UserNav() {
   const user = await currentUser()
@@ -22,15 +22,16 @@ export default async function UserNav() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="w-[40px] h-[40px] rounded-full ">
+        <Button variant="ghost" className="w-10 h-10 rounded-full ">
           <Avatar>
-            <AvatarImage src={user?.imageUrl} />
+            <AvatarImage src={user?.imageUrl} alt="User Avatar" />
             <AvatarFallback>
               {getInitials(user?.firstName, user?.lastName)}
             </AvatarFallback>
           </Avatar>
         </Button>
       </DropdownMenuTrigger>
+
       <DropdownMenuContent className="w-56" align="end">
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">

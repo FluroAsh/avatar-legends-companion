@@ -2,11 +2,11 @@
 
 import { useFormStore } from "@/stores/form-store"
 
-import {
-  FormCheckbox,
-  FormCheckboxContainer,
-} from "@/app/ui/shared/form-checkbox"
 import { BACKGROUNDS } from "@/lib/constants"
+import {
+  FormCheckboxContainer,
+  FormCheckbox,
+} from "@/app/ui/create-character-form"
 
 export default function SelectBackground() {
   const background = useFormStore((state) => state.background)

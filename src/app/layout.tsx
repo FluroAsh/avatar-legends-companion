@@ -14,6 +14,19 @@ export const metadata = {
   description: "Create and manage your Avatar Legends characters",
 }
 
+const LayoutBackground = () => (
+  <>
+    <div
+      role="presentation"
+      className="absolute inset-0 z-[-1] bg-segaiha opacity-30"
+    />
+    <div
+      role="presentation"
+      className="absolute inset-0 bg-gradient-to-tr from-black/30 to-transparent z-[-1]"
+    />
+  </>
+)
+
 export default function RootLayout({
   children,
 }: {
@@ -33,12 +46,9 @@ export default function RootLayout({
             <div className="relative flex flex-col min-h-screen antialiased">
               {/* TODO: Should not display the "SignInButton" on `/sign-up` page */}
               <SiteHeader />
-              <main className="flex flex-1 ">
+              <main className="relative flex flex-1 ">
                 {children}
-                <div
-                  role="presentation"
-                  className="absolute inset-0 z-[-1] bg-segaiha opacity-30"
-                />
+                <LayoutBackground />
               </main>
               {/* Footer */}
             </div>

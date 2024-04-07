@@ -1,6 +1,7 @@
 export { default as Form } from "./Form"
 export { default as Stepper } from "./steps/Stepper"
 export { default as NavButtons } from "./steps/nav-buttons"
+export * from "./form-checkbox"
 
 export { default as StepOne } from "./steps/step-one/StepOne"
 export { default as StepTwo } from "./steps/step-two/StepTwo"

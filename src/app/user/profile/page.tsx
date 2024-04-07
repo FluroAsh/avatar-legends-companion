@@ -1,16 +1,12 @@
-import { clerkClient, currentUser } from "@clerk/nextjs"
+import { currentUser } from "@clerk/nextjs"
 
 export default async function Page() {
   const user = await currentUser()
   if (!user) return null
 
-  const userData = await clerkClient.users.getUser(user.id)
-
   // TODO: Fetch user characters
   // 2. render character list
   // - If no characters show a fallback
-
-  console.log(userData)
 
   return (
     <div className="flex h-full">

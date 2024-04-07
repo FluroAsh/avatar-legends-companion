@@ -8,7 +8,7 @@ import UserNav from "./user-nav"
 
 function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 py-2 border-b shadow-sm backdrop-blur bg-slate-700/80">
+    <header className="sticky top-0 z-50 py-2 border-b shadow-sm backdrop-blur bg-slate-700/50">
       <div className="container flex items-center h-16">
         {/* TODO: Should take a list of items as a prop for navigation */}
         <MainNav />
