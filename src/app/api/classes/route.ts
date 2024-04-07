@@ -12,9 +12,11 @@ export async function GET(req: NextRequest) {
 
   try {
     const typeParam = searchParams.get("type")
+    console.log({ typeParam })
 
     if (typeParam) {
       const filePath = `${CLASS_DATA_PATHNAME}/${typeParam}.json`
+      console.log(`${CLASS_DATA_PATHNAME}/${typeParam}.json`)
       const playbookData = getPlaybookData(filePath)
       return NextResponse.json({ data: playbookData }, { headers: newHeaders })
     }

@@ -11,6 +11,7 @@ export const getPlaybookData = (filePath: string) => {
   } else {
     throw new PlaybookError(API_ERRORS.class.notFound)
   }
+
   return classData
 }
 
