@@ -11,12 +11,12 @@ export const CheckboxSkeleton = () => (
         "bg-gradient-to-r from-neutral-500 to-neutral-600 md:max-h-none"
       )}
     >
-      <div className="rounded-md h-[27px] bg-neutral-400/60 "></div>
-      <div className="rounded-md h-[27px] bg-neutral-400/60 "></div>
-      <div className="rounded-md h-[27px] bg-neutral-400/60 "></div>
-      <div className="rounded-md h-[27px] bg-neutral-400/60 "></div>
-      <div className="rounded-md h-[27px] bg-neutral-400/60 "></div>
-      <div className="rounded-md h-[27px] bg-neutral-400/60 "></div>
+      <div className="rounded-md h-[23px] md:h-[27px] bg-neutral-400/60 "></div>
+      <div className="rounded-md h-[23px] md:h-[27px] bg-neutral-400/60 "></div>
+      <div className="rounded-md h-[23px] md:h-[27px] bg-neutral-400/60 "></div>
+      <div className="rounded-md h-[23px] md:h-[27px] bg-neutral-400/60 "></div>
+      <div className="rounded-md h-[23px] md:h-[27px] bg-neutral-400/60 "></div>
+      <div className="rounded-md h-[23px] md:h-[27px] bg-neutral-400/60 "></div>
     </div>
   </div>
 )
