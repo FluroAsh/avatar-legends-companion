@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { currentUser, SignOutButton } from "@clerk/nextjs"
+import { currentUser } from "@clerk/nextjs"
 
 import { NAV_LINKS } from "@/lib/site-config"
 import { getInitials } from "@/utils/helpers"
@@ -15,6 +15,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/app/ui/dropdown-menu"
+import SignOut from "./sign-out"
 
 export default async function UserNav() {
   const user = await currentUser()
@@ -54,8 +55,8 @@ export default async function UserNav() {
           ))}
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem className="w-full cursor-pointer" asChild>
-          <SignOutButton>Sign Out</SignOutButton>
+        <DropdownMenuItem className="w-full cursor-pointer text-muted-foreground">
+          <SignOut>Sign Out</SignOut>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

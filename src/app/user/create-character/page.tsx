@@ -1,4 +1,3 @@
-// import { Suspense } from "react"
 import { QueryClient } from "@tanstack/react-query"
 
 import * as Form from "@/app/ui/create-character-form"

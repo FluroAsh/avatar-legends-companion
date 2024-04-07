@@ -27,6 +27,6 @@ const COLORS = (training: Training, intensity: Intensity = 500) =>
     background: `bg-${training}-${intensity}`,
     border: `border-${training}-${intensity}`,
     fill: `fill-${training}-${intensity}`,
-  } satisfies ColorProps)
+  }) satisfies ColorProps
 
 export { fetchPlaybook, COLORS }
