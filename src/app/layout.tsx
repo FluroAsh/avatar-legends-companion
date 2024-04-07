@@ -33,7 +33,7 @@ export default function RootLayout({
             <div className="relative flex flex-col min-h-screen antialiased">
               {/* TODO: Should not display the "SignInButton" on `/sign-up` page */}
               <SiteHeader />
-              <main className="flex-1 lex ">
+              <main className="flex flex-1 ">
                 {children}
                 <div
                   role="presentation"
