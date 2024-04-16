@@ -1,3 +1,5 @@
+"use client"
+
 export default function StepFour() {
   return (
     <div className="flex flex-col w-full gap-4 mt-4">

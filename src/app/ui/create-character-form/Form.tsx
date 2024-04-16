@@ -66,7 +66,11 @@ export default function FormComponent({
   }
 
   return (
-    <form name={name} onSubmit={handleSubmit} className="flex justify-center">
+    <form
+      name={name}
+      onSubmit={handleSubmit}
+      className="flex flex-col justify-center"
+    >
       {children}
     </form>
   )

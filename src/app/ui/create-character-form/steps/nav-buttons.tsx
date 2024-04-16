@@ -12,15 +12,15 @@ const FormButton = ({
   onClick,
   variant,
 }: {
-  label: "next" | "previous"
-  onClick: () => void
+  label: "next" | "previous" | "create character"
+  onClick?: () => void
   variant?: ComponentProps<typeof Button>["variant"]
 }) => {
   const { isFirstStep, isLastStep } = useStep()
 
   return (
     <Button
-      type="button"
+      type={label === "create character" ? "submit" : "button"}
       variant={variant}
       onClick={onClick}
       className={cn(
@@ -38,12 +38,20 @@ const FormButton = ({
 }
 
 export default function NavButtons() {
-  const { nextStep, prevStep } = useStep()
+  const { nextStep, prevStep, isLastStep } = useStep()
 
   return (
     <div className="flex justify-center gap-2 py-4">
       <FormButton label="previous" variant="outline" onClick={prevStep} />
-      <FormButton label="next" variant="primary" onClick={nextStep} />
+      {isLastStep ? (
+        <FormButton
+          label="create character"
+          variant="primary"
+          // onClick={nextStep}
+        />
+      ) : (
+        <FormButton label="next" variant="primary" onClick={nextStep} />
+      )}
     </div>
   )
 }
