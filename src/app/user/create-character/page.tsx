@@ -5,6 +5,13 @@ import SkipLink from "@/app/ui/shared/skip-link"
 import { DEFAULT_PLAYBOOK } from "@/lib/constants"
 import { fetchPlaybook } from "@/lib/helpers"
 
+const currentStep = {
+  "1": <Form.StepOne />,
+  "2": <Form.StepTwo />,
+  "3": <Form.StepThree />,
+  "4": <Form.StepFour />,
+} as Record<string, JSX.Element>
+
 export default async function Page({
   searchParams,
 }: {
@@ -27,13 +34,9 @@ export default async function Page({
       <SkipLink id="main-content" />
       <Form.Stepper />
       <Form.Form name="create-character">
-        {/* TODO: Investigate if we can just abstract this away with a useMultiStepForm hook */}
-        {(!step || step === "1") && <Form.StepOne />}
-        {step === "2" && <Form.StepTwo />}
-        {step === "3" && <Form.StepThree />}
-        {step === "4" && <Form.StepFour />}
+        {currentStep[step ?? "1"]}
+        <Form.NavButtons />
       </Form.Form>
-      <Form.NavButtons />
     </div>
   )
 }
