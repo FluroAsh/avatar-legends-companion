@@ -1,9 +1,9 @@
 {
   "name": "avatar-companion-app",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -33,7 +33,7 @@
     "eslint": "8.44.0",
     "eslint-config-next": "13.4.7",
     "lucide-react": "^0.263.1",
-    "next": "^13.5.6",
+    "next": "^14.2.1",
     "postcss": "8.4.24",
     "react": "18.2.0",
     "react-dom": "18.2.0",
