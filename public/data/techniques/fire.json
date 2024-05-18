@@ -1,0 +1,102 @@
+{
+  "techniques": [
+    {
+      "technique": "A Single Spark",
+      "stance": "Evade and Observe",
+      "rare": "false",
+      "type": "Fire",
+      "description": "Unleash your emotions into the flames around you. Mark 1-fatigue to hold 1 for each condition you have marked. Spend your hold 1-for-1 in the next exchange to pay the costs of techniques as if it was fatigue, to inflict Doomed on a foe you target with firebending, or to use Seize a Position—no matter what approach you used—in addition to your other techniques."
+    },
+    {
+      "technique": "Fire Stream",
+      "stance": "Defend and Maneuver",
+      "rare": "false",
+      "type": "Fire",
+      "description": "Pour fire upon a target. Mark fatigue to inflict Impaired on them. Mark 3-fatigue to inflict Doomed and Impaired. Mark 5-fatigue to inflict Trapped, Doomed, and Impaired."
+    },
+    {
+      "technique": "Arc Lightning",
+      "stance": "Evade and Observe",
+      "rare": "true",
+      "type": "Lightning",
+      "description": "Channel lightning through your body against a closely engaged foe. Mark 1-fatigue to inflict a condition on an engaged foe who used an advance and attack technique against you this exchange; if they already have two conditions marked, they are also Stunned."
+    },
+    {
+      "technique": "Fire Whip",
+      "stance": "Defend and Maneuver",
+      "rare": "false",
+      "type": "Fire",
+      "description": "Lash out from a distance. Inflict 2-fatigue or a condition (target’s choice), and enemies must mark fatigue to get close enough to attack you this exchange."
+    },
+    {
+      "technique": "Breath of Fire",
+      "stance": "Advance and Attack",
+      "rare": "false",
+      "type": "Fire",
+      "description": "Breathe fire in a massive gout. Mark fatigue to set alight as much or as little of your surroundings as you choose and try to set aflame any foes within reach. Those foes must either retreat and disengage with you, becoming Impaired, or suffer 2-fatigue and become Doomed as they catch fire."
+    },
+    {
+      "technique": "Flame Knives",
+      "stance": "Advance and Attack",
+      "rare": "false",
+      "type": "Fire",
+      "description": "Mark up to 3-fatigue. Hold an equal number of flames. Lose 1-flame at the end of each exchange after this one. When you inflict fatigue or conditions on a foe, inflict an additional  1-fatigue for each remaining flame."
+    },
+    {
+      "technique": "Breath of Fire",
+      "stance": "Advance and Attack",
+      "rare": "false",
+      "type": "Fire",
+      "description": "Breathe fire in a massive gout. Mark fatigue to set alight as much or as little of your surroundings as you choose and try to set aflame any foes within reach. Those foes must either retreat and disengage with you, becoming Impaired, or suffer 2-fatigue and become Doomed as they catch fire."
+    },
+    {
+      "technique": "Jet Stepping",
+      "stance": "Evade and Observe",
+      "rare": "Evade and Observe",
+      "type": "Fire",
+      "description": "Advance to a higher position and become Favored and Prepared for the next exchange. Any foe engaged with you can mark 2-fatigue to block this technique."
+    },
+    {
+      "technique": "Explosive Blast",
+      "stance": "Advance and Attack",
+      "rare": "true",
+      "type": "Combustion",
+      "description": "Fire a sparking, spitting beam of focused energy that explodes when it reaches its target. Your target must either dive for cover or take the blow. If they dive for cover, they mark 2-fatigue and become Impaired; if they are already Impaired, they cannot dive for cover. If they take the blow, they mark 4-fatigue."
+    },
+    {
+      "technique": "Lightning Blast",
+      "stance": "Advance and Attack",
+      "rare": "true",
+      "type": "Lightning",
+      "description": "Hurl a bolt of lightning at a target. Mark up to 3-fatigue. For each fatigue you mark, your target must mark 2-fatigue."
+    },
+    {
+      "technique": "Fire Blade",
+      "stance": "Advance and Attack",
+      "rare": "false",
+      "type": "Fire",
+      "description": "Swipe your surroundings with a blade of flame. Mark 1-fatigue to slice through a piece of your surroundings and destabilize your foe’s footing, inflicting 2-fatigue and Impaired on them."
+    },
+    {
+      "technique": "Spiral Flare Kick",
+      "stance": "Advance and Attack",
+      "rare": "true",
+      "type": "Fire",
+      "description": "Spin skyward on jets of flame as you lash out with your legs. Mark 1-fatigue to target two individual foes or one group with this attack. Individual foes must each mark 2-fatigue or one condition, their choice; the group must mark 4-fatigue or two conditions, their choice."
+    },
+    {
+      "technique": "Fire Pinwheel",
+      "stance": "Advance and Attack",
+      "rare": "true",
+      "type": "Fire",
+      "description": "Throw a spinning disc of pure flame. Mark 1-fatigue; your target must either mark 2 conditions, or mark 1-fatigue and dodge the disc and allow it to set everything around them aflame (possibly inflicting negative statuses)."
+    },
+    {
+      "technique": "Wall of Fiery Breath",
+      "stance": "Defend and Maneuver",
+      "rare": "false",
+      "type": "Fire",
+      "description": "Breathe a gout of flame that keeps foes back as you maneuver away from them. Mark one condition and move to a new position. Foes must keep their distance and become disengaged, or push through the flame and suffer 4-fatigue."
+    }
+  ]
+}
