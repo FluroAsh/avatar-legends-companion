@@ -1,0 +1,95 @@
+{
+  "techniques": [
+    {
+      "technique": "Detect the Heavy Step",
+      "stance": "Defend and Maneuver",
+      "rare": "true",
+      "type": "Seismic Sense",
+      "description": "Use seismic sense to detect the instant an enemy is about to move against you. Become Prepared, and at any time during this exchange, you may lose your Prepared status and mark fatigue to interrupt an enemy as they use a technique; they must mark an additional 3-fatigue or you disrupt their attempt to act, canceling the technique."
+    },
+    {
+      "technique": "Ground Shift",
+      "stance": "Evade and Observe",
+      "rare": "false",
+      "type": "Earth",
+      "description": "Twist the ground itself to displace or unbalance foes. Target an individual foe or an area. If you target an area, mark 1-fatigue. All affected foes become Impaired for an exchange, or Stunned if they are already Impaired."
+    },
+    {
+      "technique": "Dust Stepping",
+      "stance": "Defend and Maneuver",
+      "rare": "false",
+      "type": "Earth",
+      "description": "Step up into the air on thin pillars of dust and stone. Advance to a higher position and become Favored and Prepared. Any foe engaged with you can mark 2-fatigue to block this effect."
+    },
+    {
+      "technique": "Lava Star",
+      "stance": "Defend and Maneuver",
+      "rare": "true",
+      "type": "Lava",
+      "description": "Create a floating, spinning star of lava that can cut through nearly anything. Mark fatigue and become Favored as long as the star is active. Every time you use the star as part of an attack, you can also cut through or destroy part of the scenery as if you had used the Smash basic technique, at no additional cost. You may mark fatigue at the end of each exchange to keep the star active."
+    },
+    {
+      "technique": "Earth Armor",
+      "stance": "Defend and Maneuver",
+      "rare": "false",
+      "type": "Earth",
+      "description": "Gather earth, crystal, or other available material around you to create armor. Hold 3. Spend one hold to negate one condition or 2-fatigue inflicted upon you. While you have hold, you are Favored. You must spend hold—at least one—whenever an incoming attack would inflict fatigue or conditions."
+    },
+    {
+      "technique": "Metal Bindings",
+      "stance": "Evade and Observe",
+      "rare": "false",
+      "type": "Metal",
+      "description": "Catch an enemy’s limbs in metal you control. They become Impaired and cannot remove the status unless they are able to metalbend or the fight ends. While they are Impaired and you are engaged with them, you are Favored."
+    },
+    {
+      "technique": "Earth Gauntlet",
+      "stance": "Advance and Attack",
+      "rare": "false",
+      "type": "Earth",
+      "description": "Wrap your arm or fist in rock and strike! Mark fatigue; inflict one condition or 2-fatigue. You can also knock your foe out of reach and disengage; they must mark an additional fatigue to resist."
+    },
+    {
+      "technique": "Rock Column",
+      "stance": "Advance and Attack",
+      "rare": "false",
+      "type": "Earth",
+      "description": "Pin a foe with a column of earth. Inflict Impaired on a single combatant. If they are already <em>Impaired</em>, inflict <em>Trapped</em>. If they are already <em>Trapped</em>, inflict <em>Doomed</em>."
+    },
+    {
+      "technique": "Earth Launch",
+      "stance": "Defend and Maneuver",
+      "rare": "false",
+      "type": "Earth",
+      "description": "Throw yourself into the air with a massive burst of force. Mark 1-fatigue and become Favored. You disengage with all foes who can’t reach you high in the air for the rest of this exchange, but you come right back down into their midst at the end of this exchange."
+    },
+    {
+      "technique": "Stone Shield",
+      "stance": "Defend and Maneuver",
+      "rare": "true",
+      "type": "Earth",
+      "description": "Raise a defensive shield of stone that protects you or someone else. Mark 1-fatigue to raise the shield. Anyone protected by the Stone Shield gains <em>Impaired</em>—it’s tough to move inside. This shield blocks the first attack directed toward it each exchange. The Stone Shield cannot move and is not destroyed by an attack—it remains in place until you decide it comes down. You can elect to use the raw material in the wall for an earthbending technique, reducing its cost by 1-fatigue and removing the Stone Shield"
+    },
+    {
+      "technique": "Earth Sinking",
+      "stance": "Advance and Attack",
+      "rare": "true",
+      "type": "Earth",
+      "description": "Sink a foe into the earth itself. Mark 2-fatigue to trap an enemy standing on the ground in the earth; they become Trapped."
+    },
+    {
+      "technique": "Eat Dirt",
+      "stance": "Evade and Observe",
+      "rare": "false",
+      "type": "Earth",
+      "description": "Even the smallest pebble can cause a gator-phant to stumble. Cause a foe to lose their footing. Your target is Impaired and unable to choose <b>defend and maneuver</b> in the next exchange."
+    },
+    {
+      "technique": "Thick Mud",
+      "stance": "Evade and Observe",
+      "rare": "false",
+      "type": "Earth",
+      "description": "Transform the earth and stone around you into sticky, sucking mud. Any foes engaged with and acting against you in this exchange become stuck and Impaired; you may use Strike against each stuck foe in the next exchange, regardless of your chosen approach and in addition to y0ur normal techniques."
+    }
+  ]
+}
