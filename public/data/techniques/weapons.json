@@ -1,0 +1,88 @@
+{
+  "techniques": [
+    {
+      "technique": "Bludgeon",
+      "stance": "Advance and Attack",
+      "rare": "false",
+      "type": "Weapons",
+      "description": "Using a blunt weapon or hand-to-hand combat, attempt to rapidly subdue your foe. Mark 1-fatigue and cause your foe to shift their balance away from center; if their balance is now +2 or higher, they mark Stunned. Mark an additional 1-fatigue to move your foe to a different position within reach."
+    },
+    {
+      "technique": "Parry",
+      "stance": "Defend and Maneuver",
+      "rare": "false",
+      "type": "Weapons",
+      "description": "Stop a foe’s attack before it connects. Choose a foe who used advance and attack this exchange; during advance and attack, mark fatigue—1-for-1—to cancel an attack they use against you after they pay the costs."
+    },
+    {
+      "technique": "BOOM!",
+      "stance": "Advance and Attack",
+      "rare": "true",
+      "type": "Weapons",
+      "description": "Throw a small prepared explosive into the midst of your foes. Mark 2-fatigue or clear Prepared to toss the explosive into your enemies’ midst. Everyone in range (including allies in the area) must either mark 3-fatigue to dive away, or mark a condition and become Stunned, their choice."
+    },
+    {
+      "technique": "Pin a Fly to a Tree",
+      "stance": "Advance and Attack",
+      "rare": "true",
+      "type": "Weapons",
+      "description": "Fire arrows with perfect accuracy to pin a foe in place. Mark 1-fatigue to inflict Impaired on a target, or 3-fatigue to inflict Impaired and Trapped."
+    },
+    {
+      "technique": "Chart a Course",
+      "stance": "Evade and Observe",
+      "rare": "true",
+      "type": "Weapons",
+      "description": "Plan a clear and perfect path of action. Secretly choose your approach and up to two techniques you plan to use in the next exchange (noting them in advance). If you use those techniques in the next exchange, reveal your planning; those techniques cost no fatigue and cannot be canceled or blocked. Anyone engaged with you can mark fatigue to look at the note."
+    },
+    {
+      "technique": "Pinpoint Thrust",
+      "stance": "Advance and Attack",
+      "rare": "false",
+      "type": "Weapons",
+      "description": "Using a thrusting or stabbing weapon, go straight for the target with precision and accuracy. Mark 1-fatigue and inflict 2-fatigue and Impaired on your foe. You may mark an additional 1-fatigue to move yourself to a new position within reach immediately; any foes engaged with you may mark 1-fatigue to block this movement."
+    },
+    {
+      "technique": "Switch it Up",
+      "stance": "Evade and Observe",
+      "rare": "false",
+      "type": "Weapons",
+      "description": "Switch up your style, footwork, weapon, or bearing, causing your foe to second-guess your next move. Mark 1-fatigue to become Prepared and force an engaged foe to reveal their choice of approach before you choose yours during the next exchange."
+    },
+    {
+      "technique": "Counterstrike",
+      "stance": "Defend and Maneuver",
+      "rare": "false",
+      "type": "Weapons",
+      "description": "Using impeccable timing, read your foe’s movement and lash out with blinding speed. Execute a Strike as if you had marked 1-fatigue against an engaged foe who chose advance and attack as their approach. You cannot use this technique if you have any negative statuses."
+    },
+    {
+      "technique": "Take the High Ground",
+      "stance": "Defend and Maneuver",
+      "rare": "false",
+      "type": "Weapons",
+      "description": "Move to an advantageous position above your foe. Mark 1-fatigue, become Favored, and ignore the harm and negative statues from any attacks they make against you this exchange."
+    },
+    {
+      "technique": "Disarm",
+      "stance": "Defend and Maneuver",
+      "rare": "false",
+      "type": "Weapons",
+      "description": "Target your foe’s ability to fight by breaking, removing, or limiting a particular style. Mark 2-fatigue to name any advanced advance and attack technique your foe has—they are unable to use that technique for the remainder of this encounter."
+    },
+    {
+      "technique": "Turn the Tables",
+      "stance": "Advance and Attack",
+      "rare": "true",
+      "type": "Weapons",
+      "description": "Make careful strikes to undermine your foe’s advantageous position. Mark 1-fatigue to knock your foe from their position to a new, disadvantageous location, inflicting 1-fatigue. If your foe was Favored or Prepared at the start of the exchange, you do not mark fatigue, you inflict an additional 1-fatigue, and they lose all appropriate positive statuses. These costs and consequences cannot be canceled or avoided by another technique."
+    },
+    {
+      "technique": "Feint",
+      "stance": "Evade and Observe",
+      "rare": "false",
+      "type": "Weapons",
+      "description": "Trick your foes into overextending themselves against you. If you were targeted by any attacks this exchange, you may mark fatigue to immediately inflict a condition on each of your attackers."
+    }
+  ]
+}
