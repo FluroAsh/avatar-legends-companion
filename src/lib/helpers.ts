@@ -3,11 +3,11 @@ import { DEFAULT_PLAYBOOK, TRAINING_KEYS } from "./constants"
 /* API Helpers */
 async function fetchPlaybook(playbook: string | undefined) {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/classes?type=${
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/playbooks?type=${
       playbook || DEFAULT_PLAYBOOK
     }`
   )
-  const { data } = await res.json()
+  const data = await res.json()
   return data
 }
 
