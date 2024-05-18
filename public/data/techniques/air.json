@@ -1,0 +1,95 @@
+{
+  "techniques": [
+    {
+      "technique": "Air Cushion",
+      "stance": "Evade and Observe",
+      "rare": "false",
+      "type": "Air",
+      "description": "Soften the blows an ally takes and get them back on their feet faster. Mark fatigue to clear 2-fatigue, one condition, or any one status from an ally within reach who was struck by an attack this exchange."
+    },
+    {
+      "technique": "Reed in the Wind",
+      "stance": "Evade and Observe",
+      "rare": "true",
+      "type": "Air",
+      "description": "Adjust your movements to perfectly match and avoid the movements of a foe. Mark 2-fatigue and secretly name the approach you believe your foe will use in the next exchange; reveal it after approaches are chosen in the next exchange. If you were incorrect, you may shift your chosen approach. If you were correct, you become immediately Favored for that exchange, and they cannot target you with any techniques."
+    },
+    {
+      "technique": "Air Scooter",
+      "stance": "Evade and Observe",
+      "rare": "false",
+      "type": "Air",
+      "description": "Summon a ball or ring of air under yourself. While riding it, you are Favored. You can sacrifice your air scooter to avoid marking fatigue or conditions when you are struck by an attack."
+    },
+    {
+      "technique": "Shockwave",
+      "stance": "Evade and Observe",
+      "rare": "true",
+      "type": "Air",
+      "description": "Leap into the air and hurtle back to the ground, sending a massive burst of pressurized air all around you. Mark 2-fatigue; everyone in the area, including allies, is thrown away, disengaging and becoming Stunned unless they mark 4-fatigue."
+    },
+    {
+      "technique": "Air Swipe",
+      "stance": "Defend and Maneuver",
+      "rare": "false",
+      "type": "Air",
+      "description": "Prepare to cast an arc of pressurized air to knock away incoming attacks and throw enemies off-balance. If any enemy attacks you, you may mark fatigue to cast the arc and block or divert the strike. If no enemy has attacked you by the end of the exchange, you may cast the arc to inflict 2-fatigue on up to three enemies."
+    },
+    {
+      "technique": "Small Vortex",
+      "stance": "Evade and Observe",
+      "rare": "false",
+      "type": "Air",
+      "description": "Spin a single enemy off the ground on a small vortex. Mark 3-fatigue; your target becomes Impaired and Stunned."
+    },
+    {
+      "technique": "Breath of Wind",
+      "stance": "Advance and Attack",
+      "rare": "false",
+      "type": "Air",
+      "description": "Exhale mightily through pursed lips. Knock down a single target and inflict Stunned on them, unless they choose to mark 4-fatigue."
+    },
+    {
+      "technique": "Suction",
+      "stance": "Evade and Observe",
+      "rare": "false",
+      "type": "Air",
+      "description": "Snatch a small object off the ground or from a foe’s hand with a sucking wind. The object snaps to your hand unless someone marks 2-fatigue to hold it or block its movement."
+    },
+    {
+      "technique": "Cannonball",
+      "stance": "Advance and Attack",
+      "rare": "false",
+      "type": "Air",
+      "description": "Rush forward with the might of the wind behind you and crash into a foe. Mark 1-fatigue to target a foe you aren’t currently engaged with and rush at them. You become engaged with them (disengaging with other current foes) and inflict a condition on them."
+    },
+    {
+      "technique": "Twisting Wind",
+      "stance": "Defend and Maneuver",
+      "rare": "false",
+      "type": "Air",
+      "description": "Effortlessly flow around blows like the wind itself. For each foe engaged with you who chose an advance and attack approach, clear 1-fatigue and hold 1-momentum. If you advance and attack next exchange, you may spend your momentum instead of fatigue."
+    },
+    {
+      "technique": "Cushion the Forceful Fist",
+      "stance": "Evade and Observe",
+      "rare": "true",
+      "type": "Air",
+      "description": "Put a cushion of twisting air around your body that keeps physical strikes at bay. Mark 2-fatigue to become Favored; you are immune to hard, physical, forceful attacks and blows (a hurled rock, a direct and forceful blast of flame, a jet of water) until the end of the next exchange."
+    },
+    {
+      "technique": "Wind Run",
+      "stance": "Defend and Maneuver",
+      "rare": "false",
+      "type": "Air",
+      "description": "Race at high speeds, dodging attacks and seeking escape. Mark 1-fatigue to slip to a particular point of escape, disengaging from foes; you don’t engage any new foes. If no one re-engages with you or blocks your retreat by the end of the exchange, you escape the scene."
+    },
+    {
+      "technique": "Directed Funnel",
+      "stance": "Advance and Attack",
+      "rare": "false",
+      "type": "Air",
+      "description": "Create a spinning funnel of air that can fire objects at high speed. Mark fatigue; each ally in reach can mark 1-fatigue to toss an appropriate small object into the funnel—inflict 2-fatigue on a target within reach for each ally who does."
+    }
+  ]
+}
