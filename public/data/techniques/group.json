@@ -1,0 +1,95 @@
+{
+  "techniques": [
+    {
+      "technique": "Attend to Commands",
+      "stance": "Evade and Observe",
+      "rare": "false",
+      "type": "Group",
+      "description": "A leading voice in the group takes a moment to organize it effectively. The group clears Impaired, becomes Inspired, and inflicts an additional 1-fatigue on all attacks made next exchange."
+    },
+    {
+      "technique": "Shield Wall",
+      "stance": "Defend and Maneuver",
+      "rare": "false",
+      "type": "Group",
+      "description": "The group together forms a barricade. The group becomes Favored, and ignores the first 2-fatigue and one condition it would mark this exchange. Next exchange, all movement or maneuvering past the shield wall is automatically blocked."
+    },
+    {
+      "technique": "Coordination",
+      "stance": "Evade and Observe",
+      "rare": "false",
+      "type": "Group",
+      "description": "The group sets itself up to launch a concerted, skilled attack upon its targets next exchange. The group becomes Prepared and Favored and may clear 2-fatigue or a condition (in addition to the normal 1-fatigue for evade and observe)."
+    },
+    {
+      "technique": "Spread Out",
+      "stance": "Defend and Maneuver",
+      "rare": "false",
+      "type": "Group",
+      "description": "The group spreads itself out to cover more ground and avoid large-scale attacks. The group cannot suffer more than 1-fatigue, one condition, or one balance shift from any individual attack—the attacker chooses which if necessary. The group can also engage with any foes in a much wider reach, and pays no cost to keep an engaged foe from escaping."
+    },
+    {
+      "technique": "Draw Foe",
+      "stance": "Evade and Observe",
+      "rare": "false",
+      "type": "Group",
+      "description": "The group misleads foes into overextending themselves. The group targets an engaged foe who chose the advance and attack approach this exchange. That foe must mark 1-fatigue, becomes Impaired, and is moved out of reach of allies."
+    },
+    {
+      "technique": "Surround",
+      "stance": "Advance and Attack",
+      "rare": "false",
+      "type": "Group",
+      "description": "The group closes around a single foe. Every additional attack made on that foe during this exchange inflicts an additional 1-fatigue. Every attack made by a surrounded foe forces them to suffer 1-fatigue."
+    },
+    {
+      "technique": "Engulf",
+      "stance": "Defend and Maneuver",
+      "rare": "false",
+      "type": "Group",
+      "description": "The whole group shifts forward en masse, engulfing their target and engaging them. An engulfed target becomes Impaired and cannot escape or disengage this exchange. The group automatically uses Strike against each Impaired foe within reach."
+    },
+    {
+      "technique": "Swarm",
+      "stance": "Advance and Attack",
+      "rare": "false",
+      "type": "Group",
+      "description": "The group throws itself upon a foe with no heed to its own safety. Mark fatigue to inflict 2-fatigue on a single target. This technique may be chosen multiple times. Each time it is chosen after the first, it inflicts an additional 1-fatigue. "
+    },
+    {
+      "technique": "Focused Fire",
+      "stance": "Advance and Attack",
+      "rare": "false",
+      "type": "Group",
+      "description": "The group pours out all of its attacks simultaneously, in synchronized fashion, against the same target. Mark fatigue to inflict 2-fatigue and a condition. If the group was Prepared for this attack, inflict an additional 2-fatigue and another condition."
+    },
+    {
+      "technique": "Test Defenses",
+      "stance": "Evade and Observe",
+      "rare": "false",
+      "type": "Group",
+      "description": "The group slowly probes the defenses of a foe, one or two members attacking individually to determine the foe’s abilities. The group becomes Prepared, Favored, Inspired, and learns the balance principle of its target; the chosen foe may immediately use Strike on the group in turn."
+    },
+    {
+      "technique": "Overwhelm",
+      "stance": "Advance and Attack",
+      "rare": "false",
+      "type": "Group",
+      "description": "Strike at every combatant in reach. All foes engaged with the group must mark 2-fatigue or one condition, their choice."
+    },
+    {
+      "technique": "Protect Objective",
+      "stance": "Defend and Maneuver",
+      "rare": "false",
+      "type": "Group",
+      "description": "The group surrounds a person, place, or object with their backs to it, to protect it from attack, disruption, or seizure. The group marks 2-fatigue and becomes Prepared. All foes near or engaged with the protected target become disengaged and pushed back from the target and are now engaged with the group. No foe can reach the protected target until the group is scattered or loses Prepared."
+    },
+    {
+      "technique": "Scatter and Regroup",
+      "stance": "Evade and Observe",
+      "rare": "false",
+      "type": "Group",
+      "description": "The group splits apart and reforms nearby. The group clears one condition. Any foe engaged with the group is no longer engaged with the group, and the group can advance and engage with foes as it chooses; any foes the group engages with are Impaired."
+    }
+  ]
+}
