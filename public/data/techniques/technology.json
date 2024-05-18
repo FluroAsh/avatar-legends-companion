@@ -1,0 +1,88 @@
+{
+  "techniques": [
+    {
+      "technique": "Better, Faster, Stronger",
+      "stance": "Defend and Maneuver",
+      "rare": "false",
+      "type": "Technology",
+      "description": "You push your equipment to its limits to move fast and charge up. Mark 1-fatigue to use Seize a Position, but no foe can block you. You may mark an additional 1-fatigue to gain Empowered for as long as you maintain the new position, or to move to an unsafe, unstable area and make it safe."
+    },
+    {
+      "technique": "Jury Rig",
+      "stance": "Advance and Attack",
+      "rare": "true",
+      "type": "Technology",
+      "description": "Create a new device on the fly. You gain Favored, hold 1-gear, and name one basic technique from any approach. As long as you hold this device, you can use that technique as if it was part of your current approach by spending 1-gear. Otherwise, spend gears 1-for-1 instead of fatigue on technology techniques or basic techniques using technology training."
+    },
+    {
+      "technique": "Blinded by Science",
+      "stance": "Advance and Attack",
+      "rare": "false",
+      "type": "Technology",
+      "description": "Use your gadgets and gizmos in a way that confuses and dazzles even the most tech-savvy foe. Mark up to 3-fatigue as you throw out your devices. If you mark 1-fatigue, inflict 1-fatigue and Impaired on your foe. If you mark 2-fatigue, inflict Trapped or Stunned on your foe, as well. If you mark 3-fatigue, inflict both Trapped and Stunned in addition to the 1-fatigue effects."
+    },
+    {
+      "technique": "Pinpoint Flaws",
+      "stance": "Evade and Observe",
+      "rare": "false",
+      "type": "Technology",
+      "description": "Identify weak points in your environment. Name a status you wish to inflict on a foe next exchange; the GM will tell you what you need to break in your environment to inflict that status. Next exchange, you may use Smash for free no matter what approach you use."
+    },
+    {
+      "technique": "Collect Material",
+      "stance": "Evade and Observe",
+      "rare": "false",
+      "type": "Technology",
+      "description": "Scrounge up bits and bobs from the area around you that you can use to your advantage. Take 3-gears and become Prepared. Spend gears 1-for-1 instead of fatigue on technology techniques or basic techniques using technology training."
+    },
+    {
+      "technique": "Plant Trap",
+      "stance": "Evade and Observe",
+      "rare": "false",
+      "type": "Technology",
+      "description": "Place a snare or triggered explosive into your environment. Mark 1-fatigue; the next enemy who enters the trapped area must mark a condition and shift their balance away from center."
+    },
+    {
+      "technique": "Rebuild",
+      "stance": "Defend and Maneuver",
+      "rare": "false",
+      "type": "Technology",
+      "description": "Using your technological know-how, you improve your situation by quickly tuning, repairing, and adjusting your available equipment. Mark 1-fatigue, clear a condition, and gain 3-gears. Spend gears 1-for-1 instead of fatigue on technology techniques or basic techniques using technology training."
+    },
+    {
+      "technique": "Entangler",
+      "stance": "Advance and Attack",
+      "rare": "false",
+      "type": "Technology",
+      "description": "Entangle a foe with a weapon or device. Mark 1-fatigue to wrap the entangling object around your foe; they are Trapped. They break free automatically after they are Trapped for two full exchanges."
+    },
+    {
+      "technique": "Full-Power Attack",
+      "stance": "Advance and Attack",
+      "rare": "true",
+      "type": "Technology",
+      "description": "Discharge your batteries, release the high-tension coils, and otherwise unleash the full charge of your equipment! Become Impaired and inflict 2-fatigue on a targeted foe. Spend all gears you currently hold 1-for-1 to inflict 1 additional fatigue. If you spend 3 or more gears in this way, inflict 2 additional fatigue. You cannot earn gears for the rest of this scene—your equipment is too damaged, depleted, or otherwise used up."
+    },
+    {
+      "technique": "Smoke Bomb",
+      "stance": "Defend and Maneuver",
+      "rare": "false",
+      "type": "Technology",
+      "description": "Throw a smoke bomb to cover your escape from the combat. Mark 1-fatigue to immediately Impair any foes engaged with you. You escape at the end of this exchange. Any foe who is engaged with you and not Impaired may mark 1-fatigue to block your escape."
+    },
+    {
+      "technique": "Jolt",
+      "stance": "Advance and Attack",
+      "rare": "false",
+      "type": "Technology",
+      "description": "Launch a disruptive attack on a target within reach in an attempt to control or slow them. Mark 1-fatigue to target a person or object. If you target a person, they must shift their balance away from center; if they are a technology user or covered in metal, they become Stunned; if you target an object, it is temporarily slowed or shut down."
+    },
+    {
+      "technique": "Wind Up",
+      "stance": "Defend and Maneuver",
+      "rare": "false",
+      "type": "Technology",
+      "description": "Wind up a technological device to build tension and charge! Gain 1-gear and become Favored; then, mark up to 2-fatigue, and hold 2 additional gears for each fatigue you mark. Spend gears 1-for-1 instead of fatigue on technology techniques or basic techniques using technology training."
+    }
+  ]
+}
