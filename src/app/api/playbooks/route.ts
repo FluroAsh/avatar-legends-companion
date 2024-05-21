@@ -1,8 +1,8 @@
-import { readdirSync } from "fs"
+import * as fs from "fs"
 import { NextRequest, NextResponse } from "next/server"
 
-import { getPlaybookData, getPlaybooksData } from "@/app/api/helpers"
-import { PLAYBOOK_DATA_PATHNAME } from "@/lib/paths"
+import { readJSONFile, readJSONFiles } from "@/app/api/helpers"
+import { resolveDataPathname } from "@/lib/paths"
 
 import { PlaybookError } from "../errors"
 
@@ -11,16 +11,17 @@ export async function GET(req: NextRequest) {
 
   try {
     const typeParam = searchParams.get("type")
+    const targetDir = resolveDataPathname("playbooks")
 
     if (typeParam) {
-      const filePath = `${PLAYBOOK_DATA_PATHNAME}/${typeParam}.json`
-      const playbookData = getPlaybookData(filePath)
+      const filePath = `${targetDir}/${typeParam}.json`
+      const playbookData = readJSONFile(filePath)
       return NextResponse.json(playbookData)
     }
 
     if (!typeParam) {
-      const filePaths = readdirSync(PLAYBOOK_DATA_PATHNAME)
-      const playbooksData = getPlaybooksData(filePaths)
+      const fileNames = fs.readdirSync(targetDir)
+      const playbooksData = readJSONFiles(fileNames, targetDir)
       return NextResponse.json(playbooksData)
     }
   } catch (e) {

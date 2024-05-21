@@ -1,9 +1,8 @@
 import { existsSync, readFileSync } from "fs"
 
 import { API_ERRORS, PlaybookError } from "@/app/api/errors"
-import { PLAYBOOK_DATA_PATHNAME } from "@/lib/paths"
 
-export const getPlaybookData = (filePath: string) => {
+export const readJSONFile = (filePath: string) => {
   let classData
   if (existsSync(filePath)) {
     const data = readFileSync(filePath, "utf8")
@@ -15,11 +14,12 @@ export const getPlaybookData = (filePath: string) => {
   return classData
 }
 
-export const getPlaybooksData = (filePaths: string[]) => {
-  if (filePaths.length < 1) throw new PlaybookError(API_ERRORS.classes.notFound)
+export const readJSONFiles = (fileNames: string[], pathname: string) => {
+  if (fileNames.length < 1) throw new PlaybookError(API_ERRORS.classes.notFound)
 
-  return filePaths.reduce((acc: string[], fileName) => {
-    const filePath = `${PLAYBOOK_DATA_PATHNAME}/${fileName}`
+  return fileNames.reduce((acc: string[], fileName) => {
+    const filePath = `${pathname}/${fileName}`
+
     if (!existsSync(filePath))
       throw new PlaybookError(API_ERRORS.generic.badRequest)
 
