@@ -21,7 +21,7 @@ export async function GET(req: NextRequest) {
 
     if (!typeParam) {
       const fileNames = fs.readdirSync(targetDir)
-      const playbooksData = readJSONFiles(fileNames, targetDir)
+      const playbooksData = readJSONFiles(fileNames, targetDir).flat()
       return NextResponse.json(playbooksData)
     }
   } catch (e) {
