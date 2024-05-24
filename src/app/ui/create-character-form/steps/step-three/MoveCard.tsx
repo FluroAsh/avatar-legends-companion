@@ -2,6 +2,8 @@ import { Checkbox } from "@/app/ui/checkbox"
 import { type Move } from "@/types/api"
 import { cn } from "@/utils/helpers"
 
+const MAX_CHARS_PREVIEW = 180
+
 export default function MoveCard({
   moveData,
   isSelected,
@@ -18,20 +20,31 @@ export default function MoveCard({
   const { move, description } = moveData
   const isDisabled = values.length === maxSelection && !isSelected
 
+  const moveKey = move.toLowerCase().replace(/\s/g, "-").concat("-checkbox")
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLLabelElement>) => {
+    if (e.key === "Enter" || e.key === " ") {
+      onChange(move)(!values.includes(move))
+    }
+  }
+
   return (
-    <div className="flex items-center w-full overflow-hidden rounded-lg">
+    <div className="flex">
       <label
-        htmlFor={`${move}-checkbox`}
+        htmlFor={moveKey}
         className={cn(
-          "grow h-full p-4 rounded-xl border border-slate-600 text-xs hover:cursor-pointer select-none font-semibold bg-slate-700 transition",
+          "p-4 text-xs font-semibold bg-slate-700 transition rounded-lg border border-slate-600",
+          "focus:outline-none focus:ring-2 focus-ring-sky-600 hover:cursor-pointer",
           isSelected && "bg-sky-700 border-sky-600",
           isDisabled && "opacity-60 hover:cursor-not-allowed",
           !isDisabled && "hover:animate-pulse-2"
         )}
+        tabIndex={0}
+        onKeyDown={handleKeyDown}
       >
         <Checkbox
-          id={`${move}-checkbox`}
-          name={`${move}-checkbox`}
+          id={moveKey}
+          name={moveKey}
           checked={values.includes(move)}
           onCheckedChange={onChange(move)}
           disabled={isDisabled}
@@ -44,7 +57,9 @@ export default function MoveCard({
           Only the first 180 characters should show in the preview.
         */}
         <div className="pt-1 leading-5 text-neutral-300">
-          {description.substring(0, 180)}...
+          {description.length >= MAX_CHARS_PREVIEW
+            ? description.substring(0, MAX_CHARS_PREVIEW) + "..."
+            : description}
         </div>
       </label>
     </div>

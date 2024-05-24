@@ -33,10 +33,10 @@ export default function BasicMoves() {
           Basic Moves － {basicMoves.values.length} / 2
         </p>
         <p className="text-xs text-neutral-300">
-          Select <i>two</i> moves
+          Select <i>two</i> basic moves
         </p>
       </div>
-      <div className="grid grid-cols-2 gap-4 py-2">
+      <div className="grid gap-4 py-2 sm:grid-cols-2">
         {playbookData.moves.map((moveData: Move) => (
           <MoveCard
             key={moveData.move}
