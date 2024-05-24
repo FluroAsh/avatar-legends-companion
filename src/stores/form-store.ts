@@ -33,12 +33,15 @@ type FormStore = {
   }
   connections: FieldArray
   training: Field
+  basicMoves: FieldArray
+  fightingTechnique: Field
   update: (_partial: Partial<FormStore>) => void
 }
 
 const useFormStore = create(
   devtools<FormStore>(
     (set) => ({
+      // ---- Step 1 ---- //
       playbook: {
         value: "",
         error: "",
@@ -75,10 +78,20 @@ const useFormStore = create(
         value: "",
         error: "",
       },
+      // ---- Step 2 ---- //
+      // ---- Step 3 ---- //
+      basicMoves: {
+        values: [],
+        error: "",
+      },
+      fightingTechnique: {
+        value: "",
+        error: "",
+      },
+      // ---- Step 4 ---- //
       update: (partial) =>
         set((state) => ({ ...state, ...partial }), false, "FORM_UPDATE"),
     }),
-
     { name: FORM_STORE_KEY }
   )
 )
