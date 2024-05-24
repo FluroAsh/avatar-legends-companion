@@ -29,6 +29,7 @@ export default function SelectPlaybook() {
       // NOTE: Should clear & reset any specified dependent Playbook form fields
       demeanour: { values: [], error: "" },
       balance: { selected: "neutral", value: [0], error: "" },
+      basicMoves: { values: [], error: "" },
     })
   }
 

@@ -33,8 +33,8 @@ export default function MoveCard({
       <label
         htmlFor={moveKey}
         className={cn(
-          "p-4 text-xs font-semibold bg-slate-700 transition rounded-lg border border-slate-600",
-          "focus:outline-none focus:ring-2 focus-ring-sky-600 hover:cursor-pointer",
+          "p-4 w-full text-xs font-semibold bg-slate-700 transition rounded-lg border border-slate-600",
+          "select-none focus:outline-none focus:ring-2 focus-ring-sky-600 hover:cursor-pointer",
           isSelected && "bg-sky-700 border-sky-600",
           isDisabled && "opacity-60 hover:cursor-not-allowed",
           !isDisabled && "hover:animate-pulse-2"
