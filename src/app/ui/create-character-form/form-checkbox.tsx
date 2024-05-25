@@ -14,7 +14,7 @@ export const FormCheckboxContainer = ({
 }) => (
   <div className="flex flex-col sm:max-w-[300px]" key={`${label}-checkbox`}>
     <span className="pl-1 text-sm font-bold leading-7 capitalize">
-      {label} － {values.length}/{String(maxSelection)}
+      {label} － {values.length} / {String(maxSelection)}
     </span>
     <div className="grid flex-1 grid-cols-2 p-1 border rounded-md bg-muted">
       {children}

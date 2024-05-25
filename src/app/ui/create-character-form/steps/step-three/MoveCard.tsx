@@ -1,6 +1,38 @@
+import { useState } from "react"
+import { ChevronUp } from "lucide-react"
+
 import { Checkbox } from "@/app/ui/checkbox"
 import { type Move } from "@/types/api"
 import { cn } from "@/utils/helpers"
+
+function parseContent(
+  description: string,
+  options?: string[],
+  negativeOutcome?: string
+) {
+  const contentJSX = (
+    <>
+      <p>{description}</p>
+      {options && options.length > 0 && (
+        <ul className="list-disc">
+          {options.map((option) => (
+            <li key={option} className="ml-4">
+              {option}
+            </li>
+          ))}
+        </ul>
+      )}
+      {negativeOutcome && <p>{negativeOutcome}</p>}
+    </>
+  )
+
+  const contentLength =
+    description.length +
+    (options ? options.reduce((acc, curr) => acc + curr.length, 0) : 0) +
+    (negativeOutcome?.length || 0)
+
+  return { contentJSX, contentLength }
+}
 
 const MAX_CHARS_PREVIEW = 180
 
@@ -17,10 +49,19 @@ export default function MoveCard({
   maxSelection: number
   onChange: (_value: string) => (_checked: boolean) => void
 }) {
-  const { move, description } = moveData
-  const isDisabled = values.length === maxSelection && !isSelected
+  const [isExpanded, setIsExpanded] = useState<boolean>(false)
 
+  const { move, description, options, negativeOutcome } = moveData
+  const isDisabled = values.length === maxSelection && !isSelected
   const moveKey = move.toLowerCase().replace(/\s/g, "-").concat("-checkbox")
+
+  const { contentJSX, contentLength } = parseContent(
+    description,
+    options,
+    negativeOutcome
+  )
+
+  const hasPreview = contentLength >= MAX_CHARS_PREVIEW
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLLabelElement>) => {
     if (e.key === "Enter" || e.key === " ") {
@@ -28,16 +69,26 @@ export default function MoveCard({
     }
   }
 
+  const expandDescription = (
+    e:
+      | React.KeyboardEvent<HTMLButtonElement>
+      | React.MouseEvent<HTMLButtonElement>
+  ) => {
+    e.stopPropagation()
+    setIsExpanded(!isExpanded)
+  }
+
   return (
-    <div className="flex">
+    <div className={cn("relative flex h-fit", isDisabled && "opacity-60")}>
       <label
         htmlFor={moveKey}
         className={cn(
-          "p-4 w-full text-xs font-semibold bg-slate-700 transition rounded-lg border border-slate-600",
-          "select-none focus:outline-none focus:ring-2 focus-ring-sky-600 hover:cursor-pointer",
-          isSelected && "bg-sky-700 border-sky-600",
-          isDisabled && "opacity-60 hover:cursor-not-allowed",
-          !isDisabled && "hover:animate-pulse-2"
+          "group p-4 w-full text-xs font-semibold bg-slate-700 transition rounded-lg border border-slate-600",
+          "select-none focus:outline-none focus:ring-2 focus-ring-sky-600 hover:cursor-pointer overflow-hidden",
+          hasPreview && "pb-11",
+          isSelected && "bg-sky-800 border-sky-600",
+          !isDisabled && "hover:animate-pulse-2 ",
+          isDisabled && "hover:cursor-not-allowed"
         )}
         tabIndex={0}
         onKeyDown={handleKeyDown}
@@ -51,17 +102,34 @@ export default function MoveCard({
           className="hidden"
         />
         <span className="text-xl font-bold">{move}</span>
-        {/* 
-          This description should preview (peak from the bottom of the card), 
-          and then expand when clicked to show the full description.
-          Only the first 180 characters should show in the preview.
-        */}
-        <div className="pt-1 leading-5 text-neutral-300">
-          {description.length >= MAX_CHARS_PREVIEW
+
+        <div className="flex flex-col gap-2 pt-1 leading-5 text-neutral-300">
+          {hasPreview && !isExpanded
             ? description.substring(0, MAX_CHARS_PREVIEW) + "..."
-            : description}
+            : contentJSX}
         </div>
       </label>
+
+      {hasPreview && (
+        <button
+          type="button"
+          className={cn(
+            "flex gap-2 justify-center select-none text-xs rounded-bl-lg rounded-br-lg absolute bottom-0 right-0 z-10 w-full transition-colors",
+            "font-semibold cursor-pointer px-[8px] py-2 text-center bg-muted/50 hover:bg-neutral-600/50",
+            "focus:outline-none focus:ring-2 focus:ring-sky-600"
+          )}
+          onClick={(e) => expandDescription(e)}
+        >
+          <ChevronUp
+            className={cn(
+              "transition-transform duration-300",
+              isExpanded ? "rotate-0" : "rotate-180"
+            )}
+            size={16}
+          />
+          {isExpanded ? "Collapse" : "Expand"}
+        </button>
+      )}
     </div>
   )
 }
