@@ -87,6 +87,8 @@ export default function MoveCard({
         "relative flex h-fit transition-opacity",
         isDisabled && "opacity-60"
       )}
+      aria-selected={isSelected}
+      role="option"
     >
       <label
         htmlFor={moveKey}
@@ -133,6 +135,7 @@ export default function MoveCard({
             "focus:outline-none focus:ring-2 focus:ring-sky-600"
           )}
           onClick={(e) => expandDescription(e)}
+          aria-expanded={isExpanded}
         >
           <ChevronUp
             className={cn(
