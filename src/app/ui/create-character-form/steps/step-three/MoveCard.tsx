@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { ChevronUp } from "lucide-react"
 
 import { Checkbox } from "@/app/ui/checkbox"
@@ -29,12 +29,13 @@ function parseContent(
   const contentLength =
     description.length +
     (options ? options.reduce((acc, curr) => acc + curr.length, 0) : 0) +
-    (negativeOutcome?.length || 0)
+    (negativeOutcome?.length ?? 0)
 
   return { contentJSX, contentLength }
 }
 
 const MAX_CHARS_PREVIEW = 180
+const PREVIEW_HEIGHT = "60px"
 
 export default function MoveCard({
   moveData,
@@ -50,6 +51,8 @@ export default function MoveCard({
   onChange: (_value: string) => (_checked: boolean) => void
 }) {
   const [isExpanded, setIsExpanded] = useState<boolean>(false)
+  const contentRef = useRef<HTMLDivElement>(null)
+  const contentHeight = contentRef.current?.scrollHeight || 0
 
   const { move, description, options, negativeOutcome } = moveData
   const isDisabled = values.length === maxSelection && !isSelected
@@ -83,11 +86,11 @@ export default function MoveCard({
       <label
         htmlFor={moveKey}
         className={cn(
-          "group p-4 w-full text-xs font-semibold bg-slate-700 transition rounded-lg border border-slate-600",
-          "select-none focus:outline-none focus:ring-2 focus-ring-sky-600 hover:cursor-pointer overflow-hidden",
+          "p-4 w-full text-xs font-semibold bg-slate-700 transition rounded-lg border border-slate-600",
+          "select-none focus:outline-none focus:ring-2 focus-ring-sky-600 hover:cursor-pointer",
           hasPreview && "pb-11",
           isSelected && "bg-sky-800 border-sky-600",
-          !isDisabled && "hover:animate-pulse-2 ",
+          !isDisabled && "hover:animate-pulse-2",
           isDisabled && "hover:cursor-not-allowed"
         )}
         tabIndex={0}
@@ -103,10 +106,16 @@ export default function MoveCard({
         />
         <span className="text-xl font-bold">{move}</span>
 
-        <div className="flex flex-col gap-2 pt-1 leading-5 text-neutral-300">
-          {hasPreview && !isExpanded
-            ? description.substring(0, MAX_CHARS_PREVIEW) + "..."
-            : contentJSX}
+        <div
+          className={cn(
+            "w-full gap-2 pt-1 leading-5 transition-[max-height] duration-500 text-neutral-300 overflow-hidden"
+          )}
+          style={{
+            maxHeight: isExpanded ? contentHeight : PREVIEW_HEIGHT,
+          }}
+          ref={contentRef}
+        >
+          {contentJSX}
         </div>
       </label>
 
@@ -114,7 +123,7 @@ export default function MoveCard({
         <button
           type="button"
           className={cn(
-            "flex gap-2 justify-center select-none text-xs rounded-bl-lg rounded-br-lg absolute bottom-0 right-0 z-10 w-full transition-colors",
+            "flex justify-center select-none text-xs rounded-bl-lg rounded-br-lg absolute bottom-0 right-0 z-10 w-full transition-colors",
             "font-semibold cursor-pointer px-[8px] py-2 text-center bg-muted/50 hover:bg-neutral-600/50",
             "focus:outline-none focus:ring-2 focus:ring-sky-600"
           )}
@@ -122,7 +131,7 @@ export default function MoveCard({
         >
           <ChevronUp
             className={cn(
-              "transition-transform duration-300",
+              "transition-transform duration-300 mr-[3.5px]",
               isExpanded ? "rotate-0" : "rotate-180"
             )}
             size={16}
