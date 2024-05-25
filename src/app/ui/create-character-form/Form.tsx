@@ -12,7 +12,7 @@ import supabase from "@/utils/supabase-client"
 
 /**
  * TODO: Add react-form to the form component (Form Part 1)
- * - The form will be split up into 3 parts (Details, Moves & Backstory)
+ * - The form will be split up into 4 parts (Character, Details, Moves & Backstory)
  * Component 1: Role, chararacter name, background & demeanour
  * Component 2: Stats, Balance, Connections
  * Component 3: Training
@@ -38,6 +38,7 @@ export default function FormComponent({
     baseStats,
     connections,
     training,
+    basicMoves,
   } = useFormStore((state) => state)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -60,6 +61,7 @@ export default function FormComponent({
       ],
       connections: connections.values,
       training: training.value,
+      basic_moves: basicMoves.values,
     })
 
     error && console.log(error)
