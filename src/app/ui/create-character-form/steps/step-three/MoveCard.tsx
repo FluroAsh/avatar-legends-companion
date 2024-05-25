@@ -82,7 +82,12 @@ export default function MoveCard({
   }
 
   return (
-    <div className={cn("relative flex h-fit", isDisabled && "opacity-60")}>
+    <div
+      className={cn(
+        "relative flex h-fit transition-opacity",
+        isDisabled && "opacity-60"
+      )}
+    >
       <label
         htmlFor={moveKey}
         className={cn(
