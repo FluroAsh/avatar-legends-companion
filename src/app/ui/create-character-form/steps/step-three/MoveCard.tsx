@@ -72,11 +72,7 @@ export default function MoveCard({
     }
   }
 
-  const expandDescription = (
-    e:
-      | React.KeyboardEvent<HTMLButtonElement>
-      | React.MouseEvent<HTMLButtonElement>
-  ) => {
+  const expandDescription = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation()
     setIsExpanded(!isExpanded)
   }
