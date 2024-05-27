@@ -1,5 +1,5 @@
 import { useRef, useState } from "react"
-import { ChevronUp } from "lucide-react"
+import { LuChevronUp } from "react-icons/lu"
 
 import { Checkbox } from "@/app/ui/checkbox"
 import { type Move } from "@/types/api"
@@ -133,7 +133,7 @@ export default function MoveCard({
           onClick={(e) => expandDescription(e)}
           aria-expanded={isExpanded}
         >
-          <ChevronUp
+          <LuChevronUp
             className={cn(
               "transition-transform duration-300 mr-[3.5px]",
               isExpanded ? "rotate-0" : "rotate-180"

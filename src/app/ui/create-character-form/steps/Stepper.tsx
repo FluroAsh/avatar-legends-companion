@@ -1,6 +1,6 @@
 "use client"
 
-import { Check } from "lucide-react"
+import { LuCheck } from "react-icons/lu"
 
 import { Button } from "@/app/ui/button"
 import { cn } from "@/utils/helpers"
@@ -51,7 +51,7 @@ const Step = ({ desc, idx }: { desc: string; idx: number }) => {
         />
         {isComplete && (
           <span className="absolute inset-0 flex items-center justify-center">
-            <Check size="12px" strokeWidth="3px" />
+            <LuCheck size="12px" strokeWidth="3px" />
           </span>
         )}
         <span
