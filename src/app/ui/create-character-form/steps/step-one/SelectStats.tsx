@@ -24,7 +24,7 @@ export default function SelectStats() {
   const baseStats = useFormStore((state) => state.baseStats)
   const playbook = useFormStore((state) => state.playbook)
 
-  const { data: playbookData } = usePlaybook(playbook.value, { suspense: true })
+  const { data: playbookData } = usePlaybook(playbook.value)
 
   // Synchronising the base stats with the playbook stats
   // (and update the selected stat for the +1 bonus)

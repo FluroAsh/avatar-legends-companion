@@ -35,7 +35,7 @@ const ReactQueryClientProvider = ({
 
 const usePlaybook = (
   playbook: string | undefined,
-  options: { suspense?: boolean } = {}
+  options: { suspense?: boolean } = { suspense: true }
 ) => {
   const { suspense } = options
 
@@ -48,7 +48,9 @@ const usePlaybook = (
   return queryHook(queryConfig)
 }
 
-const useTechniques = (options: { suspense?: boolean; type?: string } = {}) => {
+const useTechniques = (
+  options: { suspense?: boolean; type?: string } = { suspense: true }
+) => {
   const { suspense, type } = options
 
   const queryConfig = {

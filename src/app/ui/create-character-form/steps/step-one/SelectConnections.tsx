@@ -35,7 +35,7 @@ export default function SelectConnections() {
   const connectionValues = useFormStore((state) => state.connections.values)
   const playbook = useFormStore((state) => state.playbook.value)
   const update = useFormStore((state) => state.update)
-  const { data } = usePlaybook(playbook, { suspense: true })
+  const { data } = usePlaybook(playbook)
   const [connectionText1, connectionText2] = data?.connections
 
   const handleChange = (valueIdx: number, value: string) => {

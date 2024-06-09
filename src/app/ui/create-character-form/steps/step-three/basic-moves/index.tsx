@@ -11,7 +11,7 @@ export default function BasicMoves() {
   const basicMoves = useFormStore((state) => state.basicMoves)
   const playbook = useFormStore((state) => state.playbook)
 
-  const { data: playbookData } = usePlaybook(playbook.value, { suspense: true })
+  const { data: playbookData } = usePlaybook(playbook.value)
 
   const handleChange = (value: string) => (checked: boolean) => {
     if (checked && basicMoves.values.length === 2) return

@@ -12,7 +12,7 @@ export default function SelectBalance({ ...props }: SelectBalanceProps) {
   const balance = useFormStore((state) => state.balance)
   const playbook = useFormStore((state) => state.playbook)
 
-  const { data: playbookData } = usePlaybook(playbook.value, { suspense: true })
+  const { data: playbookData } = usePlaybook(playbook.value)
   const [balance1, balance2] = playbookData.balance
 
   const handleChange = (value: number[]) => {

@@ -16,7 +16,7 @@ export default function SelectDemeanour() {
   const demeanour = useFormStore((state) => state.demeanour)
   const update = useFormStore((state) => state.update)
 
-  const { data } = usePlaybook(playbook.value, { suspense: true })
+  const { data } = usePlaybook(playbook.value)
   const demeanours: Demeanour[] = data?.demeanor
 
   const handleChange = (id: string) => (checked: boolean) => {
