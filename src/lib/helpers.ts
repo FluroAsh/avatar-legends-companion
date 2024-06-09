@@ -10,13 +10,11 @@ async function fetchPlaybook(playbook: string | undefined) {
 }
 
 async function fetchTechniques(type?: string) {
-  const queryString = type ? `?class=${type}` : ""
+  const techniquesURL = new URL(`${BASE_URL}/api/techniques`)
+  type && techniquesURL.searchParams.set("class", type)
 
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/techniques${queryString}`
-  )
-  const data = await res.json()
-  return data
+  const res = await fetch(techniquesURL)
+  return await res.json()
 }
 
 // ---- Training Generator ---- //
