@@ -3,7 +3,7 @@
 import { useFormStore } from "@/stores/form-store"
 
 import { Input } from "@/app/ui/input"
-import { useSuspensePlaybook } from "@/utils/query-client"
+import { usePlaybook } from "@/utils/query-client"
 
 const ConnectionText = ({
   text,
@@ -35,7 +35,7 @@ export default function SelectConnections() {
   const connectionValues = useFormStore((state) => state.connections.values)
   const playbook = useFormStore((state) => state.playbook.value)
   const update = useFormStore((state) => state.update)
-  const { data } = useSuspensePlaybook(playbook)
+  const { data } = usePlaybook(playbook, { suspense: true })
   const [connectionText1, connectionText2] = data?.connections
 
   const handleChange = (valueIdx: number, value: string) => {

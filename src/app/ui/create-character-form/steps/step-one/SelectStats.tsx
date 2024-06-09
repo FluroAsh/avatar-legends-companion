@@ -6,7 +6,7 @@ import { useFormStore } from "@/stores/form-store"
 import { Checkbox } from "@/app/ui/checkbox"
 import { STATS } from "@/lib/constants"
 import { cn } from "@/utils/helpers"
-import { useSuspensePlaybook } from "@/utils/query-client"
+import { usePlaybook } from "@/utils/query-client"
 
 type StatsType = (typeof STATS)[keyof typeof STATS]
 
@@ -24,7 +24,7 @@ export default function SelectStats() {
   const baseStats = useFormStore((state) => state.baseStats)
   const playbook = useFormStore((state) => state.playbook)
 
-  const { data: playbookData } = useSuspensePlaybook(playbook.value)
+  const { data: playbookData } = usePlaybook(playbook.value, { suspense: true })
 
   // Synchronising the base stats with the playbook stats
   // (and update the selected stat for the +1 bonus)

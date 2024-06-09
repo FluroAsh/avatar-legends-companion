@@ -3,7 +3,7 @@
 import { useFormStore } from "@/stores/form-store"
 import { type Move } from "@/types/api"
 
-import { useSuspensePlaybook } from "@/utils/query-client"
+import { usePlaybook } from "@/utils/query-client"
 import MoveCard from "./MoveCard"
 
 export default function BasicMoves() {
@@ -11,7 +11,7 @@ export default function BasicMoves() {
   const basicMoves = useFormStore((state) => state.basicMoves)
   const playbook = useFormStore((state) => state.playbook)
 
-  const { data: playbookData } = useSuspensePlaybook(playbook.value)
+  const { data: playbookData } = usePlaybook(playbook.value, { suspense: true })
 
   const handleChange = (value: string) => (checked: boolean) => {
     if (checked && basicMoves.values.length === 2) return

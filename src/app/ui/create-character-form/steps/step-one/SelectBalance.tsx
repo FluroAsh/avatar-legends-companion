@@ -3,7 +3,7 @@
 import { useFormStore } from "@/stores/form-store"
 
 import { Slider } from "@/app/ui/slider"
-import { useSuspensePlaybook } from "@/utils/query-client"
+import { usePlaybook } from "@/utils/query-client"
 
 type SelectBalanceProps = React.ComponentProps<typeof Slider>
 
@@ -12,7 +12,7 @@ export default function SelectBalance({ ...props }: SelectBalanceProps) {
   const balance = useFormStore((state) => state.balance)
   const playbook = useFormStore((state) => state.playbook)
 
-  const { data: playbookData } = useSuspensePlaybook(playbook.value)
+  const { data: playbookData } = usePlaybook(playbook.value, { suspense: true })
   const [balance1, balance2] = playbookData.balance
 
   const handleChange = (value: number[]) => {

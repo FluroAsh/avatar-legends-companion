@@ -33,33 +33,31 @@ const ReactQueryClientProvider = ({
   )
 }
 
-const usePlaybook = (playbook: string | undefined) =>
-  useQuery({
-    queryKey: ["playbook", playbook || DEFAULT_PLAYBOOK],
-    queryFn: () => fetchPlaybook(playbook),
-  })
+const usePlaybook = (
+  playbook: string | undefined,
+  options: { suspense?: boolean } = {}
+) => {
+  const { suspense } = options
 
-const useSuspensePlaybook = (playbook: string | undefined) =>
-  useSuspenseQuery({
+  const queryConfig = {
     queryKey: ["playbook", playbook || DEFAULT_PLAYBOOK],
     queryFn: () => fetchPlaybook(playbook),
-  })
+  }
+
+  const queryHook = suspense ? useSuspenseQuery : useQuery
+  return queryHook(queryConfig)
+}
 
 const useTechniques = (options: { suspense?: boolean; type?: string } = {}) => {
   const { suspense, type } = options
 
-  const queryObj = {
+  const queryConfig = {
     queryKey: ["techniques", type || "all"],
     queryFn: () => fetchTechniques(type),
   }
 
   const queryHook = suspense ? useSuspenseQuery : useQuery
-  return queryHook(queryObj)
+  return queryHook(queryConfig)
 }
 
-export {
-  ReactQueryClientProvider,
-  usePlaybook,
-  useSuspensePlaybook,
-  useTechniques,
-}
+export { ReactQueryClientProvider, usePlaybook, useTechniques }
