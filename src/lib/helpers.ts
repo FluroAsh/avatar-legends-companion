@@ -1,14 +1,12 @@
-import { DEFAULT_PLAYBOOK, TRAINING_KEYS } from "./constants"
+import { BASE_URL, DEFAULT_PLAYBOOK, TRAINING_KEYS } from "./constants"
 
 // ---- API Helpers ---- //
 async function fetchPlaybook(playbook: string | undefined) {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/playbooks?type=${
-      playbook || DEFAULT_PLAYBOOK
-    }`
-  )
-  const data = await res.json()
-  return data
+  const playbookURL = new URL(`${BASE_URL}/api/playbooks`)
+  playbookURL.searchParams.set("type", playbook || DEFAULT_PLAYBOOK)
+
+  const res = await fetch(playbookURL)
+  return await res.json()
 }
 
 async function fetchTechniques(type?: string) {

@@ -1,6 +1,12 @@
 /* eslint-disable no-unused-vars */
 export const DAILY_REVALIDATE = 86400
 
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
+
+if (!BASE_URL) {
+  throw new Error('"NEXT_PUBLIC_BASE_URL" must be set in your .env file')
+}
+
 const DEFAULT_PLAYBOOK = "bold"
 
 const TRAINING_KEYS = {
@@ -134,6 +140,7 @@ const GROWTH_ADVANCEMENTS = [
 ] as const
 
 export {
+  BASE_URL,
   DEFAULT_PLAYBOOK,
   TRAINING_KEYS,
   STATUSES,
