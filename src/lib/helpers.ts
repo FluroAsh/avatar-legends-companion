@@ -1,6 +1,6 @@
 import { DEFAULT_PLAYBOOK, TRAINING_KEYS } from "./constants"
 
-/* API Helpers */
+// ---- API Helpers ---- //
 async function fetchPlaybook(playbook: string | undefined) {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/playbooks?type=${
@@ -11,7 +11,17 @@ async function fetchPlaybook(playbook: string | undefined) {
   return data
 }
 
-/* Training Helpers */
+async function fetchTechniques(type?: string) {
+  const queryString = type ? `?class=${type}` : ""
+
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/techniques${queryString}`
+  )
+  const data = await res.json()
+  return data
+}
+
+// ---- Training Generator ---- //
 export type Training = keyof typeof TRAINING_KEYS
 type Intensity = 100 | 300 | 500 | 700 | 900
 type ColorProps = {
@@ -29,4 +39,4 @@ const COLORS = (training: Training, intensity: Intensity = 500) =>
     fill: `fill-${training}-${intensity}`,
   }) satisfies ColorProps
 
-export { fetchPlaybook, COLORS }
+export { fetchPlaybook, fetchTechniques, COLORS }

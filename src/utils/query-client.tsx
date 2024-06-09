@@ -11,7 +11,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 import { ReactQueryStreamedHydration } from "@tanstack/react-query-next-experimental"
 
 import { DEFAULT_PLAYBOOK } from "@/lib/constants"
-import { fetchPlaybook } from "@/lib/helpers"
+import { fetchPlaybook, fetchTechniques } from "@/lib/helpers"
 
 const ReactQueryClientProvider = ({
   children,
@@ -45,4 +45,22 @@ const useSuspensePlaybook = (playbook: string | undefined) =>
     queryFn: () => fetchPlaybook(playbook),
   })
 
-export { ReactQueryClientProvider, usePlaybook, useSuspensePlaybook }
+const useTechniques = (type?: string) =>
+  useQuery({
+    queryKey: ["techniques", type || "all"],
+    queryFn: () => fetchTechniques(type),
+  })
+
+const useSuspenseTechniques = (type?: string) =>
+  useSuspenseQuery({
+    queryKey: ["techniques", type || "all"],
+    queryFn: () => fetchTechniques(type),
+  })
+
+export {
+  ReactQueryClientProvider,
+  usePlaybook,
+  useSuspensePlaybook,
+  useTechniques,
+  useSuspenseTechniques,
+}

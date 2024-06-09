@@ -34,7 +34,7 @@ function parseContent(
   return { contentJSX, contentLength }
 }
 
-const MAX_CHARS_PREVIEW = 180
+const MAX_CHARS_PREVIEW = 160
 const PREVIEW_HEIGHT = "60px"
 
 export default function MoveCard({
@@ -64,7 +64,7 @@ export default function MoveCard({
     negativeOutcome
   )
 
-  const hasPreview = contentLength >= MAX_CHARS_PREVIEW
+  const shouldShowPreview = contentLength >= MAX_CHARS_PREVIEW
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLLabelElement>) => {
     if (e.key === "Enter" || e.key === " ") {
@@ -89,12 +89,12 @@ export default function MoveCard({
       <label
         htmlFor={moveKey}
         className={cn(
-          "p-4 w-full text-xs font-semibold bg-slate-700 transition rounded-lg border border-slate-600",
+          "p-4 w-full h-fit text-xs font-semibold bg-slate-700 transition rounded-lg border border-slate-600",
           "select-none focus:outline-none focus:ring-2 focus-ring-sky-600 hover:cursor-pointer",
-          hasPreview && "pb-11",
+          shouldShowPreview && "pb-12",
           isSelected && "bg-sky-800 border-sky-600",
-          !isDisabled && "hover:animate-pulse-2",
-          isDisabled && "hover:cursor-not-allowed"
+          isDisabled && "hover:cursor-not-allowed",
+          !isDisabled && !isSelected && "hover:animate-pulse-2"
         )}
         tabIndex={0}
         onKeyDown={handleKeyDown}
@@ -111,7 +111,7 @@ export default function MoveCard({
 
         <div
           className={cn(
-            "w-full gap-2 pt-1 leading-5 transition-[max-height] duration-500 text-neutral-300 overflow-hidden"
+            "w-full pt-1 leading-5 transition-[max-height] duration-500 text-neutral-300 overflow-hidden"
           )}
           style={{
             maxHeight: isExpanded ? contentHeight : PREVIEW_HEIGHT,
@@ -122,7 +122,7 @@ export default function MoveCard({
         </div>
       </label>
 
-      {hasPreview && (
+      {shouldShowPreview && (
         <button
           type="button"
           className={cn(
