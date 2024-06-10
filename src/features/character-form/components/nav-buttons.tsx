@@ -18,6 +18,7 @@ const buttonConfig = {
   "create character": {
     variant: "primary",
     type: "submit",
+    extraStyles: "text-lime-100 bg-lime-600 hover:bg-lime-700",
   },
 } as {
   [label: string]: {

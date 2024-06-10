@@ -56,7 +56,6 @@ export default function SelectConnections() {
     <FormContainer
       heading="connections"
       subheading="Who do you, or don't you, have a connection with?"
-      stacked
       className="md:col-span-2"
     >
       <ConnectionText
