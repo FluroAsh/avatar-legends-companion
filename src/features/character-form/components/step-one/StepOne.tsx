@@ -5,7 +5,7 @@ import {
   CheckboxSkeleton,
   ConnectionsSkeleton,
   StatsSkeleton,
-} from "@/app/ui/shared/skeletons"
+} from "@/components/skeletons"
 import { cn } from "@/utils/helpers"
 
 import CharacterName from "./InputName"

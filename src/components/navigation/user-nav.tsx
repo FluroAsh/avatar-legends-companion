@@ -4,8 +4,8 @@ import { currentUser } from "@clerk/nextjs"
 import { NAV_LINKS } from "@/lib/site-config"
 import { getInitials } from "@/utils/helpers"
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/app/ui/avatar"
-import { Button } from "@/app/ui/button"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/avatar"
+import { Button } from "@/components/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,7 +14,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/app/ui/dropdown-menu"
+} from "@/components/dropdown-menu"
 import SignOut from "./sign-out"
 
 export default async function UserNav() {

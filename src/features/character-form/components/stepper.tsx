@@ -2,10 +2,10 @@
 
 import { LuCheck } from "react-icons/lu"
 
-import { Button } from "@/app/ui/button"
+import { Button } from "@/components/button"
 import { cn } from "@/utils/helpers"
 
-import useStep, { STEP_DESCRIPTIONS } from "./use-step"
+import useStep, { STEP_DESCRIPTIONS } from "../hooks/use-step"
 
 const Step = ({ desc, idx }: { desc: string; idx: number }) => {
   const { step, setStep } = useStep()

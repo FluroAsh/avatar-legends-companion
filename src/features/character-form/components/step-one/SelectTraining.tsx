@@ -3,7 +3,7 @@
 import * as Icon from "@/assets/svgs/training-icons"
 import { useFormStore } from "@/stores/form-store"
 
-import { Checkbox } from "@/app/ui/checkbox"
+import { Checkbox } from "@/components/checkbox"
 import { TRAINING_KEYS } from "@/lib/constants"
 import { COLORS, type Training } from "@/lib/helpers"
 import { cn } from "@/utils/helpers"

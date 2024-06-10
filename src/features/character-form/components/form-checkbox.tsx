@@ -1,4 +1,4 @@
-import { Checkbox } from "@/app/ui/checkbox"
+import { Checkbox } from "@/components/checkbox"
 import { cn } from "@/utils/helpers"
 
 export const FormCheckboxContainer = ({

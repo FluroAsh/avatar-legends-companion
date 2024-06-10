@@ -1,7 +1,7 @@
 import { useRef, useState } from "react"
 import { LuChevronUp } from "react-icons/lu"
 
-import { Checkbox } from "@/app/ui/checkbox"
+import { Checkbox } from "@/components/checkbox"
 import { type Move } from "@/types/api"
 import { cn } from "@/utils/helpers"
 

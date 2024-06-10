@@ -1,7 +1,7 @@
 import { QueryClient } from "@tanstack/react-query"
 
-import * as Form from "@/app/ui/create-character-form"
-import SkipLink from "@/app/ui/shared/skip-link"
+import * as Form from "@/features/character-form"
+import SkipLink from "@/components/skip-link"
 import { DEFAULT_PLAYBOOK } from "@/lib/constants"
 import { fetchPlaybook } from "@/lib/helpers"
 

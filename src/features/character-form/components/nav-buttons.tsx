@@ -2,10 +2,10 @@
 
 import { type ButtonHTMLAttributes, type ComponentProps } from "react"
 
-import { Button } from "@/app/ui/button"
+import { Button } from "@/components/button"
 import { cn } from "@/utils/helpers"
 
-import useStep from "./use-step"
+import useStep from "@/features/character-form/hooks/use-step"
 
 const buttonConfig = {
   previous: {

@@ -2,9 +2,9 @@
 
 import { useFormStore } from "@/stores/form-store"
 
-import { Input } from "@/app/ui/input"
+import { Input } from "@/components/input"
 import { usePlaybook } from "@/utils/query-client"
-import FormContainer from "../../form-container"
+import FormContainer from "../form-container"
 
 const ConnectionText = ({
   text,

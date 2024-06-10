@@ -29,7 +29,7 @@ export default function BasicMoves() {
   return (
     <div>
       <div className="pl-1">
-        <p className="font-bold leading-7 capitalize ext-xl ">
+        <p className="text-lg font-bold leading-7 capitalize ">
           Basic Moves － {basicMoves.values.length} / 2
         </p>
         <p className="text-xs text-neutral-300">

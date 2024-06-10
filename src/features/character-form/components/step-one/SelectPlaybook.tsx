@@ -9,7 +9,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/app/ui/select"
+} from "@/components/select"
 import { DEFAULT_PLAYBOOK } from "@/lib/constants"
 import { fetchPlaybook } from "@/lib/helpers"
 

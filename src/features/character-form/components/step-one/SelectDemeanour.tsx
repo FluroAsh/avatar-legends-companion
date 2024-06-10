@@ -5,7 +5,7 @@ import { useFormStore } from "@/stores/form-store"
 import {
   FormCheckbox,
   FormCheckboxContainer,
-} from "@/app/ui/create-character-form/form-checkbox"
+} from "@/features/character-form/components/form-checkbox"
 import { DEMEANOURS } from "@/lib/constants"
 import { usePlaybook } from "@/utils/query-client"
 

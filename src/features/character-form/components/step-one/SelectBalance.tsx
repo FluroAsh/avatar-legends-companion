@@ -2,7 +2,7 @@
 
 import { useFormStore } from "@/stores/form-store"
 
-import { Slider } from "@/app/ui/slider"
+import { Slider } from "@/components/slider"
 import { usePlaybook } from "@/utils/query-client"
 
 type SelectBalanceProps = React.ComponentProps<typeof Slider>

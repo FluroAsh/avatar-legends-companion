@@ -1,6 +1,6 @@
-import SiteHeader from "@/app/ui/navigation/site-header"
+import SiteHeader from "@/components/navigation/site-header"
 
-import "@/ui/globals.css"
+import "@/lib/globals.css"
 
 import { Inter } from "next/font/google"
 import { ClerkProvider } from "@clerk/nextjs"

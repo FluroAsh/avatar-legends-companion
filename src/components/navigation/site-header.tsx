@@ -1,6 +1,6 @@
 import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs"
 
-import { Button } from "@/app/ui/button"
+import { Button } from "@/components/button"
 import { PATHNAME } from "@/lib/paths"
 
 import MainNav from "./main-nav"

@@ -3,11 +3,11 @@
 import { useEffect } from "react"
 import { useFormStore } from "@/stores/form-store"
 
-import { Checkbox } from "@/app/ui/checkbox"
+import { Checkbox } from "@/components/checkbox"
 import { STATS } from "@/lib/constants"
 import { cn } from "@/utils/helpers"
 import { usePlaybook } from "@/utils/query-client"
-import FormContainer from "../../form-container"
+import FormContainer from "../form-container"
 
 type StatsType = (typeof STATS)[keyof typeof STATS]
 

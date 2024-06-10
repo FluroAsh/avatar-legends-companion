@@ -9,9 +9,7 @@ export default async function StepThree() {
         <BasicMoves />
       </Suspense>
 
-      <Suspense fallback={<div>Loading...</div>}>
-        <FightingTechniques />
-      </Suspense>
+      <FightingTechniques />
     </div>
   )
 }
