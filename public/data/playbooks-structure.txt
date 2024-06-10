@@ -6,7 +6,7 @@
 │   ├── focus
 │   ├── harmony
 │   └── passion
-├── demeanor
+├── demeanour
 ├── balance
 ├── subclass
 ├── startingTechnique
