@@ -17,7 +17,7 @@ const ConnectionText = ({
   placeholder: string
   onChange: (_e: React.ChangeEvent<HTMLInputElement>) => void
 }) => (
-  <div className="text-sm">
+  <div>
     <Input
       type="text"
       variant="inline"
@@ -28,7 +28,7 @@ const ConnectionText = ({
       value={value}
       onChange={onChange}
     />
-    <span className="leading-6">{text}</span>
+    <span className="text-sm leading-6">{text}</span>
   </div>
 )
 

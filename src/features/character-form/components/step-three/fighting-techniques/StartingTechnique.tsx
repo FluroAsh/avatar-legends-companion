@@ -6,7 +6,7 @@ import { useFormStore } from "@/stores/form-store"
 
 export default function StartingTechnique() {
   const playbook = useFormStore((state) => state.playbook.value)
-  const { data: playbookData } = usePlaybook(playbook ?? "bold")
+  const { data: playbookData } = usePlaybook(playbook)
 
   /** Naming convention is the following: `The {Playbook}`. */
   const playbookName = playbookData.playbook.split(" ")[1]
