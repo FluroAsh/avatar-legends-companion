@@ -4,6 +4,7 @@ import { useFormStore } from "@/stores/form-store"
 
 import { Slider } from "@/components/slider"
 import { usePlaybook } from "@/utils/query-client"
+import FormContainer from "../form-container"
 
 type SelectBalanceProps = React.ComponentProps<typeof Slider>
 
@@ -34,39 +35,36 @@ export default function SelectBalance({ ...props }: SelectBalanceProps) {
   }
 
   return (
-    <div className="rounded-lg bg-primary h-fit border min-w-[250px]">
-      <div className="flex justify-between px-4 py-2">
-        <div>
-          <h1 className="text-lg font-bold">Balance</h1>
-          <p className="text-xs text-neutral-300">Shift Once (Optional)</p>
-        </div>
+    <FormContainer
+      heading="balance"
+      subheading="Shift Once (Optional)"
+      rightNode={
         <div className="pt-1 my-auto text-sm font-bold capitalize text-neutral-300">
           {balance.selected}
         </div>
-      </div>
-
-      <div className="p-4 border-t bg-muted border-neutral-600">
-        <div className="flex flex-col">
-          <div className="flex justify-between pb-3">
-            <span className="text-xs font-semibold capitalize text-neutral-400">
-              {balance1}
-            </span>
-            <span className="text-xs font-semibold capitalize text-neutral-400">
-              {balance2}
-            </span>
-          </div>
-          <Slider
-            className="min-w-[150px] hover:cursor-pointer"
-            defaultValue={[0]}
-            min={-1}
-            max={1}
-            step={1}
-            value={balance.value}
-            onValueChange={handleChange}
-            {...props}
-          />
+      }
+      className="min-w-[250px]"
+    >
+      <div className="flex flex-col">
+        <div className="flex justify-between pb-3">
+          <span className="text-xs font-semibold capitalize text-neutral-400">
+            {balance1}
+          </span>
+          <span className="text-xs font-semibold capitalize text-neutral-400">
+            {balance2}
+          </span>
         </div>
+        <Slider
+          className="min-w-[150px] hover:cursor-pointer"
+          defaultValue={[0]}
+          min={-1}
+          max={1}
+          step={1}
+          value={balance.value}
+          onValueChange={handleChange}
+          {...props}
+        />
       </div>
-    </div>
+    </FormContainer>
   )
 }

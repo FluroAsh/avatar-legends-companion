@@ -58,6 +58,7 @@ export default function SelectStats() {
 
   return (
     <FormContainer
+      split
       heading="Stats"
       subheading={
         <>
