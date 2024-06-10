@@ -107,7 +107,7 @@ export default function MoveCard({
           disabled={isDisabled}
           className="hidden"
         />
-        <span className="text-lg font-bold">{move}</span>
+        <p className="text-lg font-bold capitalize">{move}</p>
 
         <div
           className="w-full pt-1 leading-5 transition-[max-height] duration-500 text-neutral-300 overflow-hidden"
