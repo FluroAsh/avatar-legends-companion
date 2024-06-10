@@ -1,13 +1,12 @@
 import { Suspense } from "react"
+
 import StartingTechnique from "./StartingTechnique"
 import SelectTechnique from "./TechniquePreview"
 
 export default function FightingTechniques() {
   return (
     <div>
-      <p className="font-bold">Fighting Techniques</p>
-
-      <div className="flex justify-between">
+      <div className="grid gap-4 sm:grid-cols-2">
         <StartingTechnique />
 
         {/* 3 components for each state...*/}

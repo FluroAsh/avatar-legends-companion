@@ -107,14 +107,13 @@ export default function MoveCard({
           disabled={isDisabled}
           className="hidden"
         />
-        <span className="text-xl font-bold">{move}</span>
+        <span className="text-lg font-bold">{move}</span>
 
         <div
-          className={cn(
-            "w-full pt-1 leading-5 transition-[max-height] duration-500 text-neutral-300 overflow-hidden"
-          )}
+          className="w-full pt-1 leading-5 transition-[max-height] duration-500 text-neutral-300 overflow-hidden"
           style={{
-            maxHeight: isExpanded ? contentHeight : PREVIEW_HEIGHT,
+            // An additional 30px is required in-case a scrollbar is added during expansion
+            maxHeight: isExpanded ? contentHeight + 30 : PREVIEW_HEIGHT,
           }}
           ref={contentRef}
         >
