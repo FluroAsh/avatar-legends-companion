@@ -6,7 +6,7 @@ import SelectTechnique from "./TechniquePreview"
 export default function FightingTechniques() {
   return (
     <div>
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="grid max-w-screen-md gap-4 mx-auto lg:grid-cols-2 lg:max-w-full">
         <StartingTechnique />
 
         {/* 3 components for each state...*/}

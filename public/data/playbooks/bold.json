@@ -1,5 +1,5 @@
 {
-  "class": "The Bold",
+  "playbook": "The Bold",
   "prebuilt": false,
   "baseStats": {
     "creativity": 1,
@@ -45,7 +45,7 @@
   },
   "startingTechnique": {
     "name": "Tag Team",
-    "type": "Defend & Maneuver",
+    "stance": "Defend & Maneuver",
     "description": "Work with an ally against the same foe; choose an engaged foe and an ally—double any fatigue, conditions, or balance shifts that ally inflicts upon that foe."
   },
   "moves": [

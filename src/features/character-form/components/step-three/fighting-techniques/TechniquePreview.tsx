@@ -1,6 +1,7 @@
 "use client"
 
 import { useTechniques } from "@/utils/query-client"
+import FormContainer from "../../form-container"
 // import { useState } from "react"
 
 // Show a preview over the Select Technique element

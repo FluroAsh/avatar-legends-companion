@@ -1,5 +1,5 @@
 {
-  "class": "The Destined",
+  "playbook": "The Destined",
   "prebuilt": false,
   "baseStats": {
     "creativity": 0,
@@ -57,7 +57,7 @@
   },
   "startingTechnique": {
     "name": "Anticipate",
-    "type": "Evade & Observe",
+    "stance": "Evade & Observe",
     "description": "Study a nearby foe to learn where their momentum will take them next. Declare the approach they are tending towards. In the next exchange, that foe must use that approach or mark a condition."
   },
   "moves": [
