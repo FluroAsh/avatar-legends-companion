@@ -2,8 +2,8 @@ import { create } from "zustand"
 import { devtools } from "zustand/middleware"
 
 const FORM_STORE_KEY = "alc-form-store"
-type Field = {
-  value: string
+type Field<T = string> = {
+  value: T
   error: string
 }
 
@@ -34,7 +34,11 @@ type FormStore = {
   connections: FieldArray
   training: Field
   basicMoves: FieldArray
-  fightingTechnique: Field
+  fightingTechnique: Field<{
+    technque: string
+    stance: string
+    description: string
+  }>
   update: (_partial: Partial<FormStore>) => void
 }
 
@@ -85,7 +89,11 @@ const useFormStore = create(
         error: "",
       },
       fightingTechnique: {
-        value: "",
+        value: {
+          technque: "",
+          stance: "",
+          description: "",
+        },
         error: "",
       },
       // ---- Step 4 ---- //
