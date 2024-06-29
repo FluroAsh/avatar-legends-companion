@@ -6,16 +6,13 @@ import { Button } from "@/components/button"
 import { cn } from "@/utils/helpers"
 
 import useStep, { STEP_DESCRIPTIONS } from "../hooks/use-step"
+import { useRef } from "react"
 
 const Step = ({ desc, idx }: { desc: string; idx: number }) => {
   const { step, setStep } = useStep()
 
-  /**
-   * TODO: Step States
-   * - Active (Highlighted)
-   * - Completed (Display small checkmark SVG)
-   * - Inactive (Dark)
-   */
+  const buttonRef = useRef<HTMLButtonElement>(null)
+  const listRef = useRef<HTMLLIElement>(null)
 
   const stepNum = idx + 1
   const isActive = step === stepNum
@@ -25,16 +22,22 @@ const Step = ({ desc, idx }: { desc: string; idx: number }) => {
 
   return (
     <li
+      ref={listRef}
       key={idx}
-      onClick={() => setStep(stepNum)}
+      onClick={(e) => {
+        const isConnectorClick =
+          buttonRef.current && !buttonRef.current.contains(e.target as Node)
+        isConnectorClick ? setStep(stepNum + 1) : setStep(stepNum)
+      }}
       className={cn(
-        "after:transition-colors",
+        "after:transition-colors hover:cursor-pointer",
         isNotLastStep &&
           "relative flex w-full items-center after:content-[''] after:bg-neutral-500 after:mx-2 after:w-full after:h-1 after:rounded-full",
         isComplete && "after:bg-neutral-300"
       )}
     >
       <Button
+        ref={buttonRef}
         className="relative flex group [&>*]:transition-colors"
         variant="ghost"
         size="none"
@@ -42,7 +45,7 @@ const Step = ({ desc, idx }: { desc: string; idx: number }) => {
         <div
           className={cn(
             "w-5 h-5 mx-auto rounded-full border bg-primary",
-            "before:content-[''] before:absolute before:inset-[3px] before:rounded-full before:transition-colors",
+            "before:content-[''] before:absolute before:inset-[3px] before:rounded-full before:transition-colors before:hover:bg-sky-500",
             isActive
               ? "bg-sky-700/50 border-sky-600 before:bg-sky-500"
               : "group-hover:bg-sky-700/50 group-hover:border-sky-600 group-hover:before:bg-sky-500",
