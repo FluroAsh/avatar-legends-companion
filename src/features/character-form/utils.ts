@@ -23,7 +23,6 @@ export function findTypeTechniques(
         if (!acc["training"]) acc["training"] = []
         acc["training"].push(t)
       }
-
       return acc
     },
     { initial: {}, universal: [], training: [] }

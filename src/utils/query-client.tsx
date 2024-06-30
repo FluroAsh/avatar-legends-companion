@@ -4,7 +4,6 @@ import { useState } from "react"
 import {
   QueryClient,
   QueryClientProvider,
-  useQuery,
   useSuspenseQuery,
 } from "@tanstack/react-query"
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
@@ -34,20 +33,12 @@ const ReactQueryClientProvider = ({
   )
 }
 
-const usePlaybook = (
-  playbook: string | undefined,
-  options: { suspense?: boolean } = { suspense: true }
-) => {
-  const { suspense } = options
-
-  const queryConfig = {
+const usePlaybook = (playbook: string | undefined) =>
+  // TODO: Add generic API Response type for playbook data
+  useSuspenseQuery({
     queryKey: ["playbook", playbook || DEFAULT_PLAYBOOK],
     queryFn: () => fetchPlaybook(playbook),
-  }
-
-  const queryHook = suspense ? useSuspenseQuery : useQuery
-  return queryHook(queryConfig)
-}
+  })
 
 const useTechniques = (options: { type?: string } = {}) => {
   const { type } = options
