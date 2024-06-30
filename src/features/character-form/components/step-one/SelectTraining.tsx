@@ -5,10 +5,10 @@ import { useFormStore } from "@/stores/form-store"
 
 import { Checkbox } from "@/components/checkbox"
 import { TRAINING_KEYS } from "@/lib/constants"
-import { COLORS, type Training } from "@/lib/helpers"
+import { COLORS, type TrainingKey } from "@/lib/helpers"
 import { cn } from "@/utils/helpers"
 
-const TrainingIcon = ({ training }: { training: Training }) => {
+const TrainingIcon = ({ training }: { training: TrainingKey }) => {
   const className = cn("z-10 brightness-[175%]", COLORS(training, 300)["fill"])
 
   const icons = {
@@ -22,7 +22,7 @@ const TrainingIcon = ({ training }: { training: Training }) => {
   return icons[training]
 }
 
-const CheckedIcon = ({ training }: { training: Training }) => (
+const CheckedIcon = ({ training }: { training: TrainingKey }) => (
   <div className={cn("w-[6px] h-[6px]", COLORS(training, 500)["background"])} />
 )
 
@@ -30,7 +30,7 @@ const TrainingBox = ({
   training,
   icon,
 }: {
-  training: Training
+  training: TrainingKey
   icon: React.ReactNode
 }) => (
   <>
@@ -62,7 +62,7 @@ const TrainingCard = ({
   label,
   icon,
 }: {
-  label: Training
+  label: TrainingKey
   icon: React.ReactNode
 }) => {
   const selectedTraining = useFormStore((state) => state.training.value)
@@ -140,8 +140,8 @@ export default function SelectTraining() {
         {Object.keys(TRAINING_KEYS).map((training) => (
           <TrainingCard
             key={training}
-            label={training as Training}
-            icon={<TrainingIcon training={training as Training} />}
+            label={training as TrainingKey}
+            icon={<TrainingIcon training={training as TrainingKey} />}
           />
         ))}
       </div>

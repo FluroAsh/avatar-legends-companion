@@ -17,7 +17,7 @@ export default function StartingTechnique() {
       // TODO: Add text color styling based on stance
       subheading={<span>{playbookData.startingTechnique.stance}</span>}
       rightNode={
-        <div className="pt-1 my-auto text-sm font-bold capitalize text-neutral-300">
+        <div className="pt-1 my-auto font-bold capitalize text-neutral-300">
           {playbookName} Starter
         </div>
       }

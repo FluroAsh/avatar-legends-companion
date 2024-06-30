@@ -1,4 +1,5 @@
 import { Suspense } from "react"
+
 import BasicMoves from "./basic-moves"
 import FightingTechniques from "./fighting-techniques"
 

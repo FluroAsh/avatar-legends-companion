@@ -7,6 +7,7 @@ export default function FormContainer({
   rightNode,
   split,
   className,
+  ...props
 }: {
   heading: string
   subheading: React.ReactNode
@@ -15,13 +16,14 @@ export default function FormContainer({
   /** By default content will display in a 1-column grid layout, `split` ensures 2 columns are used. */
   split?: boolean
   className?: string
-}) {
+} & React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
       className={cn(
-        "bg-primary rounded-lg border shadow-sm overflow-hidden h-fit min-w-[300px]",
+        "bg-primary rounded-lg border shadow-sm h-fit min-w-[300px]",
         className
       )}
+      {...props}
     >
       {rightNode ? (
         <div className="flex justify-between px-4 py-2">
