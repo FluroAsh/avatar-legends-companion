@@ -18,7 +18,7 @@ async function fetchTechniques(type?: string) {
 }
 
 // ---- Training Generator ---- //
-export type Training = keyof typeof TRAINING_KEYS
+export type TrainingKey = keyof typeof TRAINING_KEYS
 type Intensity = 100 | 300 | 500 | 700 | 900
 type ColorProps = {
   text: string
@@ -27,7 +27,7 @@ type ColorProps = {
   fill: string
 }
 
-const COLORS = (training: Training, intensity: Intensity = 500) =>
+const COLORS = (training: TrainingKey, intensity: Intensity = 500) =>
   ({
     text: `text-${training}-${intensity}`,
     background: `bg-${training}-${intensity}`,
