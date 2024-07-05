@@ -1,7 +1,7 @@
 import InputCharacterDetails from "./InputCharacterDetails"
 import SelectBadHabits from "./SelectBadHabits"
 
-export default function StepTwo() {
+export default async function StepTwo() {
   return (
     <div className="flex flex-col w-full gap-4 mt-4">
       <p>Step 2</p>

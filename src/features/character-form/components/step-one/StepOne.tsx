@@ -17,7 +17,7 @@ import SelectPlaybook from "./SelectPlaybook"
 import SelectStats from "./SelectStats"
 import SelectTraining from "./SelectTraining"
 
-export default function StepOne() {
+export default async function StepOne() {
   return (
     <div className="flex flex-col w-full gap-4 mt-4">
       <section
