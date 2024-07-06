@@ -139,6 +139,22 @@ const GROWTH_ADVANCEMENTS = [
   },
 ] as const
 
+const PLAYBOOKS = {
+  ADAMANT: "adamant",
+  BOLD: "bold",
+  DESTINED: "destined",
+  ELDER: "elder",
+  FOUNDLING: "foundling",
+  GUARDIAN: "guardian",
+  HAMMER: "hammer",
+  ICON: "icon",
+  PILLAR: "pillar",
+  PRODIGY: "prodigy",
+  RAZOR: "razor",
+  ROGUE: "rogue",
+  SUCCESSOR: "successor",
+} as const
+
 export {
   BASE_URL,
   DEFAULT_PLAYBOOK,
@@ -152,4 +168,5 @@ export {
   CLEARING_CONDITIONS,
   TRAINING_DESCRIPTIONS,
   GROWTH_ADVANCEMENTS,
+  PLAYBOOKS,
 }

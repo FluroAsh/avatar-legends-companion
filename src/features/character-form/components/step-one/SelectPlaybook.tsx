@@ -10,7 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/select"
-import { DEFAULT_PLAYBOOK } from "@/lib/constants"
+import { DEFAULT_PLAYBOOK, PLAYBOOKS } from "@/lib/constants"
 import { fetchPlaybook } from "@/lib/helpers"
 
 export default function SelectPlaybook() {
@@ -46,19 +46,11 @@ export default function SelectPlaybook() {
           <SelectValue placeholder="Choose your Playbook" />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="adamant">Adamant</SelectItem>
-          <SelectItem value="bold">Bold</SelectItem>
-          <SelectItem value="destined">Destined</SelectItem>
-          <SelectItem value="elder">Elder</SelectItem>
-          <SelectItem value="foundling">Foundling</SelectItem>
-          <SelectItem value="guardian">Guardian</SelectItem>
-          <SelectItem value="hammer">Hammer</SelectItem>
-          <SelectItem value="icon">Icon</SelectItem>
-          <SelectItem value="pillar">Pillar</SelectItem>
-          <SelectItem value="prodigy">Prodigy</SelectItem>
-          <SelectItem value="razor">Razor</SelectItem>
-          <SelectItem value="rogue">Rogue</SelectItem>
-          <SelectItem value="successor">Successor</SelectItem>
+          {Object.values(PLAYBOOKS).map((playbook) => (
+            <SelectItem key={playbook} value={playbook}>
+              <span className="capitalize">{playbook}</span>
+            </SelectItem>
+          ))}
         </SelectContent>
       </Select>
     </div>
