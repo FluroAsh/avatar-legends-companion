@@ -1,12 +1,13 @@
 import { cn } from "@/utils/helpers"
-import React from "react"
+
+// Courtesy of https://game-icons.net
 
 export const LightBulb = ({
   className,
   ...props
 }: { className?: string } & React.ComponentPropsWithoutRef<"svg">) => (
   <svg
-    className={cn("size-4", className)}
+    className={cn("size-8", className)}
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 512 512"
     {...props}
@@ -26,7 +27,7 @@ export const WingedEmblem = ({
   ...props
 }: { className?: string } & React.ComponentPropsWithoutRef<"svg">) => (
   <svg
-    className={cn("size-4", className)}
+    className={cn("size-8", className)}
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 512 512"
     {...props}
@@ -46,7 +47,7 @@ export const EyeTarget = ({
   ...props
 }: { className?: string } & React.ComponentPropsWithoutRef<"svg">) => (
   <svg
-    className={cn("size-4", className)}
+    className={cn("size-8", className)}
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 512 512"
     {...props}
@@ -66,7 +67,7 @@ export const BurningPassion = ({
   ...props
 }: { className?: string } & React.ComponentPropsWithoutRef<"svg">) => (
   <svg
-    className={cn("size-4", className)}
+    className={cn("size-8", className)}
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 512 512"
     {...props}
