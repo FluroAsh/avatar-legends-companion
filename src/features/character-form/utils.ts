@@ -1,7 +1,7 @@
 import { TechniqueResponse } from "@/types/api"
 
 export type Techniques = {
-  initial: TechniqueResponse
+  fallback: TechniqueResponse
   universal: TechniqueResponse[]
   training: TechniqueResponse[]
 }
@@ -25,9 +25,9 @@ export function findTypeTechniques(
       }
       return acc
     },
-    { initial: {}, universal: [], training: [] }
+    { fallback: {}, universal: [], training: [] }
   )
 
-  techniques["initial"] = techniques.training[0]
+  techniques["fallback"] = techniques.training[0]
   return techniques as Techniques
 }

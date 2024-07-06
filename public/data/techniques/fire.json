@@ -48,14 +48,6 @@
     "description": "Mark up to 3-fatigue. Hold an equal number of flames. Lose 1-flame at the end of each exchange after this one. When you inflict fatigue or conditions on a foe, inflict an additional  1-fatigue for each remaining flame."
   },
   {
-    "technique": "Breath of Fire",
-    "stance": "Advance and Attack",
-    "rare": "false",
-    "type": "Fire",
-    "base": "Fire",
-    "description": "Breathe fire in a massive gout. Mark fatigue to set alight as much or as little of your surroundings as you choose and try to set aflame any foes within reach. Those foes must either retreat and disengage with you, becoming Impaired, or suffer 2-fatigue and become Doomed as they catch fire."
-  },
-  {
     "technique": "Jet Stepping",
     "stance": "Evade and Observe",
     "rare": "Evade and Observe",

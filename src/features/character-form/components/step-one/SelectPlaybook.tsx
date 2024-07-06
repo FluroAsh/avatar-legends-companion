@@ -36,6 +36,7 @@ export default function SelectPlaybook() {
   return (
     <div className="flex flex-col flex-start text-start">
       <span className="pl-1 text-sm font-bold leading-7">Your Playbook</span>
+
       <Select
         name="archetype"
         value={playbook.value}
@@ -45,6 +46,7 @@ export default function SelectPlaybook() {
         <SelectTrigger id="main-content" className="h-[35px]">
           <SelectValue placeholder="Choose your Playbook" />
         </SelectTrigger>
+
         <SelectContent>
           {Object.values(PLAYBOOKS).map((playbook) => (
             <SelectItem key={playbook} value={playbook}>

@@ -155,8 +155,12 @@ export const PLAYBOOKS = {
   SUCCESSOR: "successor",
 } as const
 
+export const ADVANCE_AND_ATTACK = "Advance and Attack"
+export const DEFEND_AND_MANEUVER = "Defend and Maneuver"
+export const EVADE_AND_OBSERVE = "Evade and Observe"
+
 export const STANCES = {
-  ADVANCE_AND_ATTACK: "Advance & Attack",
-  DEFEND_AND_MANEUVER: "Defend & Maneuver",
-  EVADE_AND_OBSERVE: "Evade & Observe",
+  ADVANCE_AND_ATTACK,
+  DEFEND_AND_MANEUVER,
+  EVADE_AND_OBSERVE,
 } as const

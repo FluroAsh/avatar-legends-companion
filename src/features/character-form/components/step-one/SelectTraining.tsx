@@ -74,6 +74,15 @@ const TrainingCard = ({
         value: checked && id !== selectedTraining ? id : "",
         error: "",
       },
+      // NOTE: Should clear any selected technique may have been set in Step (3)
+      fightingTechnique: {
+        value: {
+          technique: "",
+          stance: "",
+          description: "",
+        },
+        error: "",
+      },
     })
   }
 

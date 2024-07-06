@@ -35,7 +35,7 @@ type FormStore = {
   training: Field
   basicMoves: FieldArray
   fightingTechnique: Field<{
-    technque: string
+    technique: string
     stance: string
     description: string
   }>
@@ -90,7 +90,7 @@ const useFormStore = create(
       },
       fightingTechnique: {
         value: {
-          technque: "",
+          technique: "",
           stance: "",
           description: "",
         },

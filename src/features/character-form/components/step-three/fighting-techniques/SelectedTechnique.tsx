@@ -15,10 +15,13 @@ export default function SelectTechnique() {
   //   /*selectedState*/
   // } = useSelectTechnique()
 
-  // TODO: Remove the fallback once we have form validation
+  // TODO: Remove the "Air" fallback once we add step form validation
   const trainingType = useFormStore((state) => state.training.value || "Air")
+  const selectedTechnique = useFormStore(
+    (state) => state.fightingTechnique.value
+  )
 
-  const { initial, universal, training } = useMemo(
+  const { fallback, universal, training } = useMemo(
     () => findTypeTechniques(data, trainingType),
     [data, trainingType]
   )
@@ -39,8 +42,8 @@ export default function SelectTechnique() {
 
     <FormContainer
       id="selected-technique"
-      className="relative mb-2"
-      heading={initial.technique}
+      className="relative mb-4"
+      heading={selectedTechnique.technique || fallback.technique}
       subheading={
         <>
           You will have <em>Learned</em> this technique
@@ -53,7 +56,7 @@ export default function SelectTechnique() {
           <div className="flex flex-col tracking-tight">
             <p className="text-lg font-bold">Chosen Stance</p>
             <p className="text-xs font-semibold text-neutral-300">
-              {initial.stance}
+              {selectedTechnique.stance || fallback.stance}
             </p>
           </div>
         </div>
@@ -61,7 +64,12 @@ export default function SelectTechnique() {
     >
       <div className="pb-2">
         <p className="mb-1 text-sm font-bold">Technique Description</p>
-        <p className="text-sm text-neutral-300">{initial.description}</p>
+        <p
+          className="text-sm text-neutral-300"
+          dangerouslySetInnerHTML={{
+            __html: selectedTechnique.description || fallback.description,
+          }}
+        />
       </div>
 
       <TechniqueModal techniques={{ universal, training }} />
