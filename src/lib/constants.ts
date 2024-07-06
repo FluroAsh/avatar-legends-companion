@@ -1,15 +1,15 @@
 /* eslint-disable no-unused-vars */
 export const DAILY_REVALIDATE = 86400
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
+export const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
 
 if (!BASE_URL) {
   throw new Error('"NEXT_PUBLIC_BASE_URL" must be set in your .env file')
 }
 
-const DEFAULT_PLAYBOOK = "bold"
+export const DEFAULT_PLAYBOOK = "bold"
 
-const TRAINING_KEYS = {
+export const TRAINING_KEYS = {
   water: "Water",
   earth: "Earth",
   fire: "Fire",
@@ -18,7 +18,7 @@ const TRAINING_KEYS = {
   technology: "Technology",
 } as const
 
-const STATUSES = {
+export const STATUSES = {
   POSITIVE: {
     EMPOWERED: "empowered",
     FAVORED: "favored",
@@ -33,14 +33,14 @@ const STATUSES = {
   },
 } as const
 
-const STATS = {
+export const STATS = {
   CREATIVITY: "creativity",
   HARMONY: "harmony",
   FOCUS: "focus",
   PASSION: "passion",
 } as const
 
-const ARCHETYPES = {
+export const ARCHETYPES = {
   ADAMANT: "adamant",
   DESTINED: "destined",
   ELDER: "elder",
@@ -55,7 +55,7 @@ const ARCHETYPES = {
   SUCCESSOR: "successor",
 } as const
 
-const BACKGROUNDS = {
+export const BACKGROUNDS = {
   MILITARY: "military",
   OUTLAW: "outlaw",
   URBAN: "urban",
@@ -64,7 +64,7 @@ const BACKGROUNDS = {
   WILDERNESS: "wilderness",
 } as const
 
-const DEMEANOURS = {
+export const DEMEANOURS = {
   "ABOVE-IT-ALL": "above it all",
   PERFECTIONIST: "perfectionist",
   CHILLY: "chilly",
@@ -85,7 +85,7 @@ const DEMEANOURS = {
   WATCHFUL: "watchful",
 } as const
 
-const CONDITIONS = {
+export const CONDITIONS = {
   AFRAID: "afraid",
   ANGRY: "angry",
   GUILTY: "guilty",
@@ -93,7 +93,7 @@ const CONDITIONS = {
   TROUBLED: "troubled",
 } as const
 
-const CLEARING_CONDITIONS = {
+export const CLEARING_CONDITIONS = {
   afraid: "Run from danger or difficulty.",
   angry: "Break something important or lash out at a friend",
   guilty: "Make a personal sacrifice to absolve your guilt.",
@@ -101,7 +101,7 @@ const CLEARING_CONDITIONS = {
   troubled: "Seek guidance from a mentor or powerful figure.",
 } as const
 
-const TRAINING_DESCRIPTIONS = {
+export const TRAINING_DESCRIPTIONS = {
   waterbending:
     "Weaving water into snapping and slashing whips, manipulating one's breath into clouds of freezing ice, sculpting liquid into a defensive shield—waterbending warriors manipulate their element with fluidity and grace. A waterbender might defend their allies by creating liquid barriers to freeze weapons and attackers, or they might be an aggressive warrior who unleashes torrential water jets or concealable weapons made of ice. Not all waterbenders are warriors — some have healing powers as well. A waterbender might carry a waterskin with them to have something to bend at all times, or prefer to use nearby liquids instead — some waterbenders can even use their sweat.",
   earthbending:
@@ -116,7 +116,7 @@ const TRAINING_DESCRIPTIONS = {
     "Setting jury-rigged traps and snares, hurling flasks of alchemical concoctions, engaging enemies with self-made electrified weapons — a technology-based warrior uses their expertise with devices and machines to engage foes and resolve threats. A technological warrior might be an eager grease monkey with a love for deconstructing technology, a trapper adapting their survival skills on the fly, or a military engineer who wields and maintains advanced weapons and armor. While some weapon-using characters might also carry advanced weapons — like an electrified glove — they lack the expertise to build and repair these machines. Technological warriors might use a single complex device with many effects, carry the tools they need to create devices on the fly, or use simpler tools to devastating effect.",
 } as const
 
-const GROWTH_ADVANCEMENTS = [
+export const GROWTH_ADVANCEMENTS = [
   {
     description: "Take a new move from your playbook",
     threshold: 2,
@@ -139,7 +139,7 @@ const GROWTH_ADVANCEMENTS = [
   },
 ] as const
 
-const PLAYBOOKS = {
+export const PLAYBOOKS = {
   ADAMANT: "adamant",
   BOLD: "bold",
   DESTINED: "destined",
@@ -155,18 +155,8 @@ const PLAYBOOKS = {
   SUCCESSOR: "successor",
 } as const
 
-export {
-  BASE_URL,
-  DEFAULT_PLAYBOOK,
-  TRAINING_KEYS,
-  STATUSES,
-  STATS,
-  ARCHETYPES,
-  BACKGROUNDS,
-  DEMEANOURS,
-  CONDITIONS,
-  CLEARING_CONDITIONS,
-  TRAINING_DESCRIPTIONS,
-  GROWTH_ADVANCEMENTS,
-  PLAYBOOKS,
-}
+export const STANCES = {
+  ADVANCE_AND_ATTACK: "Advance & Attack",
+  DEFEND_AND_MANEUVER: "Defend & Maneuver",
+  EVADE_AND_OBSERVE: "Evade & Observe",
+} as const
