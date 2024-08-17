@@ -31,7 +31,7 @@ export default function FormContainer({
             <p className="text-lg font-bold capitalize">{heading}</p>
             <p className="text-xs text-neutral-300">{subheading}</p>
           </div>
-          <>{rightNode}</>
+          {rightNode}
         </div>
       ) : (
         <div className="p-2 px-4">
