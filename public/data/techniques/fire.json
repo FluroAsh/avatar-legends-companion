@@ -50,7 +50,7 @@
   {
     "technique": "Jet Stepping",
     "stance": "Evade and Observe",
-    "rare": "Evade and Observe",
+    "rare": "false",
     "type": "Fire",
     "base": "Fire",
     "description": "Advance to a higher position and become Favored and Prepared for the next exchange. Any foe engaged with you can mark 2-fatigue to block this technique."

@@ -6,7 +6,7 @@ import { useUser } from "@clerk/nextjs"
 // import { useQuery, useQueryClient } from "@tanstack/react-query"
 
 // import { fetchPlaybook } from "@/lib/query-client"
-import supabase from "@/utils/supabase-client"
+import supabase from "@/db/supabase-client"
 
 // TODO: Add Zod validation to the form
 
