@@ -1,13 +1,12 @@
 {
   "playbook": "The Adamant",
-  "prebuilt": false,
   "baseStats": {
     "creativity": 0,
     "focus": 1,
     "harmony": -1,
     "passion": 1
   },
-  "demeanour": [
+  "demeanours": [
     "above-it-all",
     "perfectionist",
     "chilly",
@@ -29,7 +28,7 @@
   },
   "startingTechnique": {
     "name": "Pinpoint Aim",
-    "stance": "Defend & Maneuver",
+    "stance": "Defend and Maneuver",
     "description": "Take the time you need to line up a perfect shot; become Prepared. In the next exchange, if you advance and attack, roll with Focus or Passion, your choice. If you use Strike, you do not have to mark fatigue to choose what you inflict."
   },
   "moves": [

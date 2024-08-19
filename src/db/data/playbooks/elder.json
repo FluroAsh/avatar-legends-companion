@@ -1,13 +1,12 @@
 {
   "playbook": "The Elder",
-  "prebuilt": false,
   "baseStats": {
     "creativity": 0,
     "focus": 1,
     "harmony": 2,
     "passion": -1
   },
-  "demeanour": [
+  "demeanours": [
     "diligent",
     "dour",
     "kindly",
@@ -38,11 +37,23 @@
     },
     {
       "move": "Around Here Somewhere",
-      "description": "When you go looking for help from an old friend in the area who you haven’t seen recently, name them and roll with Harmony. On a hit, you find them and they can assist you. On a 7-9, pick 1. On a 10+, both.\n\n• they aren’t caught up in their own problems\n• you don’t owe them a favor or apology\n\n On a miss, your old enemies were looking for you too; the GM will tell you how you know they are near."
+      "description": "When you go looking for help from an old friend in the area who you haven’t seen recently, name them and roll with Harmony. On a hit, you find them and they can assist you. On a 7-9, pick 1. On a 10+, both. <CHOICES>\nOn a miss, your old enemies were looking for you too; the GM will tell you how you know they are near.",
+      "options": [
+        "they aren’t caught up in their own problems",
+        "you don’t owe them a favor or apology"
+      ],
+      "negativeOutcome": "On a miss, your old enemies were looking for you too; the GM will tell you how you know they are near."
     },
     {
       "move": "Cut the Garbage",
-      "description": "When you openly confront someone to get the truth, roll with Harmony. On a hit, ask 2; the character can say or do what they like, but their player will answer honestly. On a 7-9, their player gets to ask a question you must answer honestly as well.\n\n• Are you telling the truth?\n• What are you really feeling? \n• What do you intend to do next? \n• What do you really think about<PC>?\n• How could I get you to <choice>?\n\nOn a miss, the confrontation goes awry; they inflict a condition on you and ask one question from the list of you; you must answer honestly."
+      "description": "When you openly confront someone to get the truth, roll with Harmony. On a hit, ask 2; the character can say or do what they like, but their player will answer honestly. On a 7-9, their player gets to ask a question you must answer honestly as well. <CHOICES>\nOn a miss, the confrontation goes awry; they inflict a condition on you and ask one question from the list of you; you must answer honestly.",
+      "options": [
+        "Are you telling the truth?",
+        "What are you really feeling?",
+        "What do you intend to do next?",
+        "What do you really think about <PC>?",
+        "How could I get you to <CHOICE>?"
+      ]
     },
     {
       "move": "An Open Heart",

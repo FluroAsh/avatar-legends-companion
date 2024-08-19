@@ -1,5 +1,7 @@
 import { type InferSelectModel } from "drizzle-orm"
-import { pgTable, serial, text, boolean } from "drizzle-orm/pg-core"
+import { pgTable, serial, text, boolean, integer } from "drizzle-orm/pg-core"
+
+import playbooks from "./playbooks"
 
 const techniques = pgTable("techniques", {
   id: serial("id").primaryKey(),
@@ -10,6 +12,8 @@ const techniques = pgTable("techniques", {
   base: text("base").notNull(),
   description: text("description").notNull(),
 })
+
+
 
 export type SelectTechnique = typeof techniques.$inferSelect
 

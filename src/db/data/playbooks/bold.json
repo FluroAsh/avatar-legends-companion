@@ -1,13 +1,12 @@
 {
   "playbook": "The Bold",
-  "prebuilt": false,
   "baseStats": {
     "creativity": 1,
     "focus": 1,
     "harmony": -0,
     "passion": -1
   },
-  "demeanour": [
+  "demeanours": [
     "impatient",
     "sensitive",
     "affable",
@@ -45,7 +44,7 @@
   },
   "startingTechnique": {
     "name": "Tag Team",
-    "stance": "Defend & Maneuver",
+    "stance": "Defend and Maneuver",
     "description": "Work with an ally against the same foe; choose an engaged foe and an ally—double any fatigue, conditions, or balance shifts that ally inflicts upon that foe."
   },
   "moves": [

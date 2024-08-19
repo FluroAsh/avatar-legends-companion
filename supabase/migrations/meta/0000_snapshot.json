@@ -134,8 +134,8 @@
           "primaryKey": false,
           "notNull": true
         },
-        "demeanours": {
-          "name": "demeanours",
+        "demeanourss": {
+          "name": "demeanourss",
           "type": "text[]",
           "primaryKey": false,
           "notNull": true
@@ -195,12 +195,8 @@
           "name": "playbooks_subclass_id_subclasses_id_fk",
           "tableFrom": "playbooks",
           "tableTo": "subclasses",
-          "columnsFrom": [
-            "subclass_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["subclass_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         },
@@ -208,12 +204,8 @@
           "name": "playbooks_technique_id_techniques_id_fk",
           "tableFrom": "playbooks",
           "tableTo": "techniques",
-          "columnsFrom": [
-            "technique_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["technique_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         },
@@ -221,12 +213,8 @@
           "name": "playbooks_base_stats_id_base_stats_id_fk",
           "tableFrom": "playbooks",
           "tableTo": "base_stats",
-          "columnsFrom": [
-            "base_stats_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["base_stats_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }

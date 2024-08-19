@@ -1,13 +1,12 @@
 {
   "playbook": "The Destined",
-  "prebuilt": false,
   "baseStats": {
     "creativity": 0,
     "focus": -1,
     "harmony": 2,
     "passion": 0
   },
-  "demeanour": [
+  "demeanours": [
     "eager",
     "solemn",
     "haunted",
@@ -20,44 +19,38 @@
     "name": "Marked By Fate",
     "targetPlayer": false,
     "description": "You have been touched by something beyond—something spiritual and otherworldly. At character creation, choose one from My Destiny on the back of this sheet, fill in one detail below, and take one destiny sign.",
-    "destinyDetails": {
-      "description": "Fill these in as your destiny is revealed to you, either in visions or through the insights of spiritually attuned NPCs. When you act to bring about one of these details, you may live up to your Determination without marking fatigue. When you and the GM agree one of the details is fully explored or fulfilled, mark growth.",
-      "options": [
-        "I will bring great change to <option>",
-        "I will weather betrayal by <option>",
-        "I will lose <option>",
-        "I will need the help of <option>",
-        "I will learn a crucial truth from <option>",
-        "I will defend or save <option>"
-      ]
-    },
-    "destinyTrack": "Whenever you lose your balance, get taken out, or are otherwise instructed to, mark your Destiny Track. When your destiny track fills, clear it and take a destiny sign. If you have already taken the other four, you must take“meet your fate.",
-    "destinySigns": [
+    "specials": [
       {
-        "sign": "Otherwordly Visions",
-        "description": "Mark your destiny track to have a vision about the situation at hand. Ask the GM one question and get an honest answer."
+        "name": "Destiny Details",
+        "description": "Fill these in as your destiny is revealed to you, either in visions or through the insights of spiritually attuned NPCs. When you act to bring about one of these details, you may live up to your Determination without marking fatigue. When you and the GM agree one of the details is fully explored or fulfilled, mark growth.",
+        "options": [
+          "I will bring great change to <option>",
+          "I will weather betrayal by <option>",
+          "I will lose <option>",
+          "I will need the help of <option>",
+          "I will learn a crucial truth from <option>",
+          "I will defend or save <option>"
+        ]
       },
       {
-        "sign": "Tremble Before Me",
-        "description": "Mark your destiny track and reveal a glimpse of your otherworldly aspect to intimidate an NPC as if you rolled a 10+. Afterward, their fear and mistrust of you knows no bounds; you cannot guide and comfort or plead with that NPC until you have earned their trust."
+        "name": "Destiny Track",
+        "description": "Whenever you lose your balance, get taken out, or are otherwise instructed to, mark your Destiny Track. When your destiny track fills, clear it and take a destiny sign. If you have already taken the other four, you must take \"meet your fate\"."
       },
       {
-        "sign": "Self-sacrificing",
-        "description": "Once per scene, mark your destiny track to supernaturally absorb an incoming blow aimed at an ally within view; cancel all fatigue, conditions, or balance shifts that would have been inflicted."
-      },
-      {
-        "sign": "Inner Strength",
-        "description": "Once per session, mark destiny twice to clear all conditions."
-      },
-      {
-        "sign": "Meet Your Fate",
-        "description": "Your destiny arrives and you are changed utterly by it. If you survive in human form, change playbooks."
+        "name": "Destiny Signs",
+        "options": [
+          "Otherwordly Visions: Mark your destiny track to have a vision about the situation at hand. Ask the GM one question and get an honest answer.",
+          "Tremble Before Me: Mark your destiny track and reveal a glimpse of your otherworldly aspect to intimidate an NPC as if you rolled a 10+. Afterward, their fear and mistrust of you knows no bounds; you cannot guide and comfort or plead with that NPC until you have earned their trust.",
+          "Self-sacrificing: Once per scene, mark your destiny track to supernaturally absorb an incoming blow aimed at an ally within view; cancel all fatigue, conditions, or balance shifts that would have been inflicted.",
+          "Inner Strength: Once per session, mark destiny twice to clear all conditions.",
+          "Meet Your Fate: Your destiny arrives and you are changed utterly by it. If you survive in human form, change playbooks."
+        ]
       }
     ]
   },
   "startingTechnique": {
     "name": "Anticipate",
-    "stance": "Evade & Observe",
+    "stance": "Evade and Observe",
     "description": "Study a nearby foe to learn where their momentum will take them next. Declare the approach they are tending towards. In the next exchange, that foe must use that approach or mark a condition."
   },
   "moves": [

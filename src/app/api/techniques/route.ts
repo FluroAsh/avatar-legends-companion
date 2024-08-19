@@ -1,33 +1,33 @@
-import * as fs from "fs"
+import { eq, sql } from "drizzle-orm"
 import { NextRequest, NextResponse } from "next/server"
 
-import { readJSONFile, readJSONFiles } from "@/app/api/helpers"
-import { resolveDataPathname } from "@/lib/paths"
-
-import { PlaybookError } from "../errors"
+import { db } from "@/db"
+import { techniques } from "@/db/schema"
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url)
+  const typeParam = searchParams.get("base")
 
   try {
-    const typeParam = searchParams.get("type")
-    const targetDir = resolveDataPathname("techniques")
-
     if (typeParam) {
-      const filePath = `${targetDir}/${typeParam}.json`
-      const playbookData = readJSONFile(filePath)
-      return NextResponse.json(playbookData)
+      console.log("typeParam")
+      const techniqueData = await db
+        .select()
+        .from(techniques)
+        .where(eq(sql`lower(${techniques.base})`, sql`lower(${typeParam})`))
+
+      if (techniqueData.length === 0) throw new Error("Technique not found")
+
+      return NextResponse.json(techniqueData)
     }
 
     if (!typeParam) {
-      const fileNames = fs.readdirSync(targetDir)
-      const playbooksData = readJSONFiles(fileNames, targetDir).flat()
-      return NextResponse.json(playbooksData)
+      const techniquesData = await db.select().from(techniques)
+      return NextResponse.json(techniquesData)
     }
   } catch (e) {
-    if (e instanceof PlaybookError) {
-      return NextResponse.json({ message: e.message }, { status: e.statusCode })
+    if (e instanceof Error) {
+      return NextResponse.json({ error: e.message }, { status: 500 })
     }
-    return NextResponse.error()
   }
 }

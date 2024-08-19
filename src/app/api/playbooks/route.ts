@@ -1,33 +1,36 @@
-import * as fs from "fs"
+import { eq, sql } from "drizzle-orm"
 import { NextRequest, NextResponse } from "next/server"
 
-import { readJSONFile, readJSONFiles } from "@/app/api/helpers"
-import { resolveDataPathname } from "@/lib/paths"
-
-import { PlaybookError } from "../errors"
+import { db } from "@/db"
+import { playbooks } from "@/db/schema"
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url)
+  const playbookParam = searchParams.get("playbook")
 
   try {
-    const typeParam = searchParams.get("type")
-    const targetDir = resolveDataPathname("playbooks")
+    if (playbookParam) {
+      const data = await db
+        .select()
+        .from(playbooks)
+        .where(
+          eq(
+            sql`lower(regexp_replace(${playbooks.playbook}, '^The\\s', ''))`,
+            sql`lower(${playbookParam})`
+          )
+        )
 
-    if (typeParam) {
-      const filePath = `${targetDir}/${typeParam}.json`
-      const playbookData = readJSONFile(filePath)
-      return NextResponse.json(playbookData)
+      if (!data) throw new Error("Playbook not found")
+      return NextResponse.json(data)
     }
 
-    if (!typeParam) {
-      const fileNames = fs.readdirSync(targetDir)
-      const playbooksData = readJSONFiles(fileNames, targetDir)
-      return NextResponse.json(playbooksData)
+    if (!playbookParam) {
+      const data = await db.select().from(playbooks)
+      return NextResponse.json(data)
     }
   } catch (e) {
-    if (e instanceof PlaybookError) {
-      return NextResponse.json({ message: e.message }, { status: e.statusCode })
+    if (e instanceof Error) {
+      return NextResponse.json({ error: e.message }, { status: 500 })
     }
-    return NextResponse.error()
   }
 }
