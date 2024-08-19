@@ -1,78 +1,88 @@
 {
   "playbook": "The Foundling",
-  "prebuilt": false,
   "baseStats": {
-    "creativity": 0,
-    "focus": 1,
-    "harmony": -1,
-    "passion": 1
+    "creativity": 1,
+    "focus": -1,
+    "harmony": 1,
+    "passion": 0
   },
-  "demeanour": [
-    "above-it-all",
-    "perfectionist",
-    "chilly",
-    "rebellious",
-    "flippant",
-    "standoffish"
+  "demeanours": [
+    "caring",
+    "modest",
+    "dedicated",
+    "respectful",
+    "friendly",
+    "shy"
   ],
-  "balance": ["restraint", "results"],
-
+  "balance": ["unity", "heritage"],
   "subclass": {
-    "name": "The Lodestar",
-    "targetPlayer": true,
-    "description": "You can shift your lodestar to someone new when they guide and comfort you and you open up to them, or when you guide and comfort them and they open up to you. If you do choose to shift your lodestar, clear a condition.\nWhen you shut down someone vulnerable to harsh words or icy silence, shift your balance toward Results and roll with Results. On a hit, they mark a condition and you may clear the same condition. On a 10+, they also cannot shift your balance or call you out for the rest of the scene. On a miss, they have exactly the right retort; mark a condition and they shift your balance. You cannot use this on your lodestar.\nWhen your lodestar shifts your balance or calls you out, you cannot resist it. Treat an NPC lodestar calling you out as if you rolled a 10+, and a PC lodestar calling you out as if they rolled a 10+.\nWhen you consult your lodestar for advice on a problem (or permission to use your preferred solution), roll with Restraint. On a 10+ take all three; on a 7–9 they choose two:",
-    "options": [
-      "You see the wisdom of their advice. They shift your balance; follow their advice and they shift your balance again.",
-      "The conversation bolsters you. Clear a condition or 2-fatigue.",
-      "They feel at ease offering their opinion. They clear a condition or 2-fatigue."
-    ],
-    "negativeOutcome": "On a miss, something about their advice infuriates you. Mark a condition or have the GM shift your balance twice."
+    "name": "Double Heritage",
+    "targetPlayer": false,
+    "description": "You are a child of two cultures. At character creation, choose two trainings and two backgrounds that represent your two heritages. You also start play with two mastered techniques (including your playbook technique) instead of the normal one mastered technique.",
+    "specials": [
+      {
+        "name": "Wisdom From Many Places",
+        "description": "You can study with a master to learn techniques from any training and adapt them to your own. When you start learning a technique of a training you don’t have with a willing teacher, roll, taking +1 for each “yes” to the following questions:",
+        "description2": "On a hit, you learn the technique; shift your balance towards Unity. On a 7-9, learning it was trying; mark a condition and write its name by the technique. You can’t use the technique if you have that condition marked. When you master the technique, erase the condition’s name.",
+        "options": [
+          "Is your Unity greater than zero?",
+          "Have you studied this technique before?",
+          "Has someone used this technique against you in real battle?"
+        ],
+        "negativeOutcome": "On a miss, you’re struggling to incorporate the lesson into your training; you must find a new master to continue your training."
+      },
+      {
+        "name": "Cultural Bonds",
+        "description": "When you try to connect with an NPC via a shared culture, roll with Heritage. On a hit, they see you; shift your balance toward Heritage. On a 7-9, choose 1; on a 10+, choose 2:",
+        "options": [
+          "They accept you; they cease hostilities or antagonism toward you.",
+          "They grow to like you (if they already accept you); they agree to help you with a problem.",
+          "They reveal their background; you learn their principle.",
+          "They offer solace; you clear a condition.",
+          "They reveal a vulnerability; you become Prepared to deal with them."
+        ],
+        "negativeOutcome": "On a miss, you mix up your heritages in a terrible way; the NPC mocks you or gets offended by your slip. Mark a condition and shift your balance away from Heritage."
+      }
+    ]
   },
   "startingTechnique": {
-    "name": "Pinpoint Aim",
-    "stance": "Defend & Maneuver",
-    "description": "Take the time you need to line up a perfect shot; become Prepared. In the next exchange, if you advance and attack, roll with Focus or Passion, your choice. If you use Strike, you do not have to mark fatigue to choose what you inflict."
+    "name": "Feel The Flow",
+    "stance": "Evade and Observe",
+    "description": "You take pause to feel the flow of battle and study the way your opposition fights. You become Favored. If they share a training with you, learn their principle. If you know their principle, clear 1-fatigue (even if they do not share the same training)."
   },
   "moves": [
     {
-      "move": "This was a victory",
-      "description": "When you reveal that you have sabotaged a building, device, or vehicle right as it becomes relevant, mark fatigue and roll with Passion. On a hit, your work pays off, creating an opportunity for you and your allies at just the right time. On a 7-9, the opportunity is fleeting—act fast to stay ahead of the consequences. On a miss, your action was ill-judged and something or someone you care about is hurt as collateral damage"
+      "move": "Empty Your Mind",
+      "description": "You can flow and adapt, formless and shapeless. During an exchange, after you roll the stance move, you can mark 1-fatigue to select a basic technique from a different approach than the one you chose. (You still must pay all other costs of that technique.)"
     },
     {
-      "move": "Takes one to know one",
-      "description": "When you verbally needle someone by finding the weaknesses in their armor, roll with Focus. On a hit, ask 1 question. On a 7-9, they ask 1 of you as well:",
-      "options": [
-        "What is your principle?",
-        "What do you need to prove?",
-        "What could shake your certainty?",
-        "Whom do you care about more than you let on?"
-      ],
-      "negativeOutcome": "Anyone who lies or stonewalls marks 2-fatigue. On a miss, your attack leaves you exposed; they may ask you any one question from the list, and you must answer honestly."
+      "move": "Building Bridges",
+      "description": "When you try to calm an immediate conflict between two NPCs, remind them what they have in common and roll with Harmony. On a hit, they come to terms, for now. They won’t pursue their conflict until an outside influence reignites it or time passes (a day or more). On a 10+, you have a real opportunity to get them to put aside their conflict for good; the GM will tell you what you must do. On a miss, you inadvertently highlight their differences and fan the conflict—you cannot use this move on them again."
     },
     {
-      "move": "No time for feelings",
-      "description": "When you have equal or fewer conditions marked than your highest principle, mark fatigue to push down your feelings for the rest of the scene and ignore condition penalties until the end of the scene. When you resist an NPC shifting your balance, mark a condition to roll with conditions marked (max +4). You cannot then choose to clear a condition by immediately proving them wrong."
+      "move": "Martial Sensitive",
+      "description": "You are good at readings people's intentions and gestures. When you defend and maneuver against a foe whose principle you know, mark a fatigue to roll with Harmony instead of Focus."
     },
     {
-      "move": "I don't hate you",
-      "description": "When you guide and comfort someone in an awkward, understated, or idiosyncratic fashion, roll with Passion instead of Harmony if you mark Insecure or Insecure is already marked."
+      "move": "Trusty Talisman",
+      "description": "You have a specific weapon, tool, or item which you believe is crucial to your training and abilities. You can roll with Harmony instead of Focus when you use the item to rely on your skills and training. If you roll a miss, the item is damaged—in addition to any other consequences—and needs repairs. If the item is damaged again before you get a chance to repair it, it is destroyed. You are Impaired without it, until someone helps you overcome the loss; choose a new move to replace this one when you finally move on."
     },
     {
-      "move": "Driven by justice",
-      "description": "Take +1 to PASSION (max +3)."
+      "move": "Things in Common",
+      "description": "When you guide and comfort someone who shares a training or a background with you by talking about what you have in common, on a hit you become Inspired, and if they embrace your guidance and comfort, they become Inspired as well."
     }
   ],
   "history": [
-    "What experience of being deceived or manipulated convinced you to steel yourself against being swayed by other people?",
-    "Who was your first lodestar, and why were they an exception? Why aren't they your lodestar anymore?",
-    "Who earned your grudging respect by teaching you pragmatism?",
-    "What heirloom or piece of craftsmanship do you carry to remind you to stay true to yourself?",
+    "How and when did you learn about your second heritage?",
+    "Who in your family insists you focus on upholding the family heritage?",
+    "Who helped you understand that your two trainings can complement each other?",
+    "What detail of your clothing or visible trinket reveals you belong to two cultures?",
     "Why are you committed to this group or purpose?"
   ],
   "connections": [
-    "takes issue with my methods—perhaps they have a point, but I certainly can't admit that to them!",
-    "is my lodestar; something about them makes them the one person I let my guard down around."
+    "seems to think one of my heritages should be valued more; there's something persuasive in their words.",
+    "is so awesome, with skills and heritage I’ve never seen! I want to learn all I can about them and their background."
   ],
-  "momentOfBalance": "You've held true to a core of conviction even while getting your hands dirty to do what you deemed necessary. But balance means appreciating that other people are just as complex as you are, not merely obstacles or pawns. Tell the GM how you solve an intractable problem or calm a terrible conflict by relating to dangerous people on a human level.",
-  "growthQuestion": "Did you seek support or guidance from others?"
+  "momentOfBalance": "You have always struggled to find unity between your two halves while trying to honor their traditions. But true balance is about knowing that everything is part of a greater whole. One heritage cannot exist without the other...especially within you. Tell the GM how your new understanding lets you use both your trainings to accomplish an incredible feat or vanquish an enemy that seems unstoppable.",
+  "growthQuestion": "Did you resolve an issue or conflict relying on something other than your trainings?"
 }

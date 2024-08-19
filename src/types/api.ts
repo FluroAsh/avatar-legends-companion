@@ -14,27 +14,38 @@ export type Technique = {
   description: string
 }
 
+type Subclass = {
+  name: string
+  targetPlayer: boolean
+  targetName?: string
+  description: string
+  description2?: string
+  specials?: SubclassSpecial[]
+  options?: string[]
+  negativeOutcome?: string
+}
+
+type SubclassSpecial = {
+  name: string
+  description: string
+  description2?: string
+  options?: string[]
+  negativeOutcome?: string
+}
+
 export type Playbook = {
   playbook: string
-  prebuilt: boolean
   baseStats: {
     creativity: number
     focus: number
     harmony: number
     passion: number
   }
-  demeanour: string[]
+  demeanours: string[]
   balance: string[]
   // TODO: Set up a content type for each subclass, so that we're able to properly
   // map the response to the correct subclass, and render the correct content/fields in the FE.
-  subclass: {
-    name: string
-    targetPlayer: boolean
-    description: string
-    description2?: string
-    options?: string[]
-    negativeOutcome?: string
-  }
+  subclass: Subclass
   moves: Move[]
   // TODO: Refactor JSON files to match the "technique" schema above
   startingTechnique: {

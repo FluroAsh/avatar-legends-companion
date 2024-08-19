@@ -1,7 +1,6 @@
 import { relations } from "drizzle-orm"
 import { integer, pgTable, serial, text, boolean } from "drizzle-orm/pg-core"
 
-import techniques from "./techniques"
 import baseStats from "./base-stats"
 import moves from "./moves"
 import subclasses from "./subclasses"
@@ -9,22 +8,28 @@ import subclasses from "./subclasses"
 const playbooks = pgTable("playbooks", {
   id: serial("id").primaryKey(),
   playbook: text("playbook").notNull(),
-  prebuilt: boolean("prebuilt").notNull(),
   demeanours: text("demeanours").array().notNull(),
   balance: text("balance").array().notNull(),
   history: text("history").array().notNull(),
   connections: text("connections").array().notNull(),
   momentOfBalance: text("moment_of_balance").notNull(),
-  growthQuestions: text("growth_questions").array().notNull(),
+  growthQuestion: text("growth_question").notNull(),
   subclassId: integer("subclass_id")
     .references(() => subclasses.id)
     .notNull(),
   techniqueId: integer("technique_id")
-    .references(() => techniques.id)
+    .references(() => playbookTechniques.id)
     .notNull(),
   baseStatsId: integer("base_stats_id")
     .references(() => baseStats.id)
     .notNull(),
+})
+
+export const playbookTechniques = pgTable("playbook_techniques", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  description: text("description").notNull(),
+  stance: text("stance").notNull(),
 })
 
 export const playbookRelations = relations(playbooks, ({ one, many }) => ({
@@ -32,9 +37,9 @@ export const playbookRelations = relations(playbooks, ({ one, many }) => ({
     fields: [playbooks.subclassId],
     references: [subclasses.id],
   }),
-  technique: one(techniques, {
+  technique: one(playbookTechniques, {
     fields: [playbooks.techniqueId],
-    references: [techniques.id],
+    references: [playbookTechniques.id],
   }),
   baseStats: one(baseStats, {
     fields: [playbooks.baseStatsId],

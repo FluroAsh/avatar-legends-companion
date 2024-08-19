@@ -1,13 +1,12 @@
 {
-  "playbook": "The Hammer",
-  "prebuilt": false,
+  "playbook": "The Rogue",
   "baseStats": {
     "creativity": 0,
     "focus": 1,
     "harmony": -1,
     "passion": 1
   },
-  "demeanour": [
+  "demeanours": [
     "above-it-all",
     "perfectionist",
     "chilly",
