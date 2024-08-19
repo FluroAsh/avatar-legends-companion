@@ -1,0 +1,65 @@
+{
+  "playbook": "The Elder",
+  "prebuilt": false,
+  "baseStats": {
+    "creativity": 0,
+    "focus": 1,
+    "harmony": 2,
+    "passion": -1
+  },
+  "demeanour": [
+    "diligent",
+    "dour",
+    "kindly",
+    "distant",
+    "bemused",
+    "irascible"
+  ],
+  "balance": ["experience", "humility"],
+  "subclass": {
+    "name": "Wisdom of the Ages",
+    "targetPlayer": false,
+    "description": "You've lived longer than the other companions, long enough to have mastered your training many times over...and perhaps long enough to think you don’t have much left to learn. In addition to your normal playbook technique, you start with four other mastered techniques. You don’t have to name these techniques at character creation; you can instead choose them whenever you like, even in the middle of a combat exchange. You can train other PCs in your mastered techniques using the standard training move. Until you open up a new slot for another technique, you cannot learn new techniques. When you shift your center to +1, +2, or +3 Humility for the first time, you open up a new slot; you may learn and develop a new technique to fill that slot as normal. You do not earn growth. When a PC embraces your guidance and comfort, you may shift toward Experience to declare them a protégé; write their name and one of their principles below. When that PC shifts their center toward that principle, clear their name and take an advancement; you may add them to your list again in the same way.",
+    "description2": "You have different conditions; they offer bonuses as well as penalties. You cannot take moves from other playbooks that reference conditions you don’t have. You can clear your special conditions through moves or by undertaking the actions liste at the back of this sheet."
+  },
+  "startingTechnique": {
+    "name": "Patience",
+    "stance": "Evade and Observe",
+    "description": "You wait until the perfect moment to act. Mark 1-fatigue to gain Prepared and use an advance and attack technique, paying all its costs as normal. Mark another fatigue to allow a companion engaged with that same foe to also use an advance and attack technique against them as well, also paying all costs as appropriate."
+  },
+  "moves": [
+    {
+      "move": "As Long As I'm Breathing",
+      "description": "When you try to intimidate someone in order to protect the vulnerable or weak, roll with Harmony instead of Passion."
+    },
+    {
+      "move": "Life's True Delights",
+      "description": "When you pursue a genuine moment of respite, roll with Harmony. On a hit, shift your balance as you choose. On a 10+, you also gain some new insight; ask the GM a question and they will answer honestly. On a 7-9, your self-indulgence creates an opportunity for your enemies or rivals; the GM will tell you how. On a miss, you fixate on your past with disastrous results; tell the GM what old conflict mars your peace and shift your balance twice away from center."
+    },
+    {
+      "move": "Around Here Somewhere",
+      "description": "When you go looking for help from an old friend in the area who you haven’t seen recently, name them and roll with Harmony. On a hit, you find them and they can assist you. On a 7-9, pick 1. On a 10+, both.\n\n• they aren’t caught up in their own problems\n• you don’t owe them a favor or apology\n\n On a miss, your old enemies were looking for you too; the GM will tell you how you know they are near."
+    },
+    {
+      "move": "Cut the Garbage",
+      "description": "When you openly confront someone to get the truth, roll with Harmony. On a hit, ask 2; the character can say or do what they like, but their player will answer honestly. On a 7-9, their player gets to ask a question you must answer honestly as well.\n\n• Are you telling the truth?\n• What are you really feeling? \n• What do you intend to do next? \n• What do you really think about<PC>?\n• How could I get you to <choice>?\n\nOn a miss, the confrontation goes awry; they inflict a condition on you and ask one question from the list of you; you must answer honestly."
+    },
+    {
+      "move": "An Open Heart",
+      "description": "Take +1 to HARMONY (max +3)."
+    }
+  ],
+  "history": [
+    "What great legacy did you inherit decades ago and recently relinquish?",
+    "Who has never forgiven you for decisions you made years ago?",
+    "Who is still your ally and confidante, despite the tense history you’ve shared?",
+    "What outfit or uniform do you wear to remind yourself of your former duties?",
+    "Why are you committed to this group or purpose?"
+  ],
+  "connections": [
+    "I care about <PC> more than they know...even though they are probably my most frustrating student.",
+    "is not to be underestimated. In fact, they may have something to teach me!"
+  ],
+  "momentOfBalance": "You will always be anchored to the past—unable to escape the painful lessons you have learned—but now you can hold the weight of that experience with the humility true wisdom brings. You look upon the current situation with unbiased eyes to see the truths roiling beneath the surface. Tell the GM how you wipe away whatever conceals the truth so no one can see things as they once thought they were.",
+  "growthQuestion": "You earn growth advancements as you aid chosen protégés to achieve their full potential and move towards their own principles; see Wisdom of Ages."
+}

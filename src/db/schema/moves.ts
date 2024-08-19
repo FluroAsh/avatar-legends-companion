@@ -1,10 +1,15 @@
-import { type InferSelectModel } from "drizzle-orm"
-import { integer, pgTable, serial, text, boolean } from "drizzle-orm/pg-core"
+import { integer, pgTable, serial, text } from "drizzle-orm/pg-core"
+import playbooks from "./playbooks"
 
-export const moves = pgTable("moves", {
+const moves = pgTable("moves", {
   id: serial("id").primaryKey(),
   move: text("move").notNull(),
   description: text("description").notNull(),
   options: text("options").array(),
   negativeOutcome: text("negative_outcome"),
+  playbookId: integer("playbook_id")
+    .references(() => playbooks.id)
+    .notNull(),
 })
+
+export default moves

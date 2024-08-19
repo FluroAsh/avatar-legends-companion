@@ -1,17 +1,14 @@
-import { TechniqueResponse } from "@/types/api"
+import { Technique } from "@/types/api"
 
 export type Techniques = {
-  fallback: TechniqueResponse
-  universal: TechniqueResponse[]
-  training: TechniqueResponse[]
+  fallback: Technique
+  universal: Technique[]
+  training: Technique[]
 }
 
-export function findTypeTechniques(
-  data: TechniqueResponse[],
-  trainingType: string
-) {
+export function findTypeTechniques(data: Technique[], trainingType: string) {
   const techniques = data.reduce(
-    (acc: any, t: TechniqueResponse) => {
+    (acc: any, t: Technique) => {
       const type = t.base ? t.base : t.type
 
       if (t.type === "Universal") {

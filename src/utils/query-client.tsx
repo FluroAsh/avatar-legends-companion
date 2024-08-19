@@ -11,7 +11,7 @@ import { ReactQueryStreamedHydration } from "@tanstack/react-query-next-experime
 
 import { DEFAULT_PLAYBOOK } from "@/lib/constants"
 import { fetchPlaybook, fetchTechniques } from "@/lib/helpers"
-import { TechniqueResponse } from "@/types/api"
+import { Technique } from "@/types/api"
 
 const ReactQueryClientProvider = ({
   children,
@@ -48,7 +48,7 @@ const useTechniques = (options: { type?: string } = {}) => {
     queryFn: () => fetchTechniques(type),
   }
 
-  return useSuspenseQuery<TechniqueResponse[]>(queryConfig)
+  return useSuspenseQuery<Technique[]>(queryConfig)
 }
 
 export { ReactQueryClientProvider, usePlaybook, useTechniques }

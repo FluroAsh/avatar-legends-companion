@@ -22,7 +22,7 @@ import {
 
 import { Button } from "@/components/button"
 import { STANCES } from "@/lib/constants"
-import type { TechniqueResponse } from "@/types/api"
+import type { Technique } from "@/types/api"
 
 import { ColoredStanceIcon } from "@/lib/icons"
 import { useFormStore } from "@/stores/form-store"
@@ -37,9 +37,9 @@ const TechniqueItems = ({
 }: {
   stickyTitle: string
   stickyIcon: React.ReactNode
-  techniques: TechniqueResponse[]
+  techniques: Technique[]
   onClick: (
-    _technique: Pick<TechniqueResponse, "technique" | "stance" | "description">
+    _technique: Pick<Technique, "technique" | "stance" | "description">
   ) => void
   resetModal: () => void
 }) => (
@@ -96,7 +96,7 @@ export default function TechniqueModal({
     technique,
     stance,
     description,
-  }: Pick<TechniqueResponse, "technique" | "stance" | "description">) => {
+  }: Pick<Technique, "technique" | "stance" | "description">) => {
     resetModal()
 
     // TODO: Update the formStore with the selected technique
@@ -116,7 +116,7 @@ export default function TechniqueModal({
     setSelectedTechniques(Object.values(STANCES))
   }
 
-  const filterTechniques = (techniques: TechniqueResponse[]) =>
+  const filterTechniques = (techniques: Technique[]) =>
     techniques.filter(({ stance, technique }) => {
       const matchesSearchTerm =
         searchTerm && searchTerm.trim() !== ""

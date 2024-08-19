@@ -85,12 +85,21 @@ export const DEMEANOURS = {
   WATCHFUL: "watchful",
 } as const
 
-export const CONDITIONS = {
+// TODO: "Elder" playbook has a different set of conditions...
+export const BASE_CONDITIONS = {
   AFRAID: "afraid",
   ANGRY: "angry",
   GUILTY: "guilty",
   INSECURE: "insecure",
   TROUBLED: "troubled",
+} as const
+
+export const ELDER_CONDITIONS = {
+  FRUSTRATED: "frustrated",
+  JADED: "jaded",
+  REMORSEFUL: "remorseful",
+  SHAKEN: "shaken",
+  WORRIED: "worried",
 } as const
 
 export const CLEARING_CONDITIONS = {

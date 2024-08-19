@@ -1,62 +1,69 @@
-import { db } from "@/db"
-import { techniques, type Technique } from "@/db/schema/techniques"
-import { sql } from "drizzle-orm"
+import * as path from "path"
 import * as fs from "fs"
+import { fileURLToPath } from "url"
+import { getTableName, sql, Table } from "drizzle-orm"
 
+import { Db, db } from "@/db"
 import * as schema from "@/db/schema"
 
-const files = fs.readdirSync("./public/data/techniques")
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const dataDir = path.resolve(__dirname, "data")
 
-console.log("Seeding techniques...")
-files.forEach((file) => console.log(`- ${file}`))
+const techniqueFiles = fs.readdirSync(dataDir + "/techniques")
+const playbookFiles = fs.readdirSync(dataDir + "/playbooks")
 
-// Crurently no native inbuilt drizzle method to truncate tables
-const truncateTables = async (tables: string[]) =>
+async function resetTable(db: Db, table: Table) {
   await db.execute(
-    sql.raw(`TRUNCATE TABLE ${tables.join(", ")} RESTART IDENTITY CASCADE;`)
+    sql.raw(`TRUNCATE TABLE ${getTableName(table)} RESTART IDENTITY CASCADE;`)
   )
-
-const seedDatabase = async () => {
-  try {
-    // TODO: A way to get all the table names from our index schema?
-    await truncateTables([
-      "techniques",
-      "playbooks",
-      "base_stats",
-      "moves",
-      "playbook_base_stats",
-      "playbook_moves",
-      "playbook_techniques",
-    ])
-
-    // Insert data into the techniques table
-    for (const file of files) {
-      const data = getTechniqueData(file)
-      console.log(`> Inserting ${data.length} techniques from "${file}"`)
-
-      await db.insert(techniques).values(data)
-      console.log("✅ Techniques inserted successfully")
-    }
-    // TODO: Set up other tables...
-    // Insert data into the playbooks table
-
-    // Insert data into the base_stats table (+ FKs)
-
-    // Insert data into the moves table (+ FKs)
-
-    // Insert data into the subclasses table (+ FKs)
-
-    // Insert data into the characters table
-  } catch (e) {
-    console.error("🚨 Error seeding database", e)
-  } finally {
-    process.exit()
-  }
 }
 
-seedDatabase()
-
-function getTechniqueData(file: string): Omit<Technique, "id">[] {
-  const data = fs.readFileSync(`./public/data/techniques/${file}`, "utf-8")
+function getData<T>(fileName: string, dirName: "techniques" | "playbooks"): T {
+  const data = fs.readFileSync(`${dataDir}/${dirName}/${fileName}`, "utf-8")
   return JSON.parse(data)
 }
+
+for (const table of [
+  schema.playbooks,
+  schema.techniques,
+  schema.moves,
+  schema.baseStats,
+  schema.subclasses,
+]) {
+  await resetTable(db, table)
+}
+
+console.log("> 🗑️  Tables have been reset.")
+
+// Insert data into the techniques table
+for (const techniqueFile of techniqueFiles) {
+  const data = getData<Omit<schema.SelectTechnique, "id">[]>(
+    techniqueFile,
+    "techniques"
+  )
+  await db.insert(schema.techniques).values(data as any)
+  console.log(
+    `Inserted (${data.length}) techniques into the "techniques" table`
+  )
+}
+
+// TODO: Set up other tables...
+// ---- Insert data into the playbooks table
+
+for (const playbookFile of playbookFiles) {
+  const data = getData<Omit<schema.SelectPlaybook, "id">[]>(
+    playbookFile,
+    "playbooks"
+  )
+  // console.log(data)
+}
+
+// ---- Insert data into the base_stats table (+ FKs)
+
+// ---- Insert data into the moves table (+ FKs)
+
+// ---- Insert data into the subclasses table (+ FKs)
+
+// ---- Insert data into the characters table -- this one isn't needed unlses we want to add some test data...
+
+process.exit(0)

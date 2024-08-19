@@ -1,8 +1,8 @@
 import { type InferSelectModel } from "drizzle-orm"
-import { pgTable, serial, text, boolean } from "drizzle-orm/pg-core"
+import { pgTable, serial, text, boolean, integer } from "drizzle-orm/pg-core"
 
 // // TODO: Need to normalize this table for each subclass...
-export const subclasses = pgTable("playbook_subclasses", {
+const subclasses = pgTable("subclasses", {
   id: serial("id").primaryKey(),
   // Common fields
   name: text("name").notNull(),
@@ -15,3 +15,5 @@ export const subclasses = pgTable("playbook_subclasses", {
   // - name
   // - description
 })
+
+export default subclasses
