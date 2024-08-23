@@ -1,8 +1,8 @@
-import { eq, sql } from "drizzle-orm"
 import { NextRequest, NextResponse } from "next/server"
 
 import { db } from "@/db"
-import { playbooks } from "@/db/schema"
+import { transformPlaybook } from "@/api/helpers"
+import { fetchPlaybookByParam } from "@/api/service"
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url)
@@ -10,27 +10,21 @@ export async function GET(req: NextRequest) {
 
   try {
     if (playbookParam) {
-      const data = await db
-        .select()
-        .from(playbooks)
-        .where(
-          eq(
-            sql`lower(regexp_replace(${playbooks.playbook}, '^The\\s', ''))`,
-            sql`lower(${playbookParam})`
-          )
-        )
+      const [playbook] = await fetchPlaybookByParam(playbookParam)
+      if (!playbook) throw new Error("Playbook not found")
 
-      if (!data) throw new Error("Playbook not found")
-      return NextResponse.json(data)
+      const transformedData = transformPlaybook(playbook)
+      return NextResponse.json(transformedData)
     }
 
     if (!playbookParam) {
-      const data = await db.select().from(playbooks)
-      return NextResponse.json(data)
+      const playbooks = await db.query.playbooks.findMany()
+      if (!playbooks) throw new Error("No playbooks found")
+      return NextResponse.json(playbooks)
     }
   } catch (e) {
     if (e instanceof Error) {
-      return NextResponse.json({ error: e.message }, { status: 500 })
+      return NextResponse.json({ error: e.message }, { status: 404 })
     }
   }
 }

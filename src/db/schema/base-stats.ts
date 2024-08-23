@@ -1,4 +1,3 @@
-import { type InferSelectModel } from "drizzle-orm"
 import { integer, pgTable, serial } from "drizzle-orm/pg-core"
 
 const baseStats = pgTable("base_stats", {
@@ -8,5 +7,7 @@ const baseStats = pgTable("base_stats", {
   harmony: integer("harmony"),
   passion: integer("passion"),
 })
+
+export type SelectBaseStats = typeof baseStats.$inferSelect
 
 export default baseStats

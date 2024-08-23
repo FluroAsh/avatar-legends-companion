@@ -13,9 +13,9 @@ export default function StartingTechnique() {
 
   return (
     <FormContainer
-      heading={playbookData.startingTechnique.name}
+      heading={playbookData.techniques.technique}
       // TODO: Add text color styling based on stance
-      subheading={<span>{playbookData.startingTechnique.stance}</span>}
+      subheading={<span>{playbookData.techniques.stance}</span>}
       rightNode={
         <div className="pt-1 my-auto font-bold capitalize text-neutral-300">
           {playbookName} Starter
@@ -24,7 +24,7 @@ export default function StartingTechnique() {
       className="min-w-[300px]"
     >
       <p className="text-sm leading-5 text-neutral-300">
-        {playbookData.startingTechnique.description}
+        {playbookData.techniques.description}
       </p>
     </FormContainer>
   )

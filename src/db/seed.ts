@@ -1,7 +1,7 @@
 import * as path from "path"
 import * as fs from "fs"
 import { fileURLToPath } from "url"
-import { eq, getTableName, sql, Table } from "drizzle-orm"
+import { getTableName, sql, Table } from "drizzle-orm"
 
 import type { Playbook, Technique } from "@/types/api"
 import { Db, db } from "@/db"
@@ -24,52 +24,42 @@ function getData<T>(fileName: string, dirName: "techniques" | "playbooks"): T {
   return JSON.parse(data)
 }
 
-for (const table of [
-  schema.playbooks,
-  schema.techniques,
-  schema.moves,
-  schema.baseStats,
-  schema.subclasses,
-]) {
-  await resetTable(db, table)
-}
+async function seed() {
+  for (const table of [
+    schema.playbooks,
+    schema.techniques,
+    schema.moves,
+    schema.baseStats,
+    schema.subclasses,
+  ]) {
+    await resetTable(db, table)
+  }
 
-console.log("> 🗑️  Tables have been reset.")
+  console.log("> 🗑️  Tables have been reset.")
 
-for (const techniqueFile of techniqueFiles) {
-  const data = getData<Technique[]>(techniqueFile, "techniques")
-  await db.insert(schema.techniques).values(data as any)
-  console.log(
-    `Inserted (${data.length}) techniques into the "techniques" table`
-  )
-}
+  for (const techniqueFile of techniqueFiles) {
+    const data = getData<Technique[]>(techniqueFile, "techniques")
+    await db.insert(schema.techniques).values(data as any)
+    console.log(
+      `Inserted (${data.length}) techniques into the "techniques" table`
+    )
+  }
 
-let i = 0
+  let i = 0
 
-for (const playbookFile of playbookFiles) {
-  const data = getData<Playbook>(playbookFile, "playbooks")
+  for (const playbookFile of playbookFiles) {
+    const data = getData<Playbook>(playbookFile, "playbooks")
 
-  // -- Base Stats -- //
-  const { creativity, focus, harmony, passion } = data.baseStats
+    // -- Base Stats -- //
+    const { creativity, focus, harmony, passion } = data.baseStats
 
-  await db
-    .insert(schema.baseStats)
-    .values({ creativity, focus, harmony, passion })
+    await db
+      .insert(schema.baseStats)
+      .values({ creativity, focus, harmony, passion })
 
-  // -- Subclasses -- //
-  const specials = data.subclass.specials
-  const {
-    name,
-    targetPlayer,
-    targetName,
-    description,
-    description2,
-    options,
-    negativeOutcome,
-  } = data.subclass
-
-  await db.transaction(async (trx) => {
-    await trx.insert(schema.subclasses).values({
+    // -- Subclasses -- //
+    const specials = data.subclass.specials
+    const {
       name,
       targetPlayer,
       targetName,
@@ -77,42 +67,34 @@ for (const playbookFile of playbookFiles) {
       description2,
       options,
       negativeOutcome,
-    })
+    } = data.subclass
 
-    if (!specials) return
-
-    // -- Subclass Specials -- //
-    for (const special of specials) {
-      await trx.insert(schema.subclassSpecials).values({
-        name: special.name,
-        description: special.description,
-        options: special.options,
-        subclassId: i + 1,
+    await db.transaction(async (trx) => {
+      await trx.insert(schema.subclasses).values({
+        name,
+        targetPlayer,
+        targetName,
+        description,
+        description2,
+        options,
+        negativeOutcome,
       })
-    }
-  })
 
-  // -- Playbooks -- //
-  const {
-    playbook,
-    demeanours,
-    balance,
-    history,
-    connections,
-    momentOfBalance,
-    growthQuestion,
-    startingTechnique,
-    moves,
-  } = data
+      if (!specials) return
 
-  await db.transaction(async (trx) => {
-    await trx.insert(schema.playbookTechniques).values({
-      name: startingTechnique.name,
-      description: startingTechnique.description,
-      stance: startingTechnique.stance,
+      // -- Subclass Specials -- //
+      for (const special of specials) {
+        await trx.insert(schema.subclassSpecials).values({
+          name: special.name,
+          description: special.description,
+          options: special.options,
+          subclassId: i + 1,
+        })
+      }
     })
 
-    await trx.insert(schema.playbooks).values({
+    // -- Playbooks -- //
+    const {
       playbook,
       demeanours,
       balance,
@@ -120,25 +102,47 @@ for (const playbookFile of playbookFiles) {
       connections,
       momentOfBalance,
       growthQuestion,
-      baseStatsId: i + 1,
-      techniqueId: i + 1,
-      subclassId: i + 1,
-    })
-  })
+      startingTechnique,
+      moves,
+    } = data
 
-  // -- Moves -- //
-  await db.transaction(async (trx) => {
-    for (const move of moves) {
-      await trx.insert(schema.moves).values({
-        move: move.move,
-        description: move.description,
-        options: move.options,
-        playbookId: i + 1,
+    await db.transaction(async (trx) => {
+      await trx.insert(schema.playbookTechniques).values({
+        name: startingTechnique.name,
+        description: startingTechnique.description,
+        stance: startingTechnique.stance,
       })
-    }
-  })
 
-  i++
+      await trx.insert(schema.playbooks).values({
+        playbook,
+        demeanours,
+        balance,
+        history,
+        connections,
+        momentOfBalance,
+        growthQuestion,
+        baseStatsId: i + 1,
+        techniqueId: i + 1,
+        subclassId: i + 1,
+      })
+    })
+
+    // -- Moves -- //
+    await db.transaction(async (trx) => {
+      for (const move of moves) {
+        await trx.insert(schema.moves).values({
+          move: move.move,
+          description: move.description,
+          options: move.options,
+          playbookId: i + 1,
+        })
+      }
+    })
+
+    i++
+  }
+
+  process.exit(0)
 }
 
-process.exit(0)
+seed()

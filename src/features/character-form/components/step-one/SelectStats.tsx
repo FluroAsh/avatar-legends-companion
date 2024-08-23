@@ -39,7 +39,6 @@ export default function SelectStats() {
         },
       })
     }
-    // This effect should only run when the playbook changes, not on every selection to avoid unnecessary updates
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [playbook.value, update])
 

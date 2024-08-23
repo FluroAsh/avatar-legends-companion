@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "target": "ESNext",
+    "target": "ES2022",
     "lib": ["DOM", "dom.iterable", "ESNext"],
     "allowJs": true,
     "skipLibCheck": true,

@@ -24,7 +24,7 @@ type FormStore = {
   playbook: Field
   characterName: Field
   background: FieldArray
-  demeanour: FieldArray
+  demeanours: FieldArray
   baseStats: Stats
   balance: {
     selected: string
@@ -58,7 +58,7 @@ const useFormStore = create(
         values: [],
         error: "",
       },
-      demeanour: {
+      demeanours: {
         values: [],
         error: "",
       },
@@ -97,6 +97,7 @@ const useFormStore = create(
         error: "",
       },
       // ---- Step 4 ---- //
+      // TODO: Add more helper functions for updating/clearing fields
       update: (partial) =>
         set((state) => ({ ...state, ...partial }), false, "FORM_UPDATE"),
     }),

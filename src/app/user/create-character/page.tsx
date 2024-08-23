@@ -22,7 +22,6 @@ export default async function Page({
 
   const initialPlaybook = await fetchPlaybook(DEFAULT_PLAYBOOK)
 
-  // Set the query initial data which is used when generating the server-side HTML
   qc.prefetchQuery({
     queryKey: ["playbook", DEFAULT_PLAYBOOK],
     queryFn: () => fetchPlaybook(DEFAULT_PLAYBOOK),

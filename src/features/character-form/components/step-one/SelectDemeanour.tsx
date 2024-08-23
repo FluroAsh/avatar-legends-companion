@@ -13,20 +13,20 @@ type Demeanour = (typeof DEMEANOURS)[keyof typeof DEMEANOURS]
 
 export default function SelectDemeanour() {
   const playbook = useFormStore((state) => state.playbook)
-  const demeanour = useFormStore((state) => state.demeanour)
+  const storeDemeanours = useFormStore((state) => state.demeanours)
   const update = useFormStore((state) => state.update)
 
   const { data } = usePlaybook(playbook.value)
-  const demeanours: Demeanour[] = data?.demeanour
+  const demeanours: Demeanour[] = data?.demeanours
 
   const handleChange = (id: string) => (checked: boolean) => {
-    if (checked && demeanour.values.length === 3) return
+    if (checked && storeDemeanours.values.length === 3) return
 
     update({
-      demeanour: {
+      demeanours: {
         values: checked
-          ? [...demeanour.values, id]
-          : demeanour.values.filter((d) => d !== id),
+          ? [...storeDemeanours.values, id]
+          : storeDemeanours.values.filter((d) => d !== id),
         error: "",
       },
     })
@@ -35,14 +35,14 @@ export default function SelectDemeanour() {
   return (
     <FormCheckboxContainer
       label="demeanour"
-      values={demeanour.values}
+      values={storeDemeanours.values}
       maxSelection={3}
     >
       {demeanours?.map((demneaourLabel) => (
         <FormCheckbox
           key={demneaourLabel}
           label={demneaourLabel}
-          values={demeanour.values}
+          values={storeDemeanours.values}
           handleChange={handleChange}
           maxSelection={3}
         />

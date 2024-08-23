@@ -3,15 +3,15 @@ import { BASE_URL, DEFAULT_PLAYBOOK, TRAINING_KEYS } from "./constants"
 // ---- API Helpers ---- //
 async function fetchPlaybook(playbook: string | undefined) {
   const playbookURL = new URL(`${BASE_URL}/api/playbooks`)
-  playbookURL.searchParams.set("type", playbook || DEFAULT_PLAYBOOK)
+  playbookURL.searchParams.set("playbook", playbook || DEFAULT_PLAYBOOK)
 
   const res = await fetch(playbookURL)
   return await res.json()
 }
 
-async function fetchTechniques(type?: string) {
+async function fetchTechniques(base?: string) {
   const techniquesURL = new URL(`${BASE_URL}/api/techniques`)
-  type && techniquesURL.searchParams.set("class", type)
+  base && techniquesURL.searchParams.set("base", base)
 
   const res = await fetch(techniquesURL)
   return await res.json()

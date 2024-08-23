@@ -1,8 +1,8 @@
-import { eq, sql } from "drizzle-orm"
 import { NextRequest, NextResponse } from "next/server"
 
 import { db } from "@/db"
 import { techniques } from "@/db/schema"
+import { fetchTechniquesByParam } from "@/api/service"
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url)
@@ -11,10 +11,7 @@ export async function GET(req: NextRequest) {
   try {
     if (typeParam) {
       console.log("typeParam")
-      const techniqueData = await db
-        .select()
-        .from(techniques)
-        .where(eq(sql`lower(${techniques.base})`, sql`lower(${typeParam})`))
+      const techniqueData = await fetchTechniquesByParam(typeParam)
 
       if (techniqueData.length === 0) throw new Error("Technique not found")
 
@@ -27,7 +24,7 @@ export async function GET(req: NextRequest) {
     }
   } catch (e) {
     if (e instanceof Error) {
-      return NextResponse.json({ error: e.message }, { status: 500 })
+      return NextResponse.json({ error: e.message }, { status: 404 })
     }
   }
 }

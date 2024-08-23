@@ -1,7 +1,6 @@
-import { relations, type InferSelectModel } from "drizzle-orm"
+import { relations } from "drizzle-orm"
 import { pgTable, serial, text, boolean, integer } from "drizzle-orm/pg-core"
 
-// // TODO: Need to normalize this table for each subclass...
 const subclasses = pgTable("subclasses", {
   id: serial("id").primaryKey(),
   name: text("name").notNull(),
@@ -26,5 +25,8 @@ export const subclassSpecials = pgTable("subclass_specials", {
 export const subclassRelations = relations(subclasses, ({ many }) => ({
   specials: many(subclassSpecials),
 }))
+
+export type SelectSubclasses = typeof subclasses.$inferSelect
+export type SelectSubclassSpecials = typeof subclassSpecials.$inferSelect
 
 export default subclasses
