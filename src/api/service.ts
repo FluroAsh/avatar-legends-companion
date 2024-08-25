@@ -2,6 +2,7 @@
 
 import { eq, ilike, sql } from "drizzle-orm"
 
+import type { Move } from "@/types/api"
 import { db } from "@/db"
 import {
   baseStats,
@@ -22,7 +23,7 @@ export const fetchPlaybookByParam = async (param: string) =>
       baseStats,
       subclasses,
       techniques,
-      moves: sql`json_agg(moves.*)`.as("moves"),
+      moves: sql<Move>`json_agg(moves.*)`.as("moves"),
     })
     .from(playbooks)
     .innerJoin(baseStats, eq(playbooks.baseStatsId, baseStats.id))
