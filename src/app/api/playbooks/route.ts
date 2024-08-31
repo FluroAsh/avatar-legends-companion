@@ -1,8 +1,7 @@
 import { NextRequest, NextResponse } from "next/server"
 
-import { db } from "@/db"
 import { transformPlaybook } from "@/api/helpers"
-import { fetchPlaybookByParam } from "@/api/service"
+import { fetchPlaybookByParam, fetchPlaybooks } from "@/api/service"
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url)
@@ -18,9 +17,11 @@ export async function GET(req: NextRequest) {
     }
 
     if (!playbookParam) {
-      const playbooks = await db.query.playbooks.findMany()
+      const playbooks = await fetchPlaybooks()
       if (!playbooks) throw new Error("No playbooks found")
-      return NextResponse.json(playbooks)
+
+      const transformedData = playbooks.map(transformPlaybook)
+      return NextResponse.json(transformedData)
     }
   } catch (e) {
     if (e instanceof Error) {

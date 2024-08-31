@@ -1,5 +1,5 @@
 {
-  "id": "e1c02684-9ef6-41a2-99d9-23d2456f3ac7",
+  "id": "ecc5728c-43f6-4dc4-b9fa-da416f053625",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -104,7 +104,55 @@
           "name": "playbook_id",
           "type": "integer",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "moves_playbook_id_playbooks_id_fk": {
+          "name": "moves_playbook_id_playbooks_id_fk",
+          "tableFrom": "moves",
+          "tableTo": "playbooks",
+          "columnsFrom": [
+            "playbook_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.playbook_techniques": {
+      "name": "playbook_techniques",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "technique": {
+          "name": "technique",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "stance": {
+          "name": "stance",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
         }
       },
       "indexes": {},
@@ -128,14 +176,8 @@
           "primaryKey": false,
           "notNull": true
         },
-        "prebuilt": {
-          "name": "prebuilt",
-          "type": "boolean",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "demeanourss": {
-          "name": "demeanourss",
+        "demeanours": {
+          "name": "demeanours",
           "type": "text[]",
           "primaryKey": false,
           "notNull": true
@@ -164,9 +206,9 @@
           "primaryKey": false,
           "notNull": true
         },
-        "growth_questions": {
-          "name": "growth_questions",
-          "type": "text[]",
+        "growth_question": {
+          "name": "growth_question",
+          "type": "text",
           "primaryKey": false,
           "notNull": true
         },
@@ -176,8 +218,8 @@
           "primaryKey": false,
           "notNull": true
         },
-        "technique_id": {
-          "name": "technique_id",
+        "playbook_technique_id": {
+          "name": "playbook_technique_id",
           "type": "integer",
           "primaryKey": false,
           "notNull": true
@@ -195,17 +237,25 @@
           "name": "playbooks_subclass_id_subclasses_id_fk",
           "tableFrom": "playbooks",
           "tableTo": "subclasses",
-          "columnsFrom": ["subclass_id"],
-          "columnsTo": ["id"],
+          "columnsFrom": [
+            "subclass_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "no action",
           "onUpdate": "no action"
         },
-        "playbooks_technique_id_techniques_id_fk": {
-          "name": "playbooks_technique_id_techniques_id_fk",
+        "playbooks_playbook_technique_id_playbook_techniques_id_fk": {
+          "name": "playbooks_playbook_technique_id_playbook_techniques_id_fk",
           "tableFrom": "playbooks",
-          "tableTo": "techniques",
-          "columnsFrom": ["technique_id"],
-          "columnsTo": ["id"],
+          "tableTo": "playbook_techniques",
+          "columnsFrom": [
+            "playbook_technique_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "no action",
           "onUpdate": "no action"
         },
@@ -213,8 +263,66 @@
           "name": "playbooks_base_stats_id_base_stats_id_fk",
           "tableFrom": "playbooks",
           "tableTo": "base_stats",
-          "columnsFrom": ["base_stats_id"],
-          "columnsTo": ["id"],
+          "columnsFrom": [
+            "base_stats_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.subclass_specials": {
+      "name": "subclass_specials",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "options": {
+          "name": "options",
+          "type": "text[]",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "subclass_id": {
+          "name": "subclass_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "subclass_specials_subclass_id_subclasses_id_fk": {
+          "name": "subclass_specials_subclass_id_subclasses_id_fk",
+          "tableFrom": "subclass_specials",
+          "tableTo": "subclasses",
+          "columnsFrom": [
+            "subclass_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -244,15 +352,33 @@
           "primaryKey": false,
           "notNull": true
         },
+        "target_name": {
+          "name": "target_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
         "description": {
           "name": "description",
           "type": "text",
           "primaryKey": false,
           "notNull": true
         },
+        "description2": {
+          "name": "description2",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
         "options": {
           "name": "options",
           "type": "text[]",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "negative_outcome": {
+          "name": "negative_outcome",
+          "type": "text",
           "primaryKey": false,
           "notNull": false
         }

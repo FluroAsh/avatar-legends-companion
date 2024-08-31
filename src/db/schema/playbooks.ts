@@ -1,5 +1,5 @@
 import { relations } from "drizzle-orm"
-import { integer, pgTable, serial, text, boolean } from "drizzle-orm/pg-core"
+import { integer, pgTable, serial, text } from "drizzle-orm/pg-core"
 
 import baseStats from "./base-stats"
 import moves from "./moves"
@@ -17,7 +17,7 @@ const playbooks = pgTable("playbooks", {
   subclassId: integer("subclass_id")
     .references(() => subclasses.id)
     .notNull(),
-  techniqueId: integer("technique_id")
+  playbookTechniqueId: integer("playbook_technique_id")
     .references(() => playbookTechniques.id)
     .notNull(),
   baseStatsId: integer("base_stats_id")
@@ -27,7 +27,7 @@ const playbooks = pgTable("playbooks", {
 
 export const playbookTechniques = pgTable("playbook_techniques", {
   id: serial("id").primaryKey(),
-  name: text("name").notNull(),
+  technique: text("technique").notNull(),
   description: text("description").notNull(),
   stance: text("stance").notNull(),
 })
@@ -37,8 +37,8 @@ export const playbookRelations = relations(playbooks, ({ one, many }) => ({
     fields: [playbooks.subclassId],
     references: [subclasses.id],
   }),
-  technique: one(playbookTechniques, {
-    fields: [playbooks.techniqueId],
+  playbookTechnique: one(playbookTechniques, {
+    fields: [playbooks.playbookTechniqueId],
     references: [playbookTechniques.id],
   }),
   baseStats: one(baseStats, {

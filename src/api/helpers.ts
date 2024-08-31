@@ -18,20 +18,26 @@ const excludeColumns = (tables: Record<string, any>[], columns: string[]) =>
 export const transformPlaybook = ({
   playbook,
   baseStats,
-  techniques,
+  playbookTechniques,
   subclasses,
   moves,
 }: PlaybookQueryByName[0]) => {
-  const [fPlaybook, fBaseStats, fSubclasses, fTechniques, fMoves] =
+  const [fPlaybook, fBaseStats, fSubclasses, fPlaybookTechnqiques, fMoves] =
     excludeColumns(
-      [playbook, baseStats, subclasses, techniques, moves],
-      ["id", "subclassId", "baseStatsId", "techniqueId", "playbook_id"]
+      [playbook, baseStats, subclasses, playbookTechniques, moves],
+      [
+        "id",
+        "subclassId",
+        "baseStatsId",
+        "playbook_technique_id",
+        "playbook_id",
+      ]
     )
 
   return {
     ...fPlaybook,
     baseStats: fBaseStats,
-    techniques: fTechniques,
+    startingTechnique: fPlaybookTechnqiques,
     subclasses: fSubclasses,
     moves: fMoves,
   }

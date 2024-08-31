@@ -17,30 +17,47 @@ CREATE TABLE IF NOT EXISTS "moves" (
 	"description" text NOT NULL,
 	"options" text[],
 	"negative_outcome" text,
-	"playbook_id" integer
+	"playbook_id" integer NOT NULL
+);
+--> statement-breakpoint
+CREATE TABLE IF NOT EXISTS "playbook_techniques" (
+	"id" serial PRIMARY KEY NOT NULL,
+	"technique" text NOT NULL,
+	"description" text NOT NULL,
+	"stance" text NOT NULL
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "playbooks" (
 	"id" serial PRIMARY KEY NOT NULL,
 	"playbook" text NOT NULL,
-	"prebuilt" boolean NOT NULL,
 	"demeanours" text[] NOT NULL,
 	"balance" text[] NOT NULL,
 	"history" text[] NOT NULL,
 	"connections" text[] NOT NULL,
 	"moment_of_balance" text NOT NULL,
-	"growth_questions" text[] NOT NULL,
+	"growth_question" text NOT NULL,
 	"subclass_id" integer NOT NULL,
-	"technique_id" integer NOT NULL,
+	"playbook_technique_id" integer NOT NULL,
 	"base_stats_id" integer NOT NULL
+);
+--> statement-breakpoint
+CREATE TABLE IF NOT EXISTS "subclass_specials" (
+	"id" serial PRIMARY KEY NOT NULL,
+	"name" text NOT NULL,
+	"description" text,
+	"options" text[],
+	"subclass_id" integer NOT NULL
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "subclasses" (
 	"id" serial PRIMARY KEY NOT NULL,
 	"name" text NOT NULL,
 	"target_player" boolean NOT NULL,
+	"target_name" text,
 	"description" text NOT NULL,
-	"options" text[]
+	"description2" text,
+	"options" text[],
+	"negative_outcome" text
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "techniques" (
@@ -54,19 +71,31 @@ CREATE TABLE IF NOT EXISTS "techniques" (
 );
 --> statement-breakpoint
 DO $$ BEGIN
+ ALTER TABLE "moves" ADD CONSTRAINT "moves_playbook_id_playbooks_id_fk" FOREIGN KEY ("playbook_id") REFERENCES "public"."playbooks"("id") ON DELETE no action ON UPDATE no action;
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
  ALTER TABLE "playbooks" ADD CONSTRAINT "playbooks_subclass_id_subclasses_id_fk" FOREIGN KEY ("subclass_id") REFERENCES "public"."subclasses"("id") ON DELETE no action ON UPDATE no action;
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;
 --> statement-breakpoint
 DO $$ BEGIN
- ALTER TABLE "playbooks" ADD CONSTRAINT "playbooks_technique_id_techniques_id_fk" FOREIGN KEY ("technique_id") REFERENCES "public"."techniques"("id") ON DELETE no action ON UPDATE no action;
+ ALTER TABLE "playbooks" ADD CONSTRAINT "playbooks_playbook_technique_id_playbook_techniques_id_fk" FOREIGN KEY ("playbook_technique_id") REFERENCES "public"."playbook_techniques"("id") ON DELETE no action ON UPDATE no action;
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;
 --> statement-breakpoint
 DO $$ BEGIN
  ALTER TABLE "playbooks" ADD CONSTRAINT "playbooks_base_stats_id_base_stats_id_fk" FOREIGN KEY ("base_stats_id") REFERENCES "public"."base_stats"("id") ON DELETE no action ON UPDATE no action;
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
+ ALTER TABLE "subclass_specials" ADD CONSTRAINT "subclass_specials_subclass_id_subclasses_id_fk" FOREIGN KEY ("subclass_id") REFERENCES "public"."subclasses"("id") ON DELETE no action ON UPDATE no action;
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;

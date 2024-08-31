@@ -27,6 +27,7 @@ function getData<T>(fileName: string, dirName: "techniques" | "playbooks"): T {
 async function seed() {
   for (const table of [
     schema.playbooks,
+    schema.playbookTechniques,
     schema.techniques,
     schema.moves,
     schema.baseStats,
@@ -122,8 +123,8 @@ async function seed() {
         momentOfBalance,
         growthQuestion,
         baseStatsId: i + 1,
-        techniqueId: i + 1,
         subclassId: i + 1,
+        playbookTechniqueId: i + 1,
       })
     })
 
