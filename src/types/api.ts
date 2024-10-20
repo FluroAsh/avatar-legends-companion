@@ -49,7 +49,7 @@ export type Playbook = {
   moves: Move[]
   // TODO: Refactor JSON files to match the "technique" schema above
   startingTechnique: {
-    name: string
+    technique: string
     stance: Stance
     description: string
   }

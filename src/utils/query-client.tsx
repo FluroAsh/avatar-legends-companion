@@ -11,7 +11,7 @@ import { ReactQueryStreamedHydration } from "@tanstack/react-query-next-experime
 
 import { DEFAULT_PLAYBOOK } from "@/lib/constants"
 import { fetchPlaybook, fetchTechniques } from "@/lib/helpers"
-import { Technique } from "@/types/api"
+import { Playbook, Technique } from "@/types/api"
 
 const ReactQueryClientProvider = ({
   children,
@@ -35,7 +35,7 @@ const ReactQueryClientProvider = ({
 
 const usePlaybook = (playbook: string | undefined) =>
   // TODO: Add generic API Response type for playbook data
-  useSuspenseQuery({
+  useSuspenseQuery<Playbook>({
     queryKey: ["playbook", playbook || DEFAULT_PLAYBOOK],
     queryFn: () => fetchPlaybook(playbook),
   })

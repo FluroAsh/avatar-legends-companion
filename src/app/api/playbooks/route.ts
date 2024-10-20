@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server"
 
-import { transformPlaybook } from "@/api/helpers"
-import { fetchPlaybookByParam, fetchPlaybooks } from "@/api/service"
+import { transformPlaybook } from "@/app/api/helpers"
+import { fetchPlaybookByParam, fetchPlaybooks } from "@/app/api/service"
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url)

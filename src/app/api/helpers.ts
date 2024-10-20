@@ -1,4 +1,4 @@
-import { type PlaybookQueryByName } from "@/api/service"
+import { type PlaybookQueryByName } from "@/app/api/service"
 
 const excludeColumns = (tables: Record<string, any>[], columns: string[]) =>
   tables.map((table) => {

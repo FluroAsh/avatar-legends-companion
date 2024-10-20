@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server"
 
 import { db } from "@/db"
 import { techniques } from "@/db/schema"
-import { fetchTechniquesByParam } from "@/api/service"
+import { fetchTechniquesByParam } from "@/app/api/service"
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url)
